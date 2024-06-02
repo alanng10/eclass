@@ -42,4 +42,5 @@
              path="./theme/class.css"
              default="true" />
    </extension>
+  
 </plugin>

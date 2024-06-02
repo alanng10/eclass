@@ -5,18 +5,20 @@
 
 .keyword
 {
-    color: #0000ff;
+    color: #7f0055;
+    font-weight: bold;
 }
 
- .entity.name.type
- {
-    color: #008888;
- }
+.entity.name.type
+{
+    color: #004080;
+    font-weight: bold;
+}
 
- .constant.numeric
- {
+.constant.numeric
+{
     color: #800000;
- }
+}
 
 .string.quoted
 {
