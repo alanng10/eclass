@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AaaBbbClass
+Bundle-SymbolicName: org.aaabbb.class;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.tm4e.core;bundle-version="0.12.0",
+ org.eclipse.tm4e.ui;bundle-version="0.12.0",
+ org.eclipse.core.contenttype
+Bundle-Vendor: AAABBB
+Automatic-Module-Name: org.aaabbb.class
+Bundle-RequiredExecutionEnvironment: JavaSE-17

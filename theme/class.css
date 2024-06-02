@@ -1,0 +1,24 @@
+.comment
+{
+    color: #a0a0a0;
+}                    
+
+.keyword
+{
+    color: #0000ff;
+}
+
+ .entity.name.type
+ {
+    color: #008888;
+ }
+
+ .constant.numeric
+ {
+    color: #800000;
+ }
+
+.string.quoted
+{
+    color: #800000;
+}

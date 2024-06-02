@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-extensions="cla"
+            id="org.aaabbb.class"
+            name="Class"
+            priority="normal">
+      </content-type>
+   </extension>
+
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+      		scopeName="source.class"
+            path="./syntax/class.tmLanguage.json" >
+      </grammar>      
+      <scopeNameContentTypeBinding
+            contentTypeId="org.aaabbb.class"
+            scopeName="source.class">
+      </scopeNameContentTypeBinding>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.genericeditor.presentationReconcilers">
+      <presentationReconciler
+            class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
+            contentType="org.aaabbb.class">
+      </presentationReconciler>
+   </extension>
+   
+   <extension point="org.eclipse.tm4e.ui.themes">
+      <theme id="org.eclipse.tm4e.ui.themes.Light"
+             name="Aaa Bbb Class Theme"
+             path="./theme/class.css"
+             default="true" />
+   </extension>
+</plugin>

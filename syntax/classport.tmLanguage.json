@@ -1,0 +1,18 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ClassPort",
+	"patterns": [
+		{
+			"include": "#Section"
+		}
+	],
+	"repository": {
+		"Section": {
+			"patterns": [{
+				"name": "section.classport",
+				"match": "^\\[(Module|Import|Export|Storage|Entry)\\]$"
+			}]
+		}
+	},
+	"scopeName": "source.classport"
+}
