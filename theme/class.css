@@ -17,10 +17,10 @@
 
 .constant.numeric
 {
-    color: #800000;
+    color: rgb(23, 95, 70);
 }
 
 .string.quoted
 {
-    color: #800000;
+    color: rgb(23, 95, 70);
 }
