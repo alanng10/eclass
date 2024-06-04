@@ -9,6 +9,8 @@ public class WindowListener implements IWindowListener
     @Override
     public void windowOpened(IWorkbenchWindow window) 
     {
+    	Log.This.Info("Window Opened");
+    	
     	PartListener aa;
     	aa = new PartListener();
     	
@@ -17,11 +19,20 @@ public class WindowListener implements IWindowListener
     }
 	
     @Override
-    public void windowDeactivated(IWorkbenchWindow window) {}
+    public void windowDeactivated(IWorkbenchWindow window)
+    {
+    	Log.This.Info("Window Deactivated");
+    }
 
     @Override
-    public void windowClosed(IWorkbenchWindow window) {}
+    public void windowClosed(IWorkbenchWindow window)
+    {
+    	Log.This.Info("Window Closed");
+    }
 
     @Override
-    public void windowActivated(IWorkbenchWindow window) {}
+    public void windowActivated(IWorkbenchWindow window)
+    {
+    	Log.This.Info("Window Activated");
+    }
 }

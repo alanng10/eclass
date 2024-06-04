@@ -11,7 +11,7 @@ import org.eclipse.ui.texteditor.ITextEditor;
 
 public class PartListener implements IPartListener2
 {
-    private void checkPart(IWorkbenchPartReference partRef) 
+    private int checkPart(IWorkbenchPartReference partRef) 
     {
     	IWorkbenchPart part = partRef.getPart(false);
         if (part instanceof IEditorPart)
@@ -26,20 +26,26 @@ public class PartListener implements IPartListener2
                 IDocument document;
                 document = ee.getDocumentProvider().getDocument(input);
                 
-                document.addDocumentListener(null/* your listener from above*/);
+                DocumentListener aa;
+                aa = new DocumentListener();
+                
+                document.addDocumentListener(aa);
             }
         }
+        return 0;
     }
 
     @Override
     public void partOpened(IWorkbenchPartReference partRef) {
+    	Log.This.Info("Part Opened");
+
         checkPart(partRef);
     }
 
     @Override
     public void partInputChanged(IWorkbenchPartReference partRef) 
     {
-        checkPart(partRef);
+    	Log.This.Info("Part Input Changed");
     }           
 
     @Override

@@ -17,11 +17,13 @@ public class Plugin extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		Log.Info("Plugin Start");
+		
+		Log.This.Info("Plugin Start");
 	}
 
 	public void stop(BundleContext context) throws Exception {
-		Log.Info("Plugin Stop");
+		Log.This.Info("Plugin Stop");
+		
 		plugin = null;
 		super.stop(context);
 	}
