@@ -2,6 +2,7 @@ package org.aaabbb.e;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.concurrent.Semaphore;
 
 public class NetworkStartThread extends Thread
@@ -12,6 +13,8 @@ public class NetworkStartThread extends Thread
 	{
 		ServerSocket server;
 		server = null;
+		Socket socket;
+		socket = null;
 		try
 		{
 			server = new ServerSocket(58501);
@@ -19,28 +22,41 @@ public class NetworkStartThread extends Thread
 		catch (IOException e)
 		{
 			Log.This.Error("Network Start cannot start server", e);
-			return;
 		}
 		
-		try
+		if (!(server == null))
 		{
-			server.accept();
-		} catch (IOException e)
-		{
-			Log.This.Error("Network Start cannot get peer", e);
-		}
-		finally
-		{
+			try
+			{
+				socket = server.accept();
+			} catch (IOException e)
+			{
+				Log.This.Error("Network Start cannot get peer", e);
+			}
+			
+			if (!(socket == null))
+			{
+				try
+				{
+					socket.close();
+				} catch (IOException e)
+				{
+					Log.This.Error("Network Start cannot close peer", e);
+				}
+			}
+
 			try
 			{
 				server.close();
 			} catch (IOException e)
 			{
 				Log.This.Error("Network Start cannot close server", e);
-				return;
 			}
 		}
 		
-		this.Phore.release();
+		if (!(server == null) & !(socket == null))
+		{
+			this.Phore.release();
+		}
 	}
 }

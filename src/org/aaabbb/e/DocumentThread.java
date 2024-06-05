@@ -10,6 +10,8 @@ import java.nio.ByteOrder;
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;
 
+import org.eclipse.jface.text.IDocument;
+
 public class DocumentThread extends Thread
 {
 	public final Semaphore Phore = new Semaphore(0);
@@ -32,7 +34,7 @@ public class DocumentThread extends Thread
 	
 	public void run()
 	{
-		this.Init();
+		this.Start();
 		
 		boolean b;
 		b = false;
@@ -51,20 +53,30 @@ public class DocumentThread extends Thread
 				oo = this.Queue.poll();
 			}
 			
+			
 			String text;
 			text = oo.Text;
 			
 			byte[] data;
 			data = text.getBytes();
 			
-			boolean b;
+			boolean ba;
 			
-			b = this.OutWrite(data);
+			ba = this.OutWrite(data);
 			
-			if (!b)
+			if (!ba)
 			{
+				byte[] dataA;
+				dataA = this.InnRead();
+				
+				if (dataA == null)
+				{
+					
+				}
 			}
 		}
+		
+		this.End();
 	}
 	
 	private boolean OutWrite(byte[] data)
@@ -132,9 +144,9 @@ public class DocumentThread extends Thread
 		return data;
 	}
 	
-	private boolean Init()
+	private boolean Start()
 	{
-		bool b;
+		boolean b;
 
 		b = this.NetworkStart();
 		if (!b)
@@ -143,25 +155,44 @@ public class DocumentThread extends Thread
 		}
 		
 		b = this.ProcessInit();
-		if (!(o == 0))
+		if (!b)
 		{
 			return false;
 		}
 		
-		o = this.NetworkInit();
-		if (!(o == 0))
+		b = this.NetworkInit();
+		if (!b)
 		{
 			return false;
 		}
 		
-		return 0;
+		return true;
 	}
 	
-	private int NetworkStart()
+	private boolean End()
+	{
+		boolean b;
+		
+		b = this.NetworkFinal();
+		if (!b)
+		{
+			return false;
+		}
+		
+		b = this.ProcessFinal();
+		if (!b)
+		{
+			return false;
+		}
+		
+		return true;
+	}
+	
+	private boolean NetworkStart()
 	{
 		Plugin.This().NetworkStartThread().start();
 		
-		return 0;
+		return true;
 	}
 	
 	private boolean NetworkInit()
@@ -172,7 +203,6 @@ public class DocumentThread extends Thread
 		} catch (InterruptedException e)
 		{
 		}
-		
 		
 		ServerSocket server;
 		server = null;
@@ -248,6 +278,37 @@ public class DocumentThread extends Thread
 		}
 		
 		this.Process = process;		
+		return true;
+	}
+	
+	private boolean ProcessFinal()
+	{	
+		this.Process.destroyForcibly();	
+		return true;
+	}
+	
+	private boolean NetworkFinal()
+	{
+		try
+		{
+			this.Network.close();
+		} catch (IOException e)
+		{
+			Log.This.Error("Network cannot be closed", e);
+			this.Status = 60;
+			return false;
+		}
+		
+		try
+		{
+			this.NetworkServer.close();
+		} catch (IOException e)
+		{
+			Log.This.Error("Network server cannot be closed", e);
+			this.Status = 61;
+			return false;
+		}
+		
 		return true;
 	}
 }

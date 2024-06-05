@@ -32,8 +32,11 @@ public class PartListener implements IPartListener2
             	
             	String eu;
             	eu = path.getFileExtension();
-            	
+
             	eu = eu.toLowerCase();
+            	
+            	String ka;
+            	ka = path.toString();
             	
             	if (eu.equals("cla"))
             	{
@@ -62,6 +65,7 @@ public class PartListener implements IPartListener2
         	
         	DocumentJob job;
         	job = new DocumentJob();
+        	job.Document = a;
         	
         	Plugin.This().DocumentTable().put(a, job);
         	
