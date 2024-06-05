@@ -35,9 +35,6 @@ public class PartListener implements IPartListener2
 
             	eu = eu.toLowerCase();
             	
-            	String ka;
-            	ka = path.toString();
-            	
             	if (eu.equals("cla"))
             	{
                 	Log.This.Info("Class Source File");
@@ -65,7 +62,6 @@ public class PartListener implements IPartListener2
         	
         	DocumentJob job;
         	job = new DocumentJob();
-        	job.Document = a;
         	
         	Plugin.This().DocumentTable().put(a, job);
         	

@@ -10,8 +10,6 @@ import java.nio.ByteOrder;
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;
 
-import org.eclipse.jface.text.IDocument;
-
 public class DocumentThread extends Thread
 {
 	public final Semaphore Phore = new Semaphore(0);
@@ -53,25 +51,27 @@ public class DocumentThread extends Thread
 				oo = this.Queue.poll();
 			}
 			
-			
-			String text;
-			text = oo.Text;
-			
-			byte[] data;
-			data = text.getBytes();
-			
-			boolean ba;
-			
-			ba = this.OutWrite(data);
-			
-			if (!ba)
-			{
-				byte[] dataA;
-				dataA = this.InnRead();
+			if (!(oo == null))
+			{	
+				String text;
+				text = oo.Text;
 				
-				if (dataA == null)
+				byte[] data;
+				data = text.getBytes();
+				
+				boolean ba;
+				
+				ba = this.OutWrite(data);
+				
+				if (!ba)
 				{
+					byte[] dataA;
+					dataA = this.InnRead();
 					
+					if (dataA == null)
+					{
+						
+					}
 				}
 			}
 		}

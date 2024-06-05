@@ -23,14 +23,14 @@ public class Plugin extends AbstractUIPlugin {
 	private NetworkStartThread NetworkStartThread_D;
 	
 	
-	public int Init()
+	public boolean Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, DocumentJob>();
 		
 		this.DocumentThread_D = new DocumentThread();
 		
 		this.NetworkStartThread_D = new NetworkStartThread();
-		return 0;
+		return true;
 	}
 
 	public Hashtable<IDocument, DocumentJob> DocumentTable()

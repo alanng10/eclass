@@ -12,23 +12,23 @@ public class Log
 		return new Log();
 	}
 	
-	public int Info(String message)
+	public boolean Info(String message)
 	{
 		ExecuteLog(new Status(IStatus.INFO, Plugin.PLUGIN_ID, message, null));
-		return 0;
+		return true;
 	}
 
-	public int Error(String message, Exception ex)
+	public boolean Error(String message, Exception ex)
 	{
 		ExecuteLog(new Status(IStatus.ERROR, Plugin.PLUGIN_ID, message, ex));
-		return 0;
+		return true;
 	}
 
-	private int ExecuteLog(IStatus status)
+	private boolean ExecuteLog(IStatus status)
 	{
 		Plugin p;
 		p = Plugin.This();
 		p.getLog().log(status);
-		return 0;
+		return true;
 	}
 }
