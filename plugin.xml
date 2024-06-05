@@ -33,6 +33,13 @@
       <languageConfiguration contentTypeId="org.aaabbb.class" path="./config/language-configuration.json" />
    </extension>
    
+   <extension point="org.eclipse.tm4e.ui.themes">
+      <theme id="org.eclipse.tm4e.ui.themes.Light"
+             name="Aaa Bbb Class Theme"
+             path="./theme/class.css"
+             default="true" />
+   </extension>
+  
    <extension
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
       <presentationReconciler
@@ -41,11 +48,28 @@
       </presentationReconciler>
    </extension>
    
-   <extension point="org.eclipse.tm4e.ui.themes">
-      <theme id="org.eclipse.tm4e.ui.themes.Light"
-             name="Aaa Bbb Class Theme"
-             path="./theme/class.css"
-             default="true" />
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.aaabbb.class"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
    </extension>
-  
+   
+   <extension
+         point="org.eclipse.ui.genericeditor.icons">
+      <icon
+            contentType="org.aaabbb.class"
+            icon="icon/class.png">
+      </icon>
+   </extension>
+   
+  	<extension point="org.eclipse.core.runtime.adapters">
+	  <factory
+	    adaptableType="org.eclipse.ui.genericeditor.GenericEditor"
+	    class="org.aaabbb.e.CoolLanguageEditorToOutlineAdapterFactory">
+	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
+	  </factory>
+	</extension>
+   
 </plugin>

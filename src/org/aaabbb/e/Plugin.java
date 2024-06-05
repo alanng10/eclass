@@ -28,6 +28,7 @@ public class Plugin extends AbstractUIPlugin {
 		this.DocumentTable_D = new Hashtable<IDocument, DocumentJob>();
 		
 		this.DocumentThread_D = new DocumentThread();
+		this.DocumentThread_D.Init();
 		
 		this.NetworkStartThread_D = new NetworkStartThread();
 		return true;

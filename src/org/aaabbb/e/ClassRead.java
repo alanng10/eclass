@@ -28,6 +28,10 @@ public class ClassRead extends Any
 	
 	private Class ExecuteClass()
 	{
+		Class a;
+		a = new Class();
+		a.Init();
+		
 		String name;
 		name = this.ExecuteString();
 		
@@ -35,14 +39,11 @@ public class ClassRead extends Any
 		base = this.ExecuteString();
 		
 		Field[] field;
-		field = this.ExecuteFieldArray();
+		field = this.ExecuteFieldArray(a);
 		
 		Maide[] maide;
-		maide = this.ExecuteMaideArray();
+		maide = this.ExecuteMaideArray(a);
 		
-		Class a;
-		a = new Class();
-		a.Init();
 		a.Name = name;
 		a.Base = base;
 		a.Field = field;
@@ -50,7 +51,7 @@ public class ClassRead extends Any
 		return a;
 	}
 	
-	private Field[] ExecuteFieldArray()
+	private Field[] ExecuteFieldArray(Class c)
 	{
 		int count;
 		count = this.ExecuteInt();
@@ -64,6 +65,7 @@ public class ClassRead extends Any
 		{
 			Field a;
 			a = this.ExecuteField();
+			a.Parent = c;
 			
 			array[i] = a;
 			
@@ -92,7 +94,7 @@ public class ClassRead extends Any
 		return a;
 	}
 	
-	private Maide[] ExecuteMaideArray()
+	private Maide[] ExecuteMaideArray(Class c)
 	{
 		int count;
 		count = this.ExecuteInt();
@@ -106,6 +108,7 @@ public class ClassRead extends Any
 		{
 			Maide a;
 			a = this.ExecuteMaide();
+			a.Parent = c;
 			
 			array[i] = a;
 			

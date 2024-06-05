@@ -7,4 +7,6 @@ public class Field extends Any
 	public String Name;
 	
 	public int Count;
+	
+	public Class Parent;
 }
