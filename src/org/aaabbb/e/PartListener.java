@@ -67,6 +67,7 @@ public class PartListener implements IPartListener2
         	
             DocumentListener aa;
             aa = new DocumentListener();
+            aa.Job = job;
             
             a.addDocumentListener(aa);
         }

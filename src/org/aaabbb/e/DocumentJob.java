@@ -12,9 +12,26 @@ public class DocumentJob extends UIJob
 		super("DocumentJob");
 	}
 	
+	public String Text;
+	
 	public IStatus runInUIThread(IProgressMonitor monitor)
 	{
+		DocumentLoad o;
+		o = new DocumentLoad();
+		o.Text = this.Text;
 		
+		DocumentThread thread;
+		thread = Plugin.This().DocumentThread();
+		
+		Object lock;
+		lock = thread.Lock;
+		
+		synchronized (lock)
+		{
+			thread.Queue.offer(o);
+		}
+		
+		thread.Phore.release();
 		
 		return Status.OK_STATUS;
 	}

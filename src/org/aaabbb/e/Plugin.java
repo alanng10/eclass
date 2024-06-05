@@ -18,9 +18,13 @@ public class Plugin extends AbstractUIPlugin {
 	
 	private Hashtable<IDocument, DocumentJob> DocumentTable_D;
 
+	private DocumentThread DocumentThread_D;
+	
 	public int Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, DocumentJob>();
+		
+		this.DocumentThread_D = new DocumentThread();
 		return 0;
 	}
 
@@ -29,9 +33,16 @@ public class Plugin extends AbstractUIPlugin {
 		return this.DocumentTable_D;
 	}
 	
+	public DocumentThread DocumentThread()
+	{
+		return this.DocumentThread_D;
+	}
+	
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		
+		this.Init();
 		
 		Log.This.Info("Plugin Start");
 	}

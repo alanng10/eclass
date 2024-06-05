@@ -6,6 +6,8 @@ import org.eclipse.jface.text.IDocumentListener;
 
 public class DocumentListener implements IDocumentListener
 {	
+	public DocumentJob Job;
+	
     public void documentAboutToBeChanged(DocumentEvent event)
     {
     	Log.This.Info("Document About to Change");
@@ -15,16 +17,16 @@ public class DocumentListener implements IDocumentListener
     {
         Log.This.Info("Document Changed");
         
-//        String k;
-//        k = event.getText();
-        
         IDocument document;
         document = event.getDocument();
 
         String text;
         text = document.get();
         
+        this.Job.Text = text;
+        this.Job.schedule(1000);
+        this.Job.wakeUp(1000);
+        
         Log.This.Info("Text: " + text);
-//        Log.This.Info("Insert Text: " + k);
     }
 }
