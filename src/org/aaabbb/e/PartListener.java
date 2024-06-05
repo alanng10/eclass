@@ -1,5 +1,6 @@
 package org.aaabbb.e;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -11,7 +12,7 @@ import org.eclipse.ui.texteditor.ITextEditor;
 
 public class PartListener implements IPartListener2
 {
-    private int checkPart(IWorkbenchPartReference partRef) 
+    private IDocument PartDocument(IWorkbenchPartReference partRef) 
     {
     	IWorkbenchPart part = partRef.getPart(false);
         if (part instanceof IEditorPart)
@@ -23,23 +24,69 @@ public class PartListener implements IPartListener2
             	ITextEditor ee;
             	ee = (ITextEditor)editor;
             	
-                IDocument document;
-                document = ee.getDocumentProvider().getDocument(input);
-                
-                DocumentListener aa;
-                aa = new DocumentListener();
-                
-                document.addDocumentListener(aa);
+            	FileEditorInput eo;
+            	eo = (FileEditorInput)input;
+            	
+            	IPath path;
+            	path = eo.getPath();
+            	
+            	String eu;
+            	eu = path.getFileExtension();
+            	
+            	eu = eu.toLowerCase();
+            	
+            	if (eu.equals("cla"))
+            	{
+                	Log.This.Info("Class Source File");
+                	
+                    IDocument document;
+                    document = ee.getDocumentProvider().getDocument(input);
+                    return document;
+            	}
+            	
             }
         }
-        return 0;
+        return null;
     }
 
     @Override
     public void partOpened(IWorkbenchPartReference partRef) {
     	Log.This.Info("Part Opened");
 
-        checkPart(partRef);
+        IDocument a;
+        a = this.PartDocument(partRef);
+        
+        if (!(a == null))
+        {
+        	Log.This.Info("Class Source Document Opened");
+        	
+        	DocumentJob job;
+        	job = new DocumentJob();
+        	
+        	Plugin.This().DocumentTable().put(a, job);
+        	
+            DocumentListener aa;
+            aa = new DocumentListener();
+            
+            a.addDocumentListener(aa);
+        }
+    }
+    
+
+    @Override
+    public void partClosed(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Closed");
+    	
+        IDocument a;
+        a = this.PartDocument(partRef);
+        
+        if (!(a == null))
+        {
+        	Log.This.Info("Class Source Document Closed");
+        	
+        	Plugin.This().DocumentTable().remove(a);
+        }
     }
 
     @Override
@@ -57,8 +104,6 @@ public class PartListener implements IPartListener2
     @Override
     public void partDeactivated(IWorkbenchPartReference partRef)  {}
 
-    @Override
-    public void partClosed(IWorkbenchPartReference partRef) {}
 
     @Override
     public void partBroughtToTop(IWorkbenchPartReference partRef) {}

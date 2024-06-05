@@ -17,7 +17,7 @@ public class Startup implements IStartup {
 	    
 	    IWorkbenchWindow window;
 	    window = wb.getWorkbenchWindows()[0];
-
+	    
     	PartListener aa;
     	aa = new PartListener();
     	

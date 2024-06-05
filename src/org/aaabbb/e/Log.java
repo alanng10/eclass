@@ -27,7 +27,7 @@ public class Log
 	private int ExecuteLog(IStatus status)
 	{
 		Plugin p;
-		p = Plugin.Default();
+		p = Plugin.This();
 		p.getLog().log(status);
 		return 0;
 	}
