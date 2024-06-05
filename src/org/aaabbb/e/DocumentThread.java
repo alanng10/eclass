@@ -63,12 +63,12 @@ public class DocumentThread extends Thread
 				
 				ba = this.OutWrite(data);
 				
-				if (!ba)
+				if (ba)
 				{
 					byte[] dataA;
 					dataA = this.InnRead();
 					
-					if (dataA == null)
+					if (!(dataA == null))
 					{
 						
 					}
