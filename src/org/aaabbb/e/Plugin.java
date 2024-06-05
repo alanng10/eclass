@@ -19,12 +19,17 @@ public class Plugin extends AbstractUIPlugin {
 	private Hashtable<IDocument, DocumentJob> DocumentTable_D;
 
 	private DocumentThread DocumentThread_D;
+
+	private NetworkStartThread NetworkStartThread_D;
+	
 	
 	public int Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, DocumentJob>();
 		
 		this.DocumentThread_D = new DocumentThread();
+		
+		this.NetworkStartThread_D = new NetworkStartThread();
 		return 0;
 	}
 
@@ -36,6 +41,11 @@ public class Plugin extends AbstractUIPlugin {
 	public DocumentThread DocumentThread()
 	{
 		return this.DocumentThread_D;
+	}
+	
+	public NetworkStartThread NetworkStartThread()
+	{
+		return this.NetworkStartThread_D;
 	}
 	
 	public void start(BundleContext context) throws Exception {
