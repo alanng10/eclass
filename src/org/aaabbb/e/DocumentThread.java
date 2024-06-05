@@ -5,6 +5,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;
 
@@ -23,6 +25,10 @@ public class DocumentThread extends Thread
 	
 	private OutputStream Out;
 	private InputStream Inn;
+	
+	private int Status;
+	
+	private byte[] SizeData = new byte[4];
 	
 	public void run()
 	{
@@ -51,17 +57,17 @@ public class DocumentThread extends Thread
 			byte[] data;
 			data = text.getBytes();
 			
-			int o;
+			boolean b;
 			
-			o = this.OutWrite(data);
+			b = this.OutWrite(data);
 			
-			if (!(o == 0))
+			if (!b)
 			{
 			}
 		}
 	}
 	
-	private int OutWrite(byte[] data)
+	private boolean OutWrite(byte[] data)
 	{
 		try
 		{
@@ -69,31 +75,83 @@ public class DocumentThread extends Thread
 		} catch (IOException e)
 		{
 			Log.This.Error("Network out cannot write data", e);
-			return 10;
+			this.Status = 10;
+			return false;
 		}
-		return 0;
+		return true;
 	}
 	
-	private int Init()
+	private byte[] InnRead()
 	{
-		int o;
-
-		o = this.NetworkStart();
-		if (!(o == 0))
+		int ka;
+		try
 		{
-			return o;
+			ka = this.Inn.read(this.SizeData, 0, this.SizeData.length);
+		} catch (IOException e)
+		{
+			Log.This.Error("Network inn read data count get error", e);
+			this.Status = 11;
+			return null;
 		}
 		
-		o = this.ProcessInit();
+		if (ka < this.SizeData.length)
+		{
+			Log.This.Error("Network inn read data count get error", null);
+			this.Status = 12;
+			return null;
+		}
+		
+		ByteBuffer o;
+		o = ByteBuffer.wrap(this.SizeData);
+		
+		o.order(ByteOrder.LITTLE_ENDIAN);
+		
+		int count;
+		count = o.getInt(0);
+		
+		byte[] data;
+		data = new byte[count];
+		
+		try
+		{
+			ka = this.Inn.read(data, 0, data.length);
+		} catch (IOException e)
+		{
+			Log.This.Error("Network inn read data error", e);
+			this.Status = 13;
+			return null;
+		}
+		
+		if (ka < count)
+		{
+			Log.This.Error("Network inn read data error", null);
+			this.Status = 14;
+			return null;
+		}
+		
+		return data;
+	}
+	
+	private boolean Init()
+	{
+		bool b;
+
+		b = this.NetworkStart();
+		if (!b)
+		{
+			return false;
+		}
+		
+		b = this.ProcessInit();
 		if (!(o == 0))
 		{
-			return o;
+			return false;
 		}
 		
 		o = this.NetworkInit();
 		if (!(o == 0))
 		{
-			return o;
+			return false;
 		}
 		
 		return 0;
@@ -106,7 +164,7 @@ public class DocumentThread extends Thread
 		return 0;
 	}
 	
-	private int NetworkInit()
+	private boolean NetworkInit()
 	{
 		try
 		{
@@ -125,7 +183,8 @@ public class DocumentThread extends Thread
 		catch (IOException e)
 		{
 			Log.This.Error("Network server cannot be started", e);
-			return 5;
+			this.Status = 5;
+			return false;
 		}
 		
 		Socket socket;
@@ -135,7 +194,8 @@ public class DocumentThread extends Thread
 		} catch (IOException e)
 		{
 			Log.This.Error("Network server cannot get peer", e);
-			return 6;
+			this.Status = 6;
+			return false;
 		}
 		
 
@@ -146,7 +206,8 @@ public class DocumentThread extends Thread
 		} catch (IOException e)
 		{
 			Log.This.Error("Network peer get out error", e);
-			return 7;
+			this.Status = 7;
+			return false;
 		}
 		
 		InputStream inn;
@@ -156,7 +217,8 @@ public class DocumentThread extends Thread
 		} catch (IOException e)
 		{
 			Log.This.Error("Network peer get inn error", e);
-			return 8;
+			this.Status = 8;
+			return false;
 		}
 		
 		this.NetworkServer = server;
@@ -164,10 +226,10 @@ public class DocumentThread extends Thread
 		
 		this.Out = out;
 		this.Inn = inn;
-		return 0;
+		return true;
 	}
 	
-	private int ProcessInit()
+	private boolean ProcessInit()
 	{
 		ProcessBuilder builder;
 		builder = new ProcessBuilder("C:\\Users\\aaabb\\Project\\ClassServer\\Out\\net8.0\\ClassServer.exe");
@@ -181,11 +243,11 @@ public class DocumentThread extends Thread
 		catch (IOException e)
 		{
 			Log.This.Error("ClassServer process cannot be started", e);
-			return 1;
+			this.Status = 1;
+			return false;
 		}
 		
-		this.Process = process;
-		
-		return 0;
+		this.Process = process;		
+		return true;
 	}
 }
