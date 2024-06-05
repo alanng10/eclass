@@ -9,8 +9,6 @@ public class ClassRead extends Any
 	
 	public Class Class;
 	
-	public int Status;
-	
 	private ByteBuffer DataBuffer;
 	
 	public boolean Execute()

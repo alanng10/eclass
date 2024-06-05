@@ -26,9 +26,18 @@ public class DocumentThread extends Thread
 	private OutputStream Out;
 	private InputStream Inn;
 	
+	private ClassRead ClassRead;
+	
 	private int Status;
 	
 	private byte[] SizeData = new byte[4];
+	
+	public boolean Init()
+	{
+		this.ClassRead = new ClassRead();
+		this.ClassRead.Init();
+		return true;
+	}
 	
 	public void run()
 	{
@@ -70,7 +79,15 @@ public class DocumentThread extends Thread
 					
 					if (!(dataA == null))
 					{
+						this.ClassRead.Data = dataA;
 						
+						this.ClassRead.Execute();
+						
+						Class varClass;
+						varClass = this.ClassRead.Class;
+						
+						this.ClassRead.Class = null;
+						this.ClassRead.Data = null;
 					}
 				}
 			}
