@@ -55,6 +55,10 @@ public class OutlinePage extends ContentOutlinePage
 		
 		Log.This.Info("OutlinePage.createControl 8888");
 		
+		viewer.setAutoExpandLevel(2);
+		
+		Log.This.Info("OutlinePage.createControl 9999");
+		
 		viewer.setInput(null);
 		
 		Log.This.Info("OutlinePage.createControl AAAA");
