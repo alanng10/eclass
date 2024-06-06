@@ -54,18 +54,21 @@ public class Startup implements IStartup {
         	IEditorPart kk;
         	kk = ka.getEditor(false);
         	
-        	IDocument aa;
-        	aa = infra.EditorDocument(kk);
-        	
-        	if (!(aa == null))
+        	if (!(kk == null))
         	{
-        		Document a;
-        		a = infra.DocumentCreate(aa);
-        		
-        		if (!(a == null))
-        		{
-        			infra.DocumentSchedule(a);
-        		}
+	        	IDocument aa;
+	        	aa = infra.EditorDocument(kk);
+	        	
+	        	if (!(aa == null))
+	        	{
+	        		Document a;
+	        		a = infra.DocumentCreate(aa);
+	        		
+	        		if (!(a == null))
+	        		{
+	        			infra.DocumentSchedule(a);
+	        		}
+	        	}
         	}
         	
         	i = i + 1;

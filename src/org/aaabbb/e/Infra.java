@@ -9,7 +9,6 @@ import org.eclipse.ui.texteditor.ITextEditor;
 
 public class Infra extends Any
 {
-
 	public Document DocumentCreate(IDocument o)
 	{
 		if (Plugin.This().DocumentTable().containsKey(o))
@@ -35,10 +34,14 @@ public class Infra extends Any
     	load = new DocumentLoad();
     	load.Init();
     	
+    	OutlinePage page;
+    	page = new OutlinePage();
+     	    	
     	a.IDocument = o;
     	a.Job = job;
     	a.Listener = listener;
     	a.Load = load;
+    	a.OutlinePage = page;
     	
         a.IDocument.addDocumentListener(listener);
     	

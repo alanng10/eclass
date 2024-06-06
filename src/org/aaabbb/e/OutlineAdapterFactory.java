@@ -3,6 +3,7 @@ package org.aaabbb.e;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
@@ -23,54 +24,47 @@ public class OutlineAdapterFactory implements IAdapterFactory
             
             Log.This.Info("OutlineAdapterFactory.getAdapter 3333");
             
-            IEditorInput input;
-            input = editor.getEditorInput();
+            IEditorPart ko;
+            ko = editor;
+            
+            Infra infra;
+            infra = Plugin.This().Infra();
             
             Log.This.Info("OutlineAdapterFactory.getAdapter 4444");
             
-            if (input instanceof FileEditorInput)
+            IDocument ka;
+            ka = infra.EditorDocument(ko);
+            
+            Log.This.Info("OutlineAdapterFactory.getAdapter 5555");
+            
+            if (!(ka == null))
             {
-            	Log.This.Info("OutlineAdapterFactory.getAdapter 5555");
+            	Log.This.Info("OutlineAdapterFactory.getAdapter 6666");
         		
-            	IDocument document;
-                document = editor.getDocumentProvider().getDocument(input);
-                
-                Log.This.Info("OutlineAdapterFactory.getAdapter 6666");
-                
                 Document aa;
-                aa = Plugin.This().DocumentTable().get(document);
+                aa = Plugin.This().DocumentTable().get(ka);
                 
                 Log.This.Info("OutlineAdapterFactory.getAdapter 7777");
         		
-                if (!(aa == null))
+                if (aa == null)
                 {
                 	Log.This.Info("OutlineAdapterFactory.getAdapter 8888");
-            		
-            	  	OutlinePage k;
-                	k = aa.OutlinePage;
+                	
+                	aa = infra.DocumentCreate(ka);
                 	
                 	Log.This.Info("OutlineAdapterFactory.getAdapter 9999");
-            		
-                	if (k == null)
-                	{
-                		Log.This.Info("OutlineAdapterFactory.getAdapter AAAA");
-                		
-                	  	k = new OutlinePage();
                 	
-                	  	Log.This.Info("OutlineAdapterFactory.getAdapter BBBB");
-                		
-                	  	aa.OutlinePage = k;
-                	  	
-                	  	Log.This.Info("OutlineAdapterFactory.getAdapter CCCC");
-                	}
+                	infra.DocumentSchedule(aa);
                 	
-                	OutlinePage a;
-                	a = k;
-            	  	
-            	  	Log.This.Info("OutlineAdapterFactory.getAdapter DDDD");
-            	  	
-            	  	return (T) a;
+                	Log.This.Info("OutlineAdapterFactory.getAdapter AAAA");
                 }
+                	
+            	OutlinePage a;
+            	a = aa.OutlinePage;
+        	  	
+        	  	Log.This.Info("OutlineAdapterFactory.getAdapter BBBB");
+        	  	
+        	  	return (T) a;
             }
 		}
 		
