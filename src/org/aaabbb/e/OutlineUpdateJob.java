@@ -10,7 +10,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.UIJob;
 
-class OutlineUpdateJob extends UIJob
+public class OutlineUpdateJob extends UIJob
 {
 	public OutlineUpdateJob()
 	{

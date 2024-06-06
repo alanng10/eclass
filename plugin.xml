@@ -29,8 +29,11 @@
       </scopeNameContentTypeBinding>
    </extension>
    
-   <extension point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
-      <languageConfiguration contentTypeId="org.aaabbb.class" path="./config/language-configuration.json" />
+  	<extension 
+  		point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
+      <languageConfiguration 
+      	contentTypeId="org.aaabbb.class" 
+      	path="./config/language-configuration.json" />
    </extension>
    
    <extension point="org.eclipse.tm4e.ui.themes">

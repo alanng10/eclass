@@ -1,92 +1,57 @@
 package org.aaabbb.e;
 
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
-import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.ui.texteditor.ITextEditor;
 
 public class PartListener implements IPartListener2
 {
-    private IDocument PartDocument(IWorkbenchPartReference partRef) 
+    private IDocument ClassIDocument(IWorkbenchPartReference partRef) 
     {
     	IWorkbenchPart part = partRef.getPart(false);
         if (part instanceof IEditorPart)
         {
-            IEditorPart editor = (IEditorPart) part;
-            IEditorInput input = editor.getEditorInput();
-            if (editor instanceof ITextEditor & input instanceof FileEditorInput)
-            {
-            	ITextEditor ee;
-            	ee = (ITextEditor)editor;
-            	
-            	FileEditorInput eo;
-            	eo = (FileEditorInput)input;
-            	
-            	IPath path;
-            	path = eo.getPath();
-            	
-            	String eu;
-            	eu = path.getFileExtension();
+            IEditorPart editor;
+            editor = (IEditorPart) part;
 
-            	eu = eu.toLowerCase();
-            	
-            	if (eu.equals("cla"))
-            	{
-                	Log.This.Info("Class Source File");
-                	
-                    IDocument document;
-                    document = ee.getDocumentProvider().getDocument(input);
-                    return document;
-            	}
-            	
-            }
+            IDocument a;
+            a = Plugin.This().Infra().EditorDocument(editor);
+            return a;
         }
         return null;
+    }
+    
+    private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
+    {
+        IDocument o;
+        o = this.ClassIDocument(partRef);
+        
+        if (!(o == null))
+        {
+        	Log.This.Info("Class Source Document Opened");
+        	
+        	Infra infra;
+        	infra = Plugin.This().Infra();
+        	
+        	Document a;
+        	a = infra.DocumentCreate(o);
+        	
+        	if (!(a == null))
+        	{
+        		infra.DocumentSchedule(a);
+        	}
+        }
+        
+        return true;
     }
 
     @Override
     public void partOpened(IWorkbenchPartReference partRef) {
     	Log.This.Info("Part Opened");
 
-        IDocument o;
-        o = this.PartDocument(partRef);
-        
-        if (!(o == null))
-        {
-        	Log.This.Info("Class Source Document Opened");
-        	
-        	Document a;
-        	a = new Document();
-        	a.Init();
-        	
-        	DocumentJob job;
-        	job = new DocumentJob();
-        	job.Document = a;
-        	
-            DocumentListener listener;
-            listener = new DocumentListener();
-            listener.Document = a;
-        	
-        	DocumentLoad load;
-        	load = new DocumentLoad();
-        	load.Init();
-        	
-        	a.IDocument = o;
-        	a.Job = job;
-        	a.Listener = listener;
-        	a.Load = load;
-        	
-        	Plugin.This().DocumentTable().put(a.IDocument, a);
-        	
-            a.IDocument.addDocumentListener(listener);
-            
-            a.Job.Schedule(1000);
-        }
+    	this.ClassDocumentNew(partRef);
     }
     
 
@@ -96,7 +61,7 @@ public class PartListener implements IPartListener2
     	Log.This.Info("Part Closed");
     	
         IDocument a;
-        a = this.PartDocument(partRef);
+        a = this.ClassIDocument(partRef);
         
         if (!(a == null))
         {
@@ -113,18 +78,33 @@ public class PartListener implements IPartListener2
     }           
 
     @Override
-    public void partVisible(IWorkbenchPartReference partRef){}
+    public void partVisible(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Visible");
+    }
 
     @Override
-    public void partHidden(IWorkbenchPartReference partRef) {}
+    public void partHidden(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Hidden");
+    }
 
     @Override
-    public void partDeactivated(IWorkbenchPartReference partRef)  {}
+    public void partDeactivated(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Deactivated");
+    }
 
 
     @Override
-    public void partBroughtToTop(IWorkbenchPartReference partRef) {}
+    public void partBroughtToTop(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Brought To Top");
+    }
 
     @Override
-    public void partActivated(IWorkbenchPartReference partRef) {}
+    public void partActivated(IWorkbenchPartReference partRef)
+    {
+    	Log.This.Info("Part Activated");
+    }
 }

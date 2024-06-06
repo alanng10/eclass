@@ -2,7 +2,7 @@ package org.aaabbb.e;
 
 import org.eclipse.jface.text.IDocument;
 
-class Document extends Any
+public class Document extends Any
 {
 	public IDocument IDocument;
 	

@@ -31,6 +31,8 @@ public class Plugin extends AbstractUIPlugin {
 	
 	private Image ImageIconMaide_D;
 	
+	private Infra Infra_D;
+	
 	public boolean Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, Document>();
@@ -45,6 +47,9 @@ public class Plugin extends AbstractUIPlugin {
 		this.ImageIconField_D = this.CreateImage("field");
 		
 		this.ImageIconMaide_D = this.CreateImage("maide");
+		
+		this.Infra_D = new Infra();
+		this.Infra_D.Init();
 		return true;
 	}
 
@@ -76,6 +81,11 @@ public class Plugin extends AbstractUIPlugin {
 	public Image ImageIconMaide()
 	{
 		return this.ImageIconMaide_D;
+	}
+	
+	public Infra Infra()
+	{
+		return this.Infra_D;
 	}
 	
 	private Image CreateImage(String name)
