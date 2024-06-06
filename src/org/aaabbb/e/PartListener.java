@@ -84,6 +84,8 @@ public class PartListener implements IPartListener2
         	Plugin.This().DocumentTable().put(a.IDocument, a);
         	
             a.IDocument.addDocumentListener(listener);
+            
+            a.Job.Schedule(1000);
         }
     }
     

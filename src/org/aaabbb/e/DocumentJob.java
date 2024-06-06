@@ -14,6 +14,15 @@ public class DocumentJob extends UIJob
 	
 	public Document Document;
 	
+	public boolean Schedule(long delay)
+	{
+        this.schedule(delay);
+        
+        this.wakeUp(delay);
+ 
+        return true;
+	}
+	
 	public IStatus runInUIThread(IProgressMonitor monitor)
 	{
 		Log.This.Info("DocumentJob.runInUIThread 1111");

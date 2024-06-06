@@ -24,8 +24,8 @@ public class DocumentListener implements IDocumentListener
         text = document.get();
         
         this.Document.Load.Text = text;
-        this.Document.Job.schedule(1000);
-        this.Document.Job.wakeUp(1000);
+        
+        this.Document.Job.Schedule(1000);
         
         Log.This.Info("Text: " + text);
     }
