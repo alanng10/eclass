@@ -85,9 +85,9 @@ public class TreeContentProvider implements ITreeContentProvider
 		}
 		if (element instanceof Maide)
 		{
-			Maide aa;
-			aa = (Maide)element;
-			return aa.Parent;
+			Maide ab;
+			ab = (Maide)element;
+			return ab.Parent;
 		}
 		
 		return null;
@@ -98,7 +98,16 @@ public class TreeContentProvider implements ITreeContentProvider
 	{
 		if (element instanceof Class)
 		{
-			return true;
+			Class k;
+			k = (Class)element;
+			
+			int n;
+			n = k.Field.length + k.Maide.length;
+			
+			boolean a;
+			a = (0 < n);
+			
+			return a;
 		}
 		return false;
 	}

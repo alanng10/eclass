@@ -35,6 +35,14 @@ public class TreeLabelProvider implements ILabelProvider
 		{
 			return Plugin.This().ImageIconClass();
 		}
+		if (element instanceof Field)
+		{
+			return Plugin.This().ImageIconField();
+		}
+		if (element instanceof Maide)
+		{
+			return Plugin.This().ImageIconMaide();
+		}
 		return null;
 	}
 

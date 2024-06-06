@@ -48,14 +48,28 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 {
                 	Log.This.Info("OutlineAdapterFactory.getAdapter 8888");
             		
-                    Log.This.Info("OutlineAdapterFactory.getAdapter 9999");
+            	  	OutlinePage k;
+                	k = aa.OutlinePage;
+                	
+                	Log.This.Info("OutlineAdapterFactory.getAdapter 9999");
             		
-            	  	OutlinePage a;
-            	  	a = new OutlinePage();
+                	if (k == null)
+                	{
+                		Log.This.Info("OutlineAdapterFactory.getAdapter AAAA");
+                		
+                	  	k = new OutlinePage();
+                	
+                	  	Log.This.Info("OutlineAdapterFactory.getAdapter BBBB");
+                		
+                	  	aa.OutlinePage = k;
+                	  	
+                	  	Log.This.Info("OutlineAdapterFactory.getAdapter CCCC");
+                	}
+                	
+                	OutlinePage a;
+                	a = k;
             	  	
-            	  	Log.This.Info("OutlineAdapterFactory.getAdapter AAAA");
-            		
-            	  	aa.OutlinePage = a;
+            	  	Log.This.Info("OutlineAdapterFactory.getAdapter DDDD");
             	  	
             	  	return (T) a;
                 }

@@ -27,6 +27,10 @@ public class Plugin extends AbstractUIPlugin {
 	
 	private Image ImageIconClass_D;
 	
+	private Image ImageIconField_D;
+	
+	private Image ImageIconMaide_D;
+	
 	public boolean Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, Document>();
@@ -36,13 +40,11 @@ public class Plugin extends AbstractUIPlugin {
 		
 		this.NetworkStartThread_D = new NetworkStartThread();
 		
-		ImageDescriptor oo;
-		oo = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/class.png");
+		this.ImageIconClass_D = this.CreateImage("class");
 		
-		Image k;
-		k = oo.createImage();
-
-		this.ImageIconClass_D = k;
+		this.ImageIconField_D = this.CreateImage("field");
+		
+		this.ImageIconMaide_D = this.CreateImage("maide");
 		return true;
 	}
 
@@ -64,6 +66,27 @@ public class Plugin extends AbstractUIPlugin {
 	public Image ImageIconClass()
 	{
 		return this.ImageIconClass_D;
+	}
+	
+	public Image ImageIconField()
+	{
+		return this.ImageIconField_D;
+	}
+	
+	public Image ImageIconMaide()
+	{
+		return this.ImageIconMaide_D;
+	}
+	
+	private Image CreateImage(String name)
+	{
+		ImageDescriptor k;
+		k = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/" + name + ".png");
+		
+		Image a;
+		a = k.createImage();
+		
+		return a;
 	}
 	
 	public void start(BundleContext context) throws Exception {
