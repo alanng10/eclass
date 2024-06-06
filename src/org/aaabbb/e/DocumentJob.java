@@ -12,14 +12,12 @@ public class DocumentJob extends UIJob
 		super("DocumentJob");
 	}
 	
-	public String Text;
+	public Document Document;
 	
 	public IStatus runInUIThread(IProgressMonitor monitor)
 	{
-		
 		DocumentLoad o;
-		o = new DocumentLoad();
-		o.Text = this.Text;
+		o = this.Document.Load;
 		
 		DocumentThread thread;
 		thread = Plugin.This().DocumentThread();

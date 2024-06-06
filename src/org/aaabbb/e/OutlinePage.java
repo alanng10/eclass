@@ -14,10 +14,13 @@ public class OutlinePage extends ContentOutlinePage
 		TreeContentProvider aa;
 		aa = new TreeContentProvider();
 	  
+		TreeLabelProvider ab;
+		ab = new TreeLabelProvider();
+		
 		TreeViewer viewer;
 		viewer = getTreeViewer();
 		viewer.setContentProvider(aa);
-		viewer.setLabelProvider(new MyLabelProvider());
+		viewer.setLabelProvider(ab);
 		viewer.addSelectionChangedListener(this);
 		viewer.setInput(this.Class);
 	}

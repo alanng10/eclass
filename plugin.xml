@@ -60,14 +60,14 @@
          point="org.eclipse.ui.genericeditor.icons">
       <icon
             contentType="org.aaabbb.class"
-            icon="icon/class.png">
+            icon="./icon/class.png">
       </icon>
    </extension>
    
   	<extension point="org.eclipse.core.runtime.adapters">
 	  <factory
-	    adaptableType="org.eclipse.ui.genericeditor.GenericEditor"
-	    class="org.aaabbb.e.CoolLanguageEditorToOutlineAdapterFactory">
+	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
+	    class="org.aaabbb.e.OutlineAdapterFactory">
 	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
 	  </factory>
 	</extension>

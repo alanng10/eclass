@@ -16,7 +16,7 @@ public class Plugin extends AbstractUIPlugin {
 		return plugin;
 	}
 	
-	private Hashtable<IDocument, DocumentJob> DocumentTable_D;
+	private Hashtable<IDocument, Document> DocumentTable_D;
 
 	private DocumentThread DocumentThread_D;
 
@@ -25,7 +25,7 @@ public class Plugin extends AbstractUIPlugin {
 	
 	public boolean Init()
 	{
-		this.DocumentTable_D = new Hashtable<IDocument, DocumentJob>();
+		this.DocumentTable_D = new Hashtable<IDocument, Document>();
 		
 		this.DocumentThread_D = new DocumentThread();
 		this.DocumentThread_D.Init();
@@ -34,7 +34,7 @@ public class Plugin extends AbstractUIPlugin {
 		return true;
 	}
 
-	public Hashtable<IDocument, DocumentJob> DocumentTable()
+	public Hashtable<IDocument, Document> DocumentTable()
 	{
 		return this.DocumentTable_D;
 	}

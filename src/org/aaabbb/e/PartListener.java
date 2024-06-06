@@ -53,23 +53,37 @@ public class PartListener implements IPartListener2
     public void partOpened(IWorkbenchPartReference partRef) {
     	Log.This.Info("Part Opened");
 
-        IDocument a;
-        a = this.PartDocument(partRef);
+        IDocument o;
+        o = this.PartDocument(partRef);
         
-        if (!(a == null))
+        if (!(o == null))
         {
         	Log.This.Info("Class Source Document Opened");
         	
+        	Document a;
+        	a = new Document();
+        	a.Init();
+        	
         	DocumentJob job;
         	job = new DocumentJob();
+        	job.Document = a;
         	
-        	Plugin.This().DocumentTable().put(a, job);
+            DocumentListener listener;
+            listener = new DocumentListener();
+            listener.Document = a;
         	
-            DocumentListener aa;
-            aa = new DocumentListener();
-            aa.Job = job;
-            
-            a.addDocumentListener(aa);
+        	DocumentLoad load;
+        	load = new DocumentLoad();
+        	load.Init();
+        	
+        	a.IDocument = o;
+        	a.Job = job;
+        	a.Listener = listener;
+        	a.Load = load;
+        	
+        	Plugin.This().DocumentTable().put(a.IDocument, a);
+        	
+            a.IDocument.addDocumentListener(listener);
         }
     }
     

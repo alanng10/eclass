@@ -86,6 +86,8 @@ public class DocumentThread extends Thread
 						Class varClass;
 						varClass = this.ClassRead.Class;
 						
+						oo.Class = varClass;
+						
 						this.ClassRead.Class = null;
 						this.ClassRead.Data = null;
 					}
