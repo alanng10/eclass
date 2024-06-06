@@ -31,6 +31,10 @@ public class TreeLabelProvider implements ILabelProvider
 	@Override
 	public Image getImage(Object element)
 	{
+		if (element instanceof Class)
+		{
+			return Plugin.This().ImageIconClass();
+		}
 		return null;
 	}
 

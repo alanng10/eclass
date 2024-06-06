@@ -1,7 +1,10 @@
 package org.aaabbb.e;
 
 import java.util.Hashtable;
+
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -22,6 +25,8 @@ public class Plugin extends AbstractUIPlugin {
 
 	private NetworkStartThread NetworkStartThread_D;
 	
+	private Image ImageIconClass_D;
+	
 	public boolean Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, Document>();
@@ -30,6 +35,14 @@ public class Plugin extends AbstractUIPlugin {
 		this.DocumentThread_D.Init();
 		
 		this.NetworkStartThread_D = new NetworkStartThread();
+		
+		ImageDescriptor oo;
+		oo = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/class.png");
+		
+		Image k;
+		k = oo.createImage();
+
+		this.ImageIconClass_D = k;
 		return true;
 	}
 
@@ -48,13 +61,18 @@ public class Plugin extends AbstractUIPlugin {
 		return this.NetworkStartThread_D;
 	}
 	
+	public Image ImageIconClass()
+	{
+		return this.ImageIconClass_D;
+	}
+	
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
 		
-		this.Init();
-		
 		Log.This.Info("Plugin Start");
+		
+		this.Init();
 	}
 
 	public void stop(BundleContext context) throws Exception {
