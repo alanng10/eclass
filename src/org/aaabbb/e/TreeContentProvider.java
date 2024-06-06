@@ -5,22 +5,24 @@ import org.eclipse.jface.viewers.Viewer;
 
 public class TreeContentProvider implements ITreeContentProvider
 {
-	private Class Class;
-
 	private Object[] ArrayEmpty = new Object[0];
 	
 	@Override
 	public Object[] getElements(Object inputElement)
 	{
-		if (inputElement instanceof Class)
+		if (inputElement instanceof Root)
 		{
-			Class a;
-			a = (Class)inputElement;
+			Root a;
+			a = (Root)inputElement;
+			
+			Class k;
+			k = a.Class;
 			
 			Object[] array;
 			array = new Object[1];
-			array[0] = a;
-
+			
+			array[0] = k;
+			
 			return array;
 		}
 		
@@ -103,10 +105,5 @@ public class TreeContentProvider implements ITreeContentProvider
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput)
 	{
-		this.Class = null;
-		if (newInput instanceof Class)
-		{
-			this.Class = (Class)newInput;
-		}
 	}
 }

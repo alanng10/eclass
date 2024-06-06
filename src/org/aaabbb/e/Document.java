@@ -11,4 +11,6 @@ class Document extends Any
 	public DocumentListener Listener;
 	
 	public DocumentLoad Load;
+	
+	public OutlinePage OutlinePage;
 }

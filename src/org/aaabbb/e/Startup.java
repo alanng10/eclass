@@ -23,6 +23,9 @@ public class Startup implements IStartup {
     	
         IWorkbenchPage activePage;
         activePage = window.getActivePage(); 
-        //activePage.addPartListener(aa);
+        
+        Plugin.This().DocumentThread().start();
+        
+        activePage.addPartListener(aa);
 	}
 }

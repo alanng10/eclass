@@ -22,7 +22,6 @@ public class Plugin extends AbstractUIPlugin {
 
 	private NetworkStartThread NetworkStartThread_D;
 	
-	
 	public boolean Init()
 	{
 		this.DocumentTable_D = new Hashtable<IDocument, Document>();

@@ -19,7 +19,7 @@ public class PartListener implements IPartListener2
         {
             IEditorPart editor = (IEditorPart) part;
             IEditorInput input = editor.getEditorInput();
-            if (editor instanceof ITextEditor && input instanceof FileEditorInput)  //double check.  Error Editors can also bring up this call
+            if (editor instanceof ITextEditor & input instanceof FileEditorInput)
             {
             	ITextEditor ee;
             	ee = (ITextEditor)editor;

@@ -16,7 +16,7 @@ public class DocumentThread extends Thread
 	
 	public final Object Lock = new Object();
 	
-	public final LinkedList<DocumentLoad> Queue = new LinkedList<DocumentLoad>();
+	public final LinkedList<Document> Queue = new LinkedList<Document>();
 	
 	private ServerSocket NetworkServer;
 	private Socket Network;
@@ -32,6 +32,8 @@ public class DocumentThread extends Thread
 	
 	private byte[] SizeData = new byte[4];
 	
+	private int N;
+	
 	public boolean Init()
 	{
 		this.ClassRead = new ClassRead();
@@ -40,6 +42,102 @@ public class DocumentThread extends Thread
 	}
 	
 	public void run()
+	{
+		Log.This.Info("DocumentThread.run 1111");
+		
+		boolean b;
+		b = false;
+		
+		Log.This.Info("DocumentThread.run 2222");
+		
+		while (!b)
+		{
+			Log.This.Info("DocumentThread.run 3333");
+			
+			try
+			{
+				this.Phore.acquire();
+			} catch (InterruptedException e) {
+			}
+			
+			Log.This.Info("DocumentThread.run 4444");
+			
+			Document oo;
+			oo = null;
+			synchronized (this.Lock)
+			{
+				oo = this.Queue.poll();
+			}
+			
+			Log.This.Info("DocumentThread.run 5555");
+			
+			if (!(oo == null))
+			{
+				Log.This.Info("DocumentThread.run 6666");
+				
+				Root k;
+				k = new Root();
+				k.Init();
+				
+				Class a;
+				a = new Class();
+				a.Init();
+				a.Name = "Hoasg" + this.N;
+				a.Base = "DeuM";
+				a.Field = new Field[2];
+				
+				Field aa;
+				aa = new Field();
+				aa.Init();
+				aa.Name = "Count";
+				aa.Class = "Int";
+				
+				Field ab;
+				ab = new Field();
+				ab.Init();
+				ab.Name = "Index";
+				ab.Class = "String";
+				
+				a.Field[0] = aa;
+				a.Field[1] = ab;
+				
+				a.Maide = new Maide[1];
+				
+				Maide ac;
+				ac = new Maide();
+				ac.Init();
+				ac.Name = "Execute";
+				ac.Class = "Bool";
+				ac.Param = new Var[0];
+				
+				a.Maide[0] = ac;
+				
+				k.Class = a;
+				
+				oo.Load.Root = k;
+				
+				this.N = this.N + 1;
+				
+				Log.This.Info("DocumentThread.run 7777");
+				
+				OutlineUpdateJob job;
+				job = new OutlineUpdateJob();
+				job.Document = oo;
+				
+				Log.This.Info("DocumentThread.run 8888");
+				
+				job.schedule(0);
+				
+				Log.This.Info("DocumentThread.run 9999");
+			}
+			
+			Log.This.Info("DocumentThread.run AAAA");
+		}
+		
+		Log.This.Info("DocumentThread.run BBBB");
+	}
+	
+	private void runA()
 	{
 		this.Start();
 		
@@ -53,7 +151,7 @@ public class DocumentThread extends Thread
 			} catch (InterruptedException e) {
 			}
 			
-			DocumentLoad oo;
+			Document oo;
 			oo = null;
 			synchronized (this.Lock)
 			{
@@ -63,7 +161,7 @@ public class DocumentThread extends Thread
 			if (!(oo == null))
 			{	
 				String text;
-				text = oo.Text;
+				text = oo.Load.Text;
 				
 				byte[] data;
 				data = text.getBytes();
@@ -83,10 +181,16 @@ public class DocumentThread extends Thread
 						
 						this.ClassRead.Execute();
 						
+						Root a;
+						a = new Root();
+						a.Init();
+						
 						Class varClass;
 						varClass = this.ClassRead.Class;
 						
-						oo.Class = varClass;
+						a.Class = varClass;
+						
+						oo.Load.Root = a;
 						
 						this.ClassRead.Class = null;
 						this.ClassRead.Data = null;
