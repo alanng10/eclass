@@ -45,13 +45,13 @@ public class Plugin extends AbstractUIPlugin
         this.NetworkStartThread_D = new NetworkStartThread();
         this.NetworkStartThread_D.Init();
 
-        this.ImageIconClass_D = this.CreateImageIcon("class_obj");
+        this.ImageIconClass_D = this.CreateImageIcon("obj16/class_obj");
 
-        this.ImageIconField_D = this.CreateImageIcon("methdef_obj");
+        this.ImageIconField_D = this.CreateImageIcon("obj16/methdef_obj");
 
-        this.ImageIconMaide_D = this.CreateImageIcon("methpri_obj");
+        this.ImageIconMaide_D = this.CreateImageIcon("obj16/methpri_obj");
 
-        this.ImageIconBaseName_D = this.CreateImageIcon("occ_match");
+        this.ImageIconBaseName_D = this.CreateImageIcon("etool16/shift_r_edit");
         
         this.Infra_D = new Infra();
         this.Infra_D.Init();
@@ -103,7 +103,7 @@ public class Plugin extends AbstractUIPlugin
     private Image CreateImageIcon(String name)
     {
         ImageDescriptor k;
-        k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/obj16/" + name + ".png");
+        k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
 
         Image a;
         a = k.createImage();
