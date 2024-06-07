@@ -34,15 +34,31 @@ public class ClassRead extends Any
 
         String name;
         name = this.ExecuteString();
-
+        if (name == null)
+        {
+            return null;
+        }
+        
         String base;
         base = this.ExecuteString();
+        if (base == null)
+        {
+            return null;
+        }
 
         Field[] field;
         field = this.ExecuteFieldArray(a);
-
+        if (field == null)
+        {
+            return null;
+        }
+        
         Maide[] maide;
         maide = this.ExecuteMaideArray(a);
+        if (maide == null)
+        {
+            return null;
+        }
 
         a.Name = name;
         a.Base = base;
@@ -74,7 +90,7 @@ public class ClassRead extends Any
         return array;
     }
 
-    private Field ExecuteField()
+    private Field ExecuteField(Class c)
     {
         String varClass;
         varClass = this.ExecuteString();
@@ -91,13 +107,21 @@ public class ClassRead extends Any
         a.Class = varClass;
         a.Name = name;
         a.Count = count;
+        a.Parent = c;
         return a;
     }
 
     private Maide[] ExecuteMaideArray(Class c)
     {
+        int o;
+        o = this.ExecuteInt();
+        if (o == -1)
+        {
+            return null;
+        }
+        
         int count;
-        count = this.ExecuteInt();
+        count = o;
 
         Maide[] array;
         array = new Maide[count];
@@ -107,8 +131,11 @@ public class ClassRead extends Any
         while (i < count)
         {
             Maide a;
-            a = this.ExecuteMaide();
-            a.Parent = c;
+            a = this.ExecuteMaide(c);
+            if (a == null)
+            {
+                return null;
+            }
 
             array[i] = a;
 
@@ -117,20 +144,36 @@ public class ClassRead extends Any
         return array;
     }
 
-    private Maide ExecuteMaide()
+    private Maide ExecuteMaide(Class c)
     {
         String varClass;
         varClass = this.ExecuteString();
-
+        if (varClass == null)
+        {
+            return null;
+        }
+        
         String name;
         name = this.ExecuteString();
-
+        if (name == null)
+        {
+            return null;
+        }
+        
         int count;
         count = this.ExecuteByte();
-
+        if (count == -1)
+        {
+            return null;
+        }
+        
         Var[] param;
         param = this.ExecuteVarArray();
-
+        if (param == null)
+        {
+            return null;
+        }
+        
         Maide a;
         a = new Maide();
         a.Init();
@@ -138,6 +181,7 @@ public class ClassRead extends Any
         a.Name = name;
         a.Count = count;
         a.Param = param;
+        a.Parent = c;
         return a;
     }
 
@@ -145,7 +189,11 @@ public class ClassRead extends Any
     {
         int count;
         count = this.ExecuteInt();
-
+        if (count == -1)
+        {
+            return null;
+        }
+        
         Var[] array;
         array = new Var[count];
 
@@ -155,6 +203,10 @@ public class ClassRead extends Any
         {
             Var a;
             a = this.ExecuteVar();
+            if (a == null)
+            {
+                return null;
+            }
 
             array[i] = a;
 
@@ -167,10 +219,18 @@ public class ClassRead extends Any
     {
         String varClass;
         varClass = this.ExecuteString();
-
+        if (varClass == null)
+        {
+            return null;
+        }
+        
         String name;
         name = this.ExecuteString();
-
+        if (name == null)
+        {
+            return null;
+        }
+        
         Var a;
         a = new Var();
         a.Init();
@@ -183,7 +243,11 @@ public class ClassRead extends Any
     {
         int count;
         count = this.ExecuteInt();
-
+        if (count == -1)
+        {
+            return null;
+        }
+        
         char[] array;
         array = new char[count];
 
@@ -191,8 +255,15 @@ public class ClassRead extends Any
         i = 0;
         while (i < count)
         {
+            int o;
+            o = this.ExecuteChar();
+            if (o == -1)
+            {
+                return null;
+            }
+            
             char oc;
-            oc = this.DataBuffer.getChar();
+            oc = (char)o;
 
             array[i] = oc;
 
@@ -203,9 +274,26 @@ public class ClassRead extends Any
         a = String.valueOf(array);
         return a;
     }
+    
+    private int ExecuteChar()
+    {
+        if (this.DataBuffer.remaining() < 2)
+        {
+            return -1;
+        }
+        
+        int a;
+        a = this.DataBuffer.getChar();
+        return a;
+    }
 
     private int ExecuteInt()
     {
+        if (this.DataBuffer.remaining() < 4)
+        {
+            return -1;
+        }
+        
         int a;
         a = this.DataBuffer.getInt();
         return a;
@@ -213,6 +301,11 @@ public class ClassRead extends Any
 
     private int ExecuteByte()
     {
+        if (this.DataBuffer.remaining() < 1)
+        {
+            return -1;
+        }
+        
         int a;
         a = this.DataBuffer.get();
         return a;
