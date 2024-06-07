@@ -26,7 +26,7 @@ public class OutlinePage extends ContentOutlinePage
 
         Log.This().Info("OutlinePage.Update 2222");
 
-        viewer.setInput(a);
+        viewer.setInput(a.Class);
 
         Log.This().Info("OutlinePage.Update 3333");
         return true;
@@ -67,7 +67,7 @@ public class OutlinePage extends ContentOutlinePage
 
         Log.This().Info("OutlinePage.createControl 8888");
 
-        viewer.setAutoExpandLevel(2);
+        //viewer.setAutoExpandLevel(2);
 
         Log.This().Info("OutlinePage.createControl 9999");
 

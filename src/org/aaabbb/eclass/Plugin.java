@@ -30,6 +30,8 @@ public class Plugin extends AbstractUIPlugin
     private Image ImageIconField_D;
 
     private Image ImageIconMaide_D;
+    
+    private Image ImageIconBaseName_D;
 
     private Infra Infra_D;
 
@@ -49,6 +51,8 @@ public class Plugin extends AbstractUIPlugin
 
         this.ImageIconMaide_D = this.CreateImageIcon("methpri_obj");
 
+        this.ImageIconBaseName_D = this.CreateImageIcon("occ_match");
+        
         this.Infra_D = new Infra();
         this.Infra_D.Init();
 
@@ -84,6 +88,11 @@ public class Plugin extends AbstractUIPlugin
     public Image ImageIconMaide()
     {
         return this.ImageIconMaide_D;
+    }
+
+    public Image ImageIconBaseName()
+    {
+        return this.ImageIconBaseName_D;
     }
 
     public Infra Infra()

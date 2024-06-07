@@ -2,9 +2,9 @@ package org.aaabbb.eclass;
 
 public class Class extends Any
 {
-    public String Name;
+    public ClassName Name;
 
-    public String Base;
+    public BaseName Base;
 
     public Field[] Field;
 

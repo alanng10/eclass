@@ -32,15 +32,15 @@ public class ClassRead extends Any
         a = new Class();
         a.Init();
 
-        String name;
-        name = this.ExecuteString();
+        ClassName name;
+        name = this.ExecuteClassName();
         if (name == null)
         {
             return null;
         }
         
-        String base;
-        base = this.ExecuteString();
+        BaseName base;
+        base = this.ExecuteBaseName();
         if (base == null)
         {
             return null;
@@ -64,6 +64,38 @@ public class ClassRead extends Any
         a.Base = base;
         a.Field = field;
         a.Maide = maide;
+        return a;
+    }
+    
+    private ClassName ExecuteClassName()
+    {
+        String value;
+        value = this.ExecuteString();
+        if (value == null)
+        {
+            return null;
+        }
+        
+        ClassName a;
+        a = new ClassName();
+        a.Init();
+        a.Value = value;
+        return a;
+    }
+    
+    private BaseName ExecuteBaseName()
+    {
+        String value;
+        value = this.ExecuteString();
+        if (value == null)
+        {
+            return null;
+        }
+        
+        BaseName a;
+        a = new BaseName();
+        a.Init();
+        a.Value = value;
         return a;
     }
 

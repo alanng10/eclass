@@ -106,8 +106,20 @@ public class DocumentThread extends Thread
                 Class a;
                 a = new Class();
                 a.Init();
-                a.Name = "Hoasg" + this.N;
-                a.Base = "DeuM";
+                
+                ClassName name;
+                name = new ClassName();
+                name.Init();
+                name.Value = "Hoasg" + this.N;
+                
+                BaseName ak;
+                ak = new BaseName();
+                ak.Init();
+                ak.Value = "DeuM";
+                
+                a.Name = name;
+                a.Base = ak;
+                
                 a.Field = new Field[2];
 
                 Field aa;

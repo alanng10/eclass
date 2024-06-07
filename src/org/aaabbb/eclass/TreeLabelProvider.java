@@ -31,17 +31,24 @@ public class TreeLabelProvider implements ILabelProvider
     @Override
     public Image getImage(Object element)
     {
-        if (element instanceof Class)
+        Plugin plugin;
+        plugin = Plugin.This();
+        
+        if (element instanceof ClassName)
         {
-            return Plugin.This().ImageIconClass();
+            return plugin.ImageIconClass();
+        }
+        if (element instanceof BaseName)
+        {
+            return plugin.ImageIconBaseName();
         }
         if (element instanceof Field)
         {
-            return Plugin.This().ImageIconField();
+            return plugin.ImageIconField();
         }
         if (element instanceof Maide)
         {
-            return Plugin.This().ImageIconMaide();
+            return plugin.ImageIconMaide();
         }
         return null;
     }
@@ -49,11 +56,17 @@ public class TreeLabelProvider implements ILabelProvider
     @Override
     public String getText(Object element)
     {
-        if (element instanceof Class)
+        if (element instanceof ClassName)
         {
-            Class aa;
-            aa = (Class)element;
-            return aa.Name;
+            ClassName aa;
+            aa = (ClassName)element;
+            return aa.Value;
+        }
+        if (element instanceof BaseName)
+        {
+            BaseName an;
+            an = (BaseName)element;
+            return an.Value;
         }
         if (element instanceof Field)
         {
