@@ -70,17 +70,14 @@ public class PartListener implements IPartListener2
             Document a;
             a = Plugin.This().DocumentTable().get(o);
             
-            if (!(a == null))
-            {
-                OutlinePage aa;
-                aa = a.OutlinePage;
-                
-                aa.Final();
-                
-                a.OutlinePage = null;
-                
-                Plugin.This().DocumentTable().remove(o);
-            }
+            OutlinePage aa;
+            aa = a.OutlinePage;
+            
+            aa.Final();
+            
+            a.OutlinePage = null;
+            
+            Plugin.This().DocumentTable().remove(o);
         }
     }
 
