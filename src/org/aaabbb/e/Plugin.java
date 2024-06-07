@@ -41,6 +41,7 @@ public class Plugin extends AbstractUIPlugin {
 		this.DocumentThread_D.Init();
 		
 		this.NetworkStartThread_D = new NetworkStartThread();
+		this.NetworkStartThread_D.Init();
 		
 		this.ImageIconClass_D = this.CreateImage("class");
 		

@@ -351,7 +351,7 @@ public class DocumentThread extends Thread
     {
         try
         {
-            Plugin.This().NetworkStartThread().Phore.acquire();
+            Plugin.This().NetworkStartThread().Phore().acquire();
         } catch (InterruptedException e)
         {
         }

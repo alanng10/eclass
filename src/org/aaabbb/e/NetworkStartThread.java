@@ -7,7 +7,17 @@ import java.util.concurrent.Semaphore;
 
 public class NetworkStartThread extends Thread
 {
-	public final Semaphore Phore = new Semaphore(0);
+    public boolean Init()
+    {
+        this.Phore_D = new Semaphore(0);
+        return true;
+    }
+    
+	public Semaphore Phore()
+	{
+	    return this.Phore_D;
+	}
+	private Semaphore Phore_D;
 	
 	public void run()
 	{
@@ -56,7 +66,7 @@ public class NetworkStartThread extends Thread
 		
 		if (!(server == null) & !(socket == null))
 		{
-			this.Phore.release();
+			this.Phore().release();
 		}
 	}
 }
