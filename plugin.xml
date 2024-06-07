@@ -60,14 +60,15 @@
    </extension>
    
    <extension
-         point="org.eclipse.ui.genericeditor.icons">
+     	point="org.eclipse.ui.genericeditor.icons">
       <icon
             contentType="org.aaabbb.eclass.class"
             icon="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/class_obj.png">
       </icon>
    </extension>
    
-  	<extension point="org.eclipse.core.runtime.adapters">
+  	<extension
+  		point="org.eclipse.core.runtime.adapters">
 	  <factory
 	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
 	    class="org.aaabbb.eclass.OutlineAdapterFactory">
@@ -75,4 +76,12 @@
 	  </factory>
 	</extension>
    
+	<extension
+    	point="org.eclipse.e4.ui.css.swt.theme">
+      <theme
+            basestylesheeturi="css/default.css"
+            id="org.aaabbb.eclass.css.default"
+            label="EClass">
+      </theme>
+   	</extension>
 </plugin>
