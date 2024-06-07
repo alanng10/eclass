@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.views;bundle-version="3.12.200",
  org.eclipse.ui.genericeditor;bundle-version="1.3.300"
 Bundle-Vendor: AAABBB
-Automatic-Module-Name: org.aaabbb.class
+Automatic-Module-Name: org.aaabbb.eclass
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.aaabbb.eclass.Plugin

@@ -11,7 +11,7 @@
     	<content-type
 			base-type="org.eclipse.core.runtime.text"
 			file-extensions="cla"
-			id="org.aaabbb.class"
+			id="org.aaabbb.eclass.class"
 			name="Class"
 			priority="normal">
 		</content-type>
@@ -24,7 +24,7 @@
             path="./syntax/class.tmLanguage.json" >
       </grammar>      
       <scopeNameContentTypeBinding
-            contentTypeId="org.aaabbb.class"
+            contentTypeId="org.aaabbb.eclass.class"
             scopeName="source.class">
       </scopeNameContentTypeBinding>
    </extension>
@@ -32,7 +32,7 @@
   	<extension 
   		point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
       <languageConfiguration 
-      	contentTypeId="org.aaabbb.class" 
+      	contentTypeId="org.aaabbb.eclass.class" 
       	path="./config/language-configuration.json" />
    </extension>
    
@@ -47,14 +47,14 @@
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
       <presentationReconciler
             class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
-            contentType="org.aaabbb.class">
+            contentType="org.aaabbb.eclass.class">
       </presentationReconciler>
    </extension>
    
    <extension
          point="org.eclipse.ui.editors">
       <editorContentTypeBinding
-            contentTypeId="org.aaabbb.class"
+            contentTypeId="org.aaabbb.eclass.class"
             editorId="org.eclipse.ui.genericeditor.GenericEditor">
       </editorContentTypeBinding>
    </extension>
@@ -62,7 +62,7 @@
    <extension
          point="org.eclipse.ui.genericeditor.icons">
       <icon
-            contentType="org.aaabbb.class"
+            contentType="org.aaabbb.eclass.class"
             icon="./icon/class.png">
       </icon>
    </extension>
