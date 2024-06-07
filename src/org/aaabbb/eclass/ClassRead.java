@@ -71,7 +71,11 @@ public class ClassRead extends Any
     {
         int count;
         count = this.ExecuteInt();
-
+        if (count == -1)
+        {
+            return null;
+        }
+        
         Field[] array;
         array = new Field[count];
 
@@ -80,9 +84,12 @@ public class ClassRead extends Any
         while (i < count)
         {
             Field a;
-            a = this.ExecuteField();
-            a.Parent = c;
-
+            a = this.ExecuteField(c);
+            if (a == null)
+            {
+                return null;
+            }
+            
             array[i] = a;
 
             i = i + 1;
@@ -94,13 +101,25 @@ public class ClassRead extends Any
     {
         String varClass;
         varClass = this.ExecuteString();
-
+        if (varClass == null)
+        {
+            return null;
+        }
+        
         String name;
         name = this.ExecuteString();
+        if (name == null)
+        {
+            return null;
+        }
 
         int count;
         count = this.ExecuteByte();
-
+        if (count == -1)
+        {
+            return null;
+        }
+        
         Field a;
         a = new Field();
         a.Init();
@@ -113,16 +132,13 @@ public class ClassRead extends Any
 
     private Maide[] ExecuteMaideArray(Class c)
     {
-        int o;
-        o = this.ExecuteInt();
-        if (o == -1)
+        int count;
+        count = this.ExecuteInt();
+        if (count == -1)
         {
             return null;
         }
         
-        int count;
-        count = o;
-
         Maide[] array;
         array = new Maide[count];
 
