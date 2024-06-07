@@ -177,23 +177,26 @@ public class DocumentThread extends Thread
 					
 					if (!(dataA == null))
 					{
-						this.ClassRead.Data = dataA;
+						ClassRead classRead;
+						classRead = this.ClassRead;
 						
-						this.ClassRead.Execute();
+						classRead.Data = dataA;
+						
+						classRead.Execute();
 						
 						Root a;
 						a = new Root();
 						a.Init();
 						
 						Class varClass;
-						varClass = this.ClassRead.Class;
+						varClass = classRead.Class;
 						
 						a.Class = varClass;
 						
 						oo.Load.Root = a;
 						
-						this.ClassRead.Class = null;
-						this.ClassRead.Data = null;
+						classRead.Class = null;
+						classRead.Data = null;
 					}
 				}
 			}
