@@ -21,7 +21,7 @@ public class NetworkStartThread extends Thread
 		}
 		catch (IOException e)
 		{
-			Log.This.Error("Network Start cannot start server", e);
+			Log.This().Error("Network Start cannot start server", e);
 		}
 		
 		if (!(server == null))
@@ -31,17 +31,17 @@ public class NetworkStartThread extends Thread
 				socket = server.accept();
 			} catch (IOException e)
 			{
-				Log.This.Error("Network Start cannot get peer", e);
+				Log.This().Error("Network Start cannot get peer", e);
 			}
 			
-			if (!(socket == null))
+        	if (!(socket == null))
 			{
 				try
 				{
 					socket.close();
 				} catch (IOException e)
 				{
-					Log.This.Error("Network Start cannot close peer", e);
+					Log.This().Error("Network Start cannot close peer", e);
 				}
 			}
 
@@ -50,7 +50,7 @@ public class NetworkStartThread extends Thread
 				server.close();
 			} catch (IOException e)
 			{
-				Log.This.Error("Network Start cannot close server", e);
+				Log.This().Error("Network Start cannot close server", e);
 			}
 		}
 		

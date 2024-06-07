@@ -3,13 +3,23 @@ package org.aaabbb.e;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-public class Log
+public class Log extends Any
 {	
-	public static final Log This = ShareCreate();
+	public static Log This()
+	{
+		return This_D;
+	}
+	
+	private static final Log This_D = ShareCreate();
 	
 	private static Log ShareCreate()
 	{
-		return new Log();
+		Log share;
+		share = new Log();
+		Any a;
+		a = share;
+        a.Init();
+		return share;
 	}
 	
 	public boolean Info(String message)

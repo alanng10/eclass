@@ -9,35 +9,35 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-public class Startup implements IStartup {
+public class Startup implements IStartup
+{
+    public void earlyStartup()
+    {
+        Log.This().Info("Startup AaaBbb Class");
 
-	public void earlyStartup()
-	{
-		Log.This.Info("Startup AaaBbb Class");
-		
-	    IWorkbench k;
-	    k = PlatformUI.getWorkbench();
-	    
-	    IWorkbenchWindow window;
-	    window = k.getWorkbenchWindows()[0];
-	    
+        IWorkbench k;
+        k = PlatformUI.getWorkbench();
+
+        IWorkbenchWindow window;
+        window = k.getWorkbenchWindows()[0];
+
         IWorkbenchPage activePage;
-        activePage = window.getActivePage(); 
-        
-    	PartListener aa;
-    	aa = new PartListener();
-    	
+        activePage = window.getActivePage();
+
+        PartListener aa;
+        aa = new PartListener();
+
         activePage.addPartListener(aa);
 
         this.CreateDocumentList(activePage);
-	}
-	
-	private boolean CreateDocumentList(IWorkbenchPage page)
-	{
-    	Infra infra;
-    	infra = Plugin.This().Infra();
-    	
-		IEditorReference[] k;
+    }
+
+    private boolean CreateDocumentList(IWorkbenchPage page)
+    {
+        Infra infra;
+        infra = Plugin.This().Infra();
+
+        IEditorReference[] k;
         k = page.getEditorReferences();
 
         int count;
@@ -46,32 +46,32 @@ public class Startup implements IStartup {
         i = 0;
         while (i < count)
         {
-        	IEditorReference ka;
-        	ka = k[i];
-        	
-        	IEditorPart kk;
-        	kk = ka.getEditor(false);
-        	
-        	if (!(kk == null))
-        	{
-	        	IDocument aa;
-	        	aa = infra.EditorDocument(kk);
-	        	
-	        	if (!(aa == null))
-	        	{
-	        		Document a;
-	        		a = infra.DocumentCreate(aa);
-	        		
-	        		if (!(a == null))
-	        		{
-	        			infra.DocumentSchedule(a);
-	        		}
-	        	}
-        	}
-        	
-        	i = i + 1;
+            IEditorReference ka;
+            ka = k[i];
+
+            IEditorPart kk;
+            kk = ka.getEditor(false);
+
+            if (!(kk == null))
+            {
+                IDocument aa;
+                aa = infra.EditorDocument(kk);
+
+                if (!(aa == null))
+                {
+                    Document a;
+                    a = infra.DocumentCreate(aa);
+
+                    if (!(a == null))
+                    {
+                        infra.DocumentSchedule(a);
+                    }
+                }
+            }
+
+            i = i + 1;
         }
-        
+
         return true;
-	}
+    }
 }

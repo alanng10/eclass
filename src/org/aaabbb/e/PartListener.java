@@ -8,9 +8,9 @@ import org.eclipse.ui.IWorkbenchPartReference;
 
 public class PartListener implements IPartListener2
 {
-    private IDocument ClassIDocument(IWorkbenchPartReference partRef) 
+    private IDocument ClassIDocument(IWorkbenchPartReference partRef)
     {
-    	IWorkbenchPart part = partRef.getPart(false);
+        IWorkbenchPart part = partRef.getPart(false);
         if (part instanceof IEditorPart)
         {
             IEditorPart editor;
@@ -22,89 +22,88 @@ public class PartListener implements IPartListener2
         }
         return null;
     }
-    
+
     private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
     {
         IDocument o;
         o = this.ClassIDocument(partRef);
-        
+
         if (!(o == null))
         {
-        	Log.This.Info("Class Source Document Opened");
-        	
-        	Infra infra;
-        	infra = Plugin.This().Infra();
-        	
-        	Document a;
-        	a = infra.DocumentCreate(o);
-        	
-        	if (!(a == null))
-        	{
-        		infra.DocumentSchedule(a);
-        	}
+            Log.This().Info("Class Source Document Opened");
+
+            Infra infra;
+            infra = Plugin.This().Infra();
+
+            Document a;
+            a = infra.DocumentCreate(o);
+
+            if (!(a == null))
+            {
+                infra.DocumentSchedule(a);
+            }
         }
-        
+
         return true;
     }
 
     @Override
-    public void partOpened(IWorkbenchPartReference partRef) {
-    	Log.This.Info("Part Opened");
+    public void partOpened(IWorkbenchPartReference partRef)
+    {
+        Log.This().Info("Part Opened");
 
-    	this.ClassDocumentNew(partRef);
+        this.ClassDocumentNew(partRef);
     }
-    
 
     @Override
     public void partClosed(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Closed");
-    	
+        Log.This().Info("Part Closed");
+
         IDocument a;
         a = this.ClassIDocument(partRef);
-        
+
         if (!(a == null))
         {
-        	Log.This.Info("Class Source Document Closed");
-        	
-        	Plugin.This().DocumentTable().remove(a);
+            Log.This().Info("Class Source Document Closed");
+
+            Plugin.This().DocumentTable().remove(a);
         }
     }
 
     @Override
-    public void partInputChanged(IWorkbenchPartReference partRef) 
+    public void partInputChanged(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Input Changed");
-    }           
+        Log.This().Info("Part Input Changed");
+    }
 
     @Override
     public void partVisible(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Visible");
+        Log.This().Info("Part Visible");
     }
 
     @Override
     public void partHidden(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Hidden");
+        Log.This().Info("Part Hidden");
     }
 
     @Override
     public void partDeactivated(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Deactivated");
+        Log.This().Info("Part Deactivated");
     }
-
 
     @Override
     public void partBroughtToTop(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Brought To Top");
+        Log.This().Info("Part Brought To Top");
     }
 
     @Override
     public void partActivated(IWorkbenchPartReference partRef)
     {
-    	Log.This.Info("Part Activated");
+        Log.This().Info("Part Activated");
     }
 }

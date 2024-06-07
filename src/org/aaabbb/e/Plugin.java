@@ -93,7 +93,7 @@ public class Plugin extends AbstractUIPlugin {
 	private Image CreateImage(String name)
 	{
 		ImageDescriptor k;
-		k = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/" + name + ".png");
+        k = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/" + name + ".png");
 		
 		Image a;
 		a = k.createImage();
@@ -105,13 +105,13 @@ public class Plugin extends AbstractUIPlugin {
 		super.start(context);
 		plugin = this;
 		
-		Log.This.Info("Plugin Start");
+		Log.This().Info("Plugin Start");
 		
 		this.Init();
 	}
 
 	public void stop(BundleContext context) throws Exception {
-		Log.This.Info("Plugin Stop");
+		Log.This().Info("Plugin Stop");
 		
 		plugin = null;
 		super.stop(context);
