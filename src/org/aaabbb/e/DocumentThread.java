@@ -12,11 +12,38 @@ import java.util.concurrent.Semaphore;
 
 public class DocumentThread extends Thread
 {
-	public final Semaphore Phore = new Semaphore(0);
+	public boolean Init()
+	{
+		this.Phore_D = new Semaphore(0);
+		
+		this.Lock_D = new Object();
+		
+		this.Queue_D = new LinkedList<Document>();
+		
+		this.ClassRead = new ClassRead();
+		this.ClassRead.Init();
+		
+		this.SizeData = new byte[4];
+		return true;
+	}
+
+	public Semaphore Phore()
+	{
+		return this.Phore_D;
+	}
+	private Semaphore Phore_D;
 	
-	public final Object Lock = new Object();
+	public Object Lock()
+	{
+		return this.Lock_D;
+	}
+	private Object Lock_D;
 	
-	public final LinkedList<Document> Queue = new LinkedList<Document>();
+	public LinkedList<Document> Queue()
+	{
+		return this.Queue_D;
+	}
+	private LinkedList<Document> Queue_D;
 	
 	private ServerSocket NetworkServer;
 	private Socket Network;
@@ -30,16 +57,10 @@ public class DocumentThread extends Thread
 	
 	private int Status;
 	
-	private byte[] SizeData = new byte[4];
+	private byte[] SizeData;
 	
 	private int N;
 	
-	public boolean Init()
-	{
-		this.ClassRead = new ClassRead();
-		this.ClassRead.Init();
-		return true;
-	}
 	
 	public void run()
 	{
@@ -56,7 +77,7 @@ public class DocumentThread extends Thread
 			
 			try
 			{
-				this.Phore.acquire();
+				this.Phore().acquire();
 			} catch (InterruptedException e) {
 			}
 			
@@ -64,9 +85,9 @@ public class DocumentThread extends Thread
 			
 			Document oo;
 			oo = null;
-			synchronized (this.Lock)
+			synchronized (this.Lock())
 			{
-				oo = this.Queue.poll();
+				oo = this.Queue().poll();
 			}
 			
 			Log.This.Info("DocumentThread.run 5555");
@@ -147,15 +168,15 @@ public class DocumentThread extends Thread
 		while (!b)
 		{
 			try {
-				this.Phore.acquire();
+				this.Phore().acquire();
 			} catch (InterruptedException e) {
 			}
 			
 			Document oo;
 			oo = null;
-			synchronized (this.Lock)
+			synchronized (this.Lock())
 			{
-				oo = this.Queue.poll();
+				oo = this.Queue().poll();
 			}
 			
 			if (!(oo == null))

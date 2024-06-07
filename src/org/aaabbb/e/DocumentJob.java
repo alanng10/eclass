@@ -23,7 +23,7 @@ public class DocumentJob extends Job
 		Log.This.Info("DocumentJob.runInUIThread 3333");
 		
 		Object lock;
-		lock = thread.Lock;
+		lock = thread.Lock();
 		
 		Log.This.Info("DocumentJob.runInUIThread 4444");
 		
@@ -31,14 +31,14 @@ public class DocumentJob extends Job
 		{
 			Log.This.Info("DocumentJob.runInUIThread 5555");
 		
-			thread.Queue.offer(o);
+			thread.Queue().offer(o);
 			
 			Log.This.Info("DocumentJob.runInUIThread 6666");
 		}
 		
 		Log.This.Info("DocumentJob.runInUIThread 7777");
 		
-		thread.Phore.release();
+		thread.Phore().release();
 		
 		Log.This.Info("DocumentJob.runInUIThread 8888");
 		
