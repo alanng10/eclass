@@ -312,6 +312,11 @@ public class ClassRead extends Any
         
         int a;
         a = this.DataBuffer.getInt();
+        if (a < 0)
+        {
+            return -1;
+        }
+        
         return a;
     }
 
@@ -324,6 +329,11 @@ public class ClassRead extends Any
         
         int a;
         a = this.DataBuffer.get();
+        if (a < 0)
+        {
+            return -1;
+        }
+        
         return a;
     }
 }
