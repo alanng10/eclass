@@ -88,4 +88,77 @@ public class Infra extends Any
         }
         return null;
     }
+    
+    public boolean CheckRange(int totalCount, int index, int count)
+    {
+        if (totalCount < 0)
+        {
+            return false;
+        }
+        if (index < 0)
+        {
+            return false;
+        }
+        if (count < 0)
+        {
+            return false;
+        }
+        
+        if (totalCount < index + count)
+        {
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean DataSetChar(byte[] data, int index, char value)
+    {
+        int k;
+        k = value;
+        
+        byte oba;
+        byte obb;
+        oba = (byte)k;
+        obb = (byte)(k >> 8);
+        
+        data[index] = oba;
+        data[index + 1] = obb;
+        
+        return true;
+    }
+
+    public boolean DataGetString(byte[] data, int index, String o)
+    {
+        int totalCount;
+        totalCount = data.length;
+        
+        int charCount;
+        charCount = o.length();
+        
+        int byteCount;
+        byteCount = charCount * 2;
+        
+        if (!(this.CheckRange(totalCount, index, byteCount)))
+        {
+            return false;
+        }
+        
+        int count;
+        count = charCount;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            int ka;
+            ka = index + i * 2;
+            
+            char oc;
+            oc = o.charAt(i);
+            
+            this.DataSetChar(data, ka, oc);
+            
+            i = i + 1;
+        }
+        return true;
+    }
 }
