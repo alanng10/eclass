@@ -163,9 +163,23 @@ public class DocumentThread extends Thread
 
     private void runA()
     {
-        this.Start();
-
+        this.ExecuteA();
+        
+        Log.This().Error("DocumentThread exit with status: " + this.Status, null);
+        
+        return;
+    }
+    
+    private boolean ExecuteA()
+    {
         boolean b;
+        
+        b = this.Start();
+        if (!b)
+        {
+            return false;
+        }
+        
         b = false;
 
         while (!b)
@@ -228,7 +242,13 @@ public class DocumentThread extends Thread
             }
         }
 
-        this.End();
+        b = this.End();
+        if (!b)
+        {
+            return false;
+        }
+        
+        return true;
     }
 
     private boolean OutWrite(byte[] data)
