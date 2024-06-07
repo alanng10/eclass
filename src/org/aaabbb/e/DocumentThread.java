@@ -61,7 +61,6 @@ public class DocumentThread extends Thread
 	
 	private int N;
 	
-	
 	public void run()
 	{
 		Log.This.Info("DocumentThread.run 1111");
