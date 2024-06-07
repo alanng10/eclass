@@ -6,6 +6,11 @@ import org.eclipse.jface.text.IDocumentListener;
 
 public class DocumentListener implements IDocumentListener
 {
+    public boolean Init()
+    {
+        return true;
+    }
+    
     public Document Document;
 
     public void documentAboutToBeChanged(DocumentEvent event)

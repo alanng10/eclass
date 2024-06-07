@@ -24,10 +24,12 @@ public class Infra extends Any
 
         DocumentJob job;
         job = new DocumentJob();
+        job.Init();
         job.Document = a;
 
         DocumentListener listener;
         listener = new DocumentListener();
+        listener.Init();
         listener.Document = a;
 
         DocumentLoad load;
@@ -36,6 +38,7 @@ public class Infra extends Any
 
         OutlinePage page;
         page = new OutlinePage();
+        page.Init();
 
         a.IDocument = o;
         a.Job = job;

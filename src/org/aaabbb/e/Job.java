@@ -10,6 +10,11 @@ public class Job extends UIJob
     {
         super("AaaBbb Class Job");
     }
+    
+    public boolean Init()
+    {
+        return true;
+    }
 
     public boolean Schedule(long delay)
     {

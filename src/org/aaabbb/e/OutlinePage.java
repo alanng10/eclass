@@ -6,6 +6,11 @@ import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 public class OutlinePage extends ContentOutlinePage
 {
+    public boolean Init()
+    {
+        return true;
+    }
+    
     public boolean Update(Root a)
     {
         Log.This().Info("OutlinePage.Update 1111");

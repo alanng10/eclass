@@ -146,6 +146,7 @@ public class DocumentThread extends Thread
 
                 OutlineUpdateJob job;
                 job = new OutlineUpdateJob();
+                job.Init();
                 job.Document = oo;
 
                 Log.This().Info("DocumentThread.run 8888");
