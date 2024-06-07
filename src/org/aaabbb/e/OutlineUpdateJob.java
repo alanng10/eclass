@@ -10,13 +10,8 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.progress.UIJob;
 
-public class OutlineUpdateJob extends UIJob
-{
-	public OutlineUpdateJob()
-	{
-		super("OutlineUpdateJob");
-	}
-	
+public class OutlineUpdateJob extends Job
+{	
 	public Document Document;
 	
     public IStatus runInUIThread(IProgressMonitor monitor)

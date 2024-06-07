@@ -5,23 +5,9 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.progress.UIJob;
 
-public class DocumentJob extends UIJob 
-{
-	public DocumentJob()
-	{
-		super("DocumentJob");
-	}
-	
+public class DocumentJob extends Job 
+{	
 	public Document Document;
-	
-	public boolean Schedule(long delay)
-	{
-        this.schedule(delay);
-        
-        this.wakeUp(delay);
- 
-        return true;
-	}
 	
 	public IStatus runInUIThread(IProgressMonitor monitor)
 	{

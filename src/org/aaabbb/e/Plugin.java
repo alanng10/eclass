@@ -50,6 +50,8 @@ public class Plugin extends AbstractUIPlugin {
 		
 		this.Infra_D = new Infra();
 		this.Infra_D.Init();
+		
+        this.DocumentThread().start();
 		return true;
 	}
 
