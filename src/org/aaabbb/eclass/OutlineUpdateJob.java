@@ -10,7 +10,10 @@ public class OutlineUpdateJob extends Job
 	
     public IStatus runInUIThread(IProgressMonitor monitor)
     {
-    	this.Document.OutlinePage.Update(this.Document.Load.Root);
+        if (!(this.Document.OutlinePage == null))
+        {
+            this.Document.OutlinePage.Update(this.Document.Load.Root);
+        }
     	
     	return Status.OK_STATUS;
     }

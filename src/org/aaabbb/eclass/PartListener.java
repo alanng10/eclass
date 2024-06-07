@@ -60,14 +60,27 @@ public class PartListener implements IPartListener2
     {
         Log.This().Info("Part Closed");
 
-        IDocument a;
-        a = this.ClassIDocument(partRef);
+        IDocument o;
+        o = this.ClassIDocument(partRef);
 
-        if (!(a == null))
+        if (!(o == null))
         {
             Log.This().Info("Class Source Document Closed");
 
-            Plugin.This().DocumentTable().remove(a);
+            Document a;
+            a = Plugin.This().DocumentTable().get(o);
+            
+            if (!(a == null))
+            {
+                OutlinePage aa;
+                aa = a.OutlinePage;
+                
+                aa.Final();
+                
+                a.OutlinePage = null;
+                
+                Plugin.This().DocumentTable().remove(o);
+            }
         }
     }
 

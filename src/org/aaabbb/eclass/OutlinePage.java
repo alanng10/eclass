@@ -11,6 +11,12 @@ public class OutlinePage extends ContentOutlinePage
         return true;
     }
     
+    public boolean Final()
+    {
+        this.dispose();
+        return true;
+    }
+    
     public boolean Update(Root a)
     {
         Log.This().Info("OutlinePage.Update 1111");
