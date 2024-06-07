@@ -10,8 +10,7 @@ import org.osgi.framework.BundleContext;
 
 public class Plugin extends AbstractUIPlugin
 {
-
-    public static final String PLUGIN_ID = "org.aaabbb.class";
+    public static final String PLUGIN_ID = "org.aaabbb.eclass";
 
     private static Plugin plugin;
 
