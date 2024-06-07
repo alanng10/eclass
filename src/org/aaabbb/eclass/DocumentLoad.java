@@ -1,4 +1,4 @@
-package org.aaabbb.e;
+package org.aaabbb.eclass;
 
 public class DocumentLoad extends Any
 {

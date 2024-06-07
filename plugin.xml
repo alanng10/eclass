@@ -3,7 +3,7 @@
 <plugin>
    <extension
          point="org.eclipse.ui.startup">
-         <startup class="org.aaabbb.e.Startup"/>
+         <startup class="org.aaabbb.eclass.Startup"/>
    </extension>
    
     <extension
@@ -70,7 +70,7 @@
   	<extension point="org.eclipse.core.runtime.adapters">
 	  <factory
 	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
-	    class="org.aaabbb.e.OutlineAdapterFactory">
+	    class="org.aaabbb.eclass.OutlineAdapterFactory">
 	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
 	  </factory>
 	</extension>

@@ -1,4 +1,4 @@
-package org.aaabbb.e;
+package org.aaabbb.eclass;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;

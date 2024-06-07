@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: AaaBbbClass
-Bundle-SymbolicName: org.aaabbb.class;singleton:=true
+Bundle-Name: EClass
+Bundle-SymbolicName: org.aaabbb.eclass;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.text,
@@ -20,4 +20,4 @@ Bundle-Vendor: AAABBB
 Automatic-Module-Name: org.aaabbb.class
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.aaabbb.e.Plugin
+Bundle-Activator: org.aaabbb.eclass.Plugin

@@ -1,4 +1,4 @@
-package org.aaabbb.e;
+package org.aaabbb.eclass;
 
 import java.util.Hashtable;
 

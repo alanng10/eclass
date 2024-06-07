@@ -1,4 +1,4 @@
-package org.aaabbb.e;
+package org.aaabbb.eclass;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorPart;
