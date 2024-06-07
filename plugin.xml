@@ -63,7 +63,7 @@
          point="org.eclipse.ui.genericeditor.icons">
       <icon
             contentType="org.aaabbb.eclass.class"
-            icon="./icon/class.png">
+            icon="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/class_obj.png">
       </icon>
    </extension>
    

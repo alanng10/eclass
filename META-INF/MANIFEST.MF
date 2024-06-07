@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.editors,
  org.eclipse.jface.text,
  org.eclipse.ui.views;bundle-version="3.12.200",
- org.eclipse.ui.genericeditor;bundle-version="1.3.300"
+ org.eclipse.ui.genericeditor;bundle-version="1.3.300",
+ org.eclipse.jdt.ui;bundle-version="3.32.0"
 Bundle-Vendor: AAABBB
 Automatic-Module-Name: org.aaabbb.eclass
 Bundle-RequiredExecutionEnvironment: JavaSE-17
