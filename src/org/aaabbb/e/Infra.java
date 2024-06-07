@@ -77,13 +77,16 @@ public class Infra extends Any
             String eu;
             eu = path.getFileExtension();
 
-            eu = eu.toLowerCase();
-
-            if (eu.equals("cla"))
+            if (!(eu == null))
             {
-                IDocument document;
-                document = ee.getDocumentProvider().getDocument(input);
-                return document;
+                eu = eu.toLowerCase();
+
+                if (eu.equals("cla"))
+                {
+                    IDocument document;
+                    document = ee.getDocumentProvider().getDocument(input);
+                    return document;
+                }
             }
         }
         return null;
