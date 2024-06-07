@@ -2,9 +2,7 @@ package org.aaabbb.e;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 

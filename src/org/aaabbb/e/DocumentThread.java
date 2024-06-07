@@ -126,7 +126,7 @@ public class DocumentThread extends Thread
 				
 				Log.This.Info("DocumentThread.run 8888");
 				
-				job.schedule(0);
+				job.Schedule(0);
 				
 				Log.This.Info("DocumentThread.run 9999");
 			}
