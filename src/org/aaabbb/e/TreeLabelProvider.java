@@ -7,67 +7,67 @@ import org.eclipse.swt.graphics.Image;
 public class TreeLabelProvider implements ILabelProvider
 {
 
-	@Override
-	public void addListener(ILabelProviderListener listener)
-	{
-	}
+    @Override
+    public void addListener(ILabelProviderListener listener)
+    {
+    }
 
-	@Override
-	public void dispose()
-	{
-	}
+    @Override
+    public void dispose()
+    {
+    }
 
-	@Override
-	public boolean isLabelProperty(Object element, String property)
-	{
-		return false;
-	}
+    @Override
+    public boolean isLabelProperty(Object element, String property)
+    {
+        return false;
+    }
 
-	@Override
-	public void removeListener(ILabelProviderListener listener)
-	{
-	}
+    @Override
+    public void removeListener(ILabelProviderListener listener)
+    {
+    }
 
-	@Override
-	public Image getImage(Object element)
-	{
-		if (element instanceof Class)
-		{
-			return Plugin.This().ImageIconClass();
-		}
-		if (element instanceof Field)
-		{
-			return Plugin.This().ImageIconField();
-		}
-		if (element instanceof Maide)
-		{
-			return Plugin.This().ImageIconMaide();
-		}
-		return null;
-	}
+    @Override
+    public Image getImage(Object element)
+    {
+        if (element instanceof Class)
+        {
+            return Plugin.This().ImageIconClass();
+        }
+        if (element instanceof Field)
+        {
+            return Plugin.This().ImageIconField();
+        }
+        if (element instanceof Maide)
+        {
+            return Plugin.This().ImageIconMaide();
+        }
+        return null;
+    }
 
-	@Override
-	public String getText(Object element)
-	{
-		if (element instanceof Class)
-		{
-			Class aa;
-			aa = (Class)element;
-			return aa.Name;
-		}
-		if (element instanceof Field)
-		{
-			Field ab;
-			ab = (Field)element;
-			return ab.Name;
-		}
-		if (element instanceof Maide)
-		{
-			Maide ac;
-			ac = (Maide)element;
-			return ac.Name;
-		}
-		return null;
-	}
+    @Override
+    public String getText(Object element)
+    {
+        if (element instanceof Class)
+        {
+            Class aa;
+            aa = (Class)element;
+            return aa.Name;
+        }
+        if (element instanceof Field)
+        {
+            Field ab;
+            ab = (Field)element;
+            return ab.Name;
+        }
+        if (element instanceof Maide)
+        {
+            Maide ac;
+            ac = (Maide)element;
+            return ac.Name;
+        }
+        return null;
+    }
 
 }

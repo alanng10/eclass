@@ -6,23 +6,22 @@ import org.eclipse.ui.progress.UIJob;
 
 public class Job extends UIJob
 {
-	public Job()
-	{
-		super("AaaBbb Class Job");
-	}
-	
-	public boolean Schedule(long delay)
-	{
+    public Job()
+    {
+        super("AaaBbb Class Job");
+    }
+
+    public boolean Schedule(long delay)
+    {
         this.schedule(delay);
-        
+
         this.wakeUp(delay);
- 
+
         return true;
-	}
-	
-	@Override
-	public IStatus runInUIThread(IProgressMonitor monitor)
-	{
-		return null;
-	}
+    }
+
+    public IStatus runInUIThread(IProgressMonitor monitor)
+    {
+        return null;
+    }
 }
