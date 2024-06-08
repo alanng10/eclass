@@ -9,7 +9,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 public class OutlineAdapterFactory implements IAdapterFactory
 {
     @SuppressWarnings("unchecked")
-    @Override
     public <T> T getAdapter(Object adaptableObject, java.lang.Class<T> required)
     {
         Log.This().Info("OutlineAdapterFactory.getAdapter 1111");
@@ -71,7 +70,6 @@ public class OutlineAdapterFactory implements IAdapterFactory
         return null;
     }
 
-    @Override
     public java.lang.Class<?>[] getAdapterList()
     {
         return new java.lang.Class<?>[]

@@ -155,9 +155,9 @@ public class ClassRead extends Any
         Field a;
         a = new Field();
         a.Init();
-        a.Class = varClass;
-        a.Name = name;
-        a.Count = count;
+        a.ClassSet(varClass);
+        a.NameSet(name);
+        a.CountSet(count);
         a.Parent = c;
         return a;
     }

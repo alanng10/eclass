@@ -72,7 +72,7 @@ public class TreeLabelProvider implements ILabelProvider
         {
             Field ab;
             ab = (Field)element;
-            return ab.Name;
+            return ab.Name();
         }
         if (element instanceof Maide)
         {
