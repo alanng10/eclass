@@ -25,38 +25,38 @@ public class TreeContentProvider implements ITreeContentProvider
             countK = 2;
             
             int count;
-            count = countK + a.Field.length + a.Maide.length;
+            count = countK + a.Field().length + a.Maide().length;
 
             Object[] array;
             array = new Object[count];
 
-            array[0] = a.Name;
+            array[0] = a.Name();
             
-            array[1] = a.Base;
+            array[1] = a.Base();
             
             int start;
             start = countK;
             
             int countA;
-            countA = a.Field.length;
+            countA = a.Field().length;
 
             int i;
             i = 0;
             while (i < countA)
             {
-                array[start + i] = a.Field[i];
+                array[start + i] = a.Field()[i];
 
                 i = i + 1;
             }
 
             start = start + countA;
 
-            countA = a.Maide.length;
+            countA = a.Maide().length;
 
             i = 0;
             while (i < countA)
             {
-                array[start + i] = a.Maide[i];
+                array[start + i] = a.Maide()[i];
 
                 i = i + 1;
             }
@@ -67,13 +67,11 @@ public class TreeContentProvider implements ITreeContentProvider
         return this.ArrayEmpty;
     }
 
-    @Override
     public Object getParent(Object element)
     {
         return null;
     }
 
-    @Override
     public boolean hasChildren(Object element)
     {
         return false;

@@ -23,7 +23,6 @@ public class TreeLabelProvider implements ILabelProvider
     {
     }
 
-    @Override
     public Image getImage(Object element)
     {
         Plugin plugin;
@@ -48,7 +47,6 @@ public class TreeLabelProvider implements ILabelProvider
         return null;
     }
 
-    @Override
     public String getText(Object element)
     {
         if (element instanceof ClassName)
