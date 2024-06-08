@@ -264,7 +264,7 @@ public class DocumentThread extends Thread
                         Class varClass;
                         varClass = classRead.Class;
 
-                        a.Class = varClass;
+                        a.ClassSet(varClass);
 
                         oo.Load.Root = a;
 
