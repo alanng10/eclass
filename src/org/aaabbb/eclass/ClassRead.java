@@ -60,10 +60,10 @@ public class ClassRead extends Any
             return null;
         }
 
-        a.Name = name;
-        a.Base = base;
-        a.Field = field;
-        a.Maide = maide;
+        a.NameSet(name);
+        a.BaseSet(base);
+        a.FieldSet(field);
+        a.MaideSet(maide);
         return a;
     }
     

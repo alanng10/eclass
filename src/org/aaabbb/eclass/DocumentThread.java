@@ -110,45 +110,45 @@ public class DocumentThread extends Thread
                 ClassName name;
                 name = new ClassName();
                 name.Init();
-                name.Value = "Hoasg" + this.N;
+                name.ValueSet("Hoasg" + this.N);
                 
                 BaseName ak;
                 ak = new BaseName();
                 ak.Init();
-                ak.Value = "DeuM";
+                ak.ValueSet("DeuM");
                 
-                a.Name = name;
-                a.Base = ak;
+                a.NameSet(name);
+                a.BaseSet(ak);
                 
-                a.Field = new Field[2];
+                a.FieldSet(new Field[2]);
 
                 Field aa;
                 aa = new Field();
                 aa.Init();
-                aa.Name = "Count";
-                aa.Class = "Int";
+                aa.NameSet("Count");
+                aa.ClassSet("Int");
 
                 Field ab;
                 ab = new Field();
                 ab.Init();
-                ab.Name = "Index";
-                ab.Class = "String";
+                ab.NameSet("Index");
+                ab.ClassSet("String");
 
-                a.Field[0] = aa;
-                a.Field[1] = ab;
+                a.Field()[0] = aa;
+                a.Field()[1] = ab;
 
-                a.Maide = new Maide[1];
+                a.MaideSet(new Maide[1]);
 
                 Maide ac;
                 ac = new Maide();
                 ac.Init();
-                ac.Name = "Execute";
-                ac.Class = "Bool";
-                ac.Param = new Var[0];
+                ac.NameSet("Execute");
+                ac.ClassSet("Bool");
+                ac.ParamSet(new Var[0]);
 
-                a.Maide[0] = ac;
+                a.Maide()[0] = ac;
 
-                k.Class = a;
+                k.ClassSet(a);
 
                 oo.Load.Root = k;
 

@@ -26,7 +26,7 @@ public class OutlinePage extends ContentOutlinePage
 
         Log.This().Info("OutlinePage.Update 2222");
 
-        viewer.setInput(a.Class);
+        viewer.setInput(a.Class());
 
         Log.This().Info("OutlinePage.Update 3333");
         return true;
