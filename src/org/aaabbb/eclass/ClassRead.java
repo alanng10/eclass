@@ -5,22 +5,44 @@ import java.nio.ByteOrder;
 
 public class ClassRead extends Any
 {
-    public byte[] Data;
+	public byte[] Data()
+	{
+		return this.Data_D;
+	}
+	
+	public boolean DataSet(byte[] value)
+	{
+		this.Data_D = value;
+		return true;
+	}
+	
+    protected byte[] Data_D;
 
-    public Class Class;
+    public Class Class()
+    {
+    	return this.Class_D;
+    }
+    
+    public boolean ClassSet(Class value)
+    {
+    	this.Class_D = value;
+    	return true;
+    }
+    
+    protected Class Class_D;
 
     private ByteBuffer DataBuffer;
 
     public boolean Execute()
     {
         ByteBuffer o;
-        o = ByteBuffer.wrap(this.Data);
+        o = ByteBuffer.wrap(this.Data());
 
         o.order(ByteOrder.LITTLE_ENDIAN);
 
         this.DataBuffer = o;
 
-        this.Class = this.ExecuteClass();
+        this.ClassSet(this.ExecuteClass());
 
         this.DataBuffer = null;
         return true;

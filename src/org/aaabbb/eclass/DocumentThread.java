@@ -233,7 +233,7 @@ public class DocumentThread extends Thread
                         ClassRead classRead;
                         classRead = this.ClassRead;
 
-                        classRead.Data = dataA;
+                        classRead.DataSet(dataA);
 
                         classRead.Execute();
 
@@ -242,14 +242,14 @@ public class DocumentThread extends Thread
                         a.Init();
 
                         Class varClass;
-                        varClass = classRead.Class;
+                        varClass = classRead.Class();
 
                         a.ClassSet(varClass);
 
                         oo.Load.Root = a;
 
-                        classRead.Class = null;
-                        classRead.Data = null;
+                        classRead.ClassSet(null);
+                        classRead.DataSet(null);
                     }
                 }
             }
