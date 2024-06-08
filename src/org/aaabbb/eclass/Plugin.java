@@ -19,22 +19,6 @@ public class Plugin extends AbstractUIPlugin
         return plugin;
     }
 
-    private Hashtable<IDocument, Document> DocumentTable_D;
-
-    private DocumentThread DocumentThread_D;
-
-    private NetworkStartThread NetworkStartThread_D;
-
-    private Image ImageIconClass_D;
-
-    private Image ImageIconField_D;
-
-    private Image ImageIconMaide_D;
-    
-    private Image ImageIconBaseName_D;
-
-    private Infra Infra_D;
-
     public boolean Init()
     {
         this.DocumentTable_D = new Hashtable<IDocument, Document>();
@@ -50,8 +34,12 @@ public class Plugin extends AbstractUIPlugin
         this.ImageIconField_D = this.CreateImageIcon("obj16/methdef_obj");
 
         this.ImageIconMaide_D = this.CreateImageIcon("obj16/methpri_obj");
+        
+        this.ImageIconSourceFile_D = this.CreateImageIconLocal("sourcefile.gif");
+        
+        this.ImageIconClassName_D = this.CreateImageIcon("obj16/methpub_obj");
 
-        this.ImageIconBaseName_D = this.CreateImageIcon("etool16/shift_r_edit");
+        this.ImageIconBaseName_D = this.CreateImageIcon("obj16/methpro_obj");
         
         this.Infra_D = new Infra();
         this.Infra_D.Init();
@@ -59,6 +47,26 @@ public class Plugin extends AbstractUIPlugin
         this.DocumentThread().start();
         return true;
     }
+    
+    private Hashtable<IDocument, Document> DocumentTable_D;
+
+    private DocumentThread DocumentThread_D;
+
+    private NetworkStartThread NetworkStartThread_D;
+
+    private Image ImageIconClass_D;
+
+    private Image ImageIconField_D;
+
+    private Image ImageIconMaide_D;
+    
+    private Image ImageIconSourceFile_D;
+    
+    private Image ImageIconClassName_D;
+    
+    private Image ImageIconBaseName_D;
+
+    private Infra Infra_D;
 
     public Hashtable<IDocument, Document> DocumentTable()
     {
@@ -89,7 +97,17 @@ public class Plugin extends AbstractUIPlugin
     {
         return this.ImageIconMaide_D;
     }
-
+    
+    public Image ImageIconSourceFile()
+    {
+        return this.ImageIconSourceFile_D;
+    }
+    
+    public Image ImageIconClassName()
+    {
+        return this.ImageIconClassName_D;
+    }
+    
     public Image ImageIconBaseName()
     {
         return this.ImageIconBaseName_D;
@@ -104,6 +122,17 @@ public class Plugin extends AbstractUIPlugin
     {
         ImageDescriptor k;
         k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
+
+        Image a;
+        a = k.createImage();
+
+        return a;
+    }
+    
+    private Image CreateImageIconLocal(String name)
+    {
+        ImageDescriptor k;
+        k = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/" + name);
 
         Image a;
         a = k.createImage();

@@ -30,7 +30,7 @@ public class TreeLabelProvider implements ILabelProvider
         
         if (element instanceof ClassName)
         {
-            return plugin.ImageIconClass();
+            return plugin.ImageIconClassName();
         }
         if (element instanceof BaseName)
         {

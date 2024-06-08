@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.startup">
-         <startup class="org.aaabbb.eclass.Startup"/>
-   </extension>
+   
+  	<extension
+  		point="org.eclipse.core.runtime.adapters">
+	  <factory
+	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
+	    class="org.aaabbb.eclass.OutlineAdapterFactory">
+	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
+	  </factory>
+	</extension>
    
     <extension
     	point="org.eclipse.core.contenttype.contentTypes">
@@ -16,6 +21,19 @@
 			priority="normal">
 		</content-type>
    </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+         <startup class="org.aaabbb.eclass.Startup"/>
+   </extension>
+   
+	<extension
+    	point="org.eclipse.e4.ui.css.swt.theme">
+      <theme
+            basestylesheeturi="css/default.css"
+            id="org.aaabbb.eclass.css.default"
+            label="EClass">
+      </theme>
+   	</extension>
 
    <extension
          point="org.eclipse.tm4e.registry.grammars">
@@ -42,6 +60,14 @@
              path="./theme/class.css"
              default="true" />
    </extension>
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.aaabbb.eclass.class"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
   
    <extension
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
@@ -52,36 +78,10 @@
    </extension>
    
    <extension
-         point="org.eclipse.ui.editors">
-      <editorContentTypeBinding
-            contentTypeId="org.aaabbb.eclass.class"
-            editorId="org.eclipse.ui.genericeditor.GenericEditor">
-      </editorContentTypeBinding>
-   </extension>
-   
-   <extension
      	point="org.eclipse.ui.genericeditor.icons">
       <icon
             contentType="org.aaabbb.eclass.class"
-            icon="platform:/plugin/org.eclipse.jdt.ui/icons/full/elcl16/class_obj.png">
+            icon="./icon/sourcefile.gif">
       </icon>
    </extension>
-   
-  	<extension
-  		point="org.eclipse.core.runtime.adapters">
-	  <factory
-	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
-	    class="org.aaabbb.eclass.OutlineAdapterFactory">
-	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
-	  </factory>
-	</extension>
-   
-	<extension
-    	point="org.eclipse.e4.ui.css.swt.theme">
-      <theme
-            basestylesheeturi="css/default.css"
-            id="org.aaabbb.eclass.css.default"
-            label="EClass">
-      </theme>
-   	</extension>
 </plugin>
