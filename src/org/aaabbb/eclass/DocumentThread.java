@@ -217,29 +217,8 @@ public class DocumentThread extends Thread
                 String text;
                 text = oo.Load.Text;
 
-                int charCount;
-                charCount = text.length();
-                
-                int byteCount;
-                byteCount = charCount * 2;
-                
-                int dataCount;
-                dataCount = byteCount + 4;
-                
                 byte[] data;
-                data = new byte[dataCount];
-                
-                ByteBuffer o;
-                o = ByteBuffer.wrap(data);
-
-                o.order(ByteOrder.LITTLE_ENDIAN);
-                
-                o.putInt(0, byteCount);
-                
-                Infra infra;
-                infra = Plugin.This().Infra();
-                
-                infra.DataGetString(data, 4, text);
+                data = this.OutData(text);
                 
                 boolean ba;
                 ba = this.OutWrite(data);
@@ -347,6 +326,35 @@ public class DocumentThread extends Thread
             return null;
         }
 
+        return data;
+    }
+    
+    private byte[] OutData(String text)
+    {
+        int charCount;
+        charCount = text.length();
+        
+        int byteCount;
+        byteCount = charCount * 2;
+        
+        int dataCount;
+        dataCount = byteCount + 4;
+        
+        byte[] data;
+        data = new byte[dataCount];
+        
+        ByteBuffer o;
+        o = ByteBuffer.wrap(data);
+
+        o.order(ByteOrder.LITTLE_ENDIAN);
+        
+        o.putInt(0, byteCount);
+        
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
+        infra.DataGetString(data, 4, text);
+        
         return data;
     }
 
