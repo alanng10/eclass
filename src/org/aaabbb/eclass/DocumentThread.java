@@ -174,7 +174,8 @@ public class DocumentThread extends Thread
         Log.This().Info("DocumentThread.run BBBB");
     }
 
-    private void runA()
+    @SuppressWarnings("unused")
+	private void runA()
     {
         this.ExecuteA();
         
