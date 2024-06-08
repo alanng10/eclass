@@ -79,7 +79,7 @@ public class ClassRead extends Any
         ClassName a;
         a = new ClassName();
         a.Init();
-        a.Value = value;
+        a.ValueSet(value);
         return a;
     }
     
@@ -95,7 +95,7 @@ public class ClassRead extends Any
         BaseName a;
         a = new BaseName();
         a.Init();
-        a.Value = value;
+        a.ValueSet(value);
         return a;
     }
 
@@ -158,7 +158,6 @@ public class ClassRead extends Any
         a.ClassSet(varClass);
         a.NameSet(name);
         a.CountSet(count);
-        a.Parent = c;
         return a;
     }
 
@@ -225,11 +224,10 @@ public class ClassRead extends Any
         Maide a;
         a = new Maide();
         a.Init();
-        a.Class = varClass;
-        a.Name = name;
-        a.Count = count;
-        a.Param = param;
-        a.Parent = c;
+        a.ClassSet(varClass);
+        a.NameSet(name);
+        a.CountSet(count);
+        a.ParamSet(param);
         return a;
     }
 
@@ -282,8 +280,8 @@ public class ClassRead extends Any
         Var a;
         a = new Var();
         a.Init();
-        a.Class = varClass;
-        a.Name = name;
+        a.ClassSet(varClass);
+        a.NameSet(name);
         return a;
     }
 

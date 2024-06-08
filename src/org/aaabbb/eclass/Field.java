@@ -40,7 +40,4 @@ public class Field extends Any
     }
     
     protected int Count_D;
-
-
-    public Class Parent;
 }

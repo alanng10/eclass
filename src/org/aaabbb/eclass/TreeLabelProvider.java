@@ -60,13 +60,13 @@ public class TreeLabelProvider implements ILabelProvider
         {
             ClassName aa;
             aa = (ClassName)element;
-            return aa.Value;
+            return aa.Value();
         }
         if (element instanceof BaseName)
         {
             BaseName an;
             an = (BaseName)element;
-            return an.Value;
+            return an.Value();
         }
         if (element instanceof Field)
         {
@@ -78,7 +78,7 @@ public class TreeLabelProvider implements ILabelProvider
         {
             Maide ac;
             ac = (Maide)element;
-            return ac.Name;
+            return ac.Name();
         }
         return null;
     }
