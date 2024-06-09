@@ -33,7 +33,7 @@ public class DocumentListener extends Any implements IDocumentListener
         String text;
         text = a.IDocument().get();
 
-        a.Load().Text = text;
+        a.Load().TextSet(text);
 
         Plugin.This().Infra().DocumentSchedule(a);
 

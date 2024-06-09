@@ -150,7 +150,7 @@ public class DocumentThread extends Thread
 
                 k.ClassSet(a);
 
-                oo.Load().Root = k;
+                oo.Load().RootSet(k);
 
                 this.N = this.N + 1;
 
@@ -215,7 +215,7 @@ public class DocumentThread extends Thread
             if (!(oo == null))
             {
                 String text;
-                text = oo.Load().Text;
+                text = oo.Load().Text();
 
                 byte[] data;
                 data = this.OutData(text);
@@ -246,7 +246,7 @@ public class DocumentThread extends Thread
 
                         a.ClassSet(varClass);
 
-                        oo.Load().Root = a;
+                        oo.Load().RootSet(a);
 
                         classRead.ClassSet(null);
                         classRead.DataSet(null);

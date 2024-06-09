@@ -29,7 +29,7 @@ public class OutlineUpdateJob extends Job
     	
         if (!(ka == null))
         {
-            ka.Update(a.Load().Root);
+            ka.Update(a.Load().Root());
         }
     	
     	return Status.OK_STATUS;
