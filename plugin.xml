@@ -21,6 +21,14 @@
 			priority="normal">
 		</content-type>
    </extension>
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.aaabbb.eclass.class"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
    <extension
          point="org.eclipse.ui.startup">
          <startup class="org.aaabbb.eclass.Startup"/>
@@ -59,14 +67,6 @@
              name="Aaa Bbb Class Theme"
              path="./theme/class.css"
              default="true" />
-   </extension>
-   
-   <extension
-         point="org.eclipse.ui.editors">
-      <editorContentTypeBinding
-            contentTypeId="org.aaabbb.eclass.class"
-            editorId="org.eclipse.ui.genericeditor.GenericEditor">
-      </editorContentTypeBinding>
    </extension>
   
    <extension
