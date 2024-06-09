@@ -6,13 +6,30 @@ import org.eclipse.core.runtime.Status;
 
 public class OutlineUpdateJob extends Job
 {	
-	public Document Document;
+    public Document Document()
+    {
+    	return this.Document_D;
+    }
+    
+    public boolean DocumentSet(Document value)
+    {
+    	this.Document_D = value;
+    	return true;
+    }
+   
+    protected Document Document_D;
 	
     public IStatus runInUIThread(IProgressMonitor monitor)
     {
-        if (!(this.Document.OutlinePage == null))
+    	Document a;
+    	a = this.Document();
+    	
+    	OutlinePage ka;
+    	ka = a.OutlinePage();
+    	
+        if (!(ka == null))
         {
-            this.Document.OutlinePage.Update(this.Document.Load.Root);
+            ka.Update(a.Load().Root);
         }
     	
     	return Status.OK_STATUS;

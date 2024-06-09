@@ -25,12 +25,12 @@ public class Infra extends Any
         DocumentJob job;
         job = new DocumentJob();
         job.Init();
-        job.Document = a;
+        job.DocumentSet(a);
 
         DocumentListener listener;
         listener = new DocumentListener();
         listener.Init();
-        listener.Document = a;
+        listener.DocumentSet(a);
 
         DocumentLoad load;
         load = new DocumentLoad();
@@ -40,22 +40,22 @@ public class Infra extends Any
         page = new OutlinePage();
         page.Init();
 
-        a.IDocument = o;
-        a.Job = job;
-        a.Listener = listener;
-        a.Load = load;
-        a.OutlinePage = page;
+        a.IDocumentSet(o);
+        a.JobSet(job);
+        a.ListenerSet(listener);
+        a.LoadSet(load);
+        a.OutlinePageSet(page);
 
-        a.IDocument.addDocumentListener(listener);
+        o.addDocumentListener(listener);
 
-        Plugin.This().DocumentTable().put(a.IDocument, a);
+        Plugin.This().DocumentTable().put(a.IDocument(), a);
 
         return a;
     }
 
     public boolean DocumentSchedule(Document a)
     {
-        a.Job.Schedule(1000);
+        a.Job().Schedule(1000);
         return true;
     }
 

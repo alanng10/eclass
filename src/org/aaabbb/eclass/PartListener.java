@@ -6,7 +6,7 @@ import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
 
-public class PartListener implements IPartListener2
+public class PartListener extends Any implements IPartListener2
 {
     private IDocument ClassIDocument(IWorkbenchPartReference partRef)
     {
@@ -71,11 +71,11 @@ public class PartListener implements IPartListener2
             a = Plugin.This().DocumentTable().get(o);
             
             OutlinePage aa;
-            aa = a.OutlinePage;
+            aa = a.OutlinePage();
             
             aa.Final();
             
-            a.OutlinePage = null;
+            a.OutlinePageSet(null);
             
             Plugin.This().DocumentTable().remove(o);
         }

@@ -150,7 +150,7 @@ public class DocumentThread extends Thread
 
                 k.ClassSet(a);
 
-                oo.Load.Root = k;
+                oo.Load().Root = k;
 
                 this.N = this.N + 1;
 
@@ -159,7 +159,7 @@ public class DocumentThread extends Thread
                 OutlineUpdateJob job;
                 job = new OutlineUpdateJob();
                 job.Init();
-                job.Document = oo;
+                job.DocumentSet(oo);
 
                 Log.This().Info("DocumentThread.run 8888");
 
@@ -215,7 +215,7 @@ public class DocumentThread extends Thread
             if (!(oo == null))
             {
                 String text;
-                text = oo.Load.Text;
+                text = oo.Load().Text;
 
                 byte[] data;
                 data = this.OutData(text);
@@ -246,7 +246,7 @@ public class DocumentThread extends Thread
 
                         a.ClassSet(varClass);
 
-                        oo.Load.Root = a;
+                        oo.Load().Root = a;
 
                         classRead.ClassSet(null);
                         classRead.DataSet(null);

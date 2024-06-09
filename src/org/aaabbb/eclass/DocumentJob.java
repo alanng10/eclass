@@ -6,14 +6,25 @@ import org.eclipse.core.runtime.Status;
 
 public class DocumentJob extends Job
 {
-    public Document Document;
+    public Document Document()
+    {
+    	return this.Document_D;
+    }
+    
+    public boolean DocumentSet(Document value)
+    {
+    	this.Document_D = value;
+    	return true;
+    }
+   
+    protected Document Document_D;
 
     public IStatus runInUIThread(IProgressMonitor monitor)
     {
         Log.This().Info("DocumentJob.runInUIThread 1111");
 
         Document o;
-        o = this.Document;
+        o = this.Document();
 
         Log.This().Info("DocumentJob.runInUIThread 2222");
 

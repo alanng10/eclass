@@ -26,6 +26,7 @@ public class Startup implements IStartup
 
         PartListener aa;
         aa = new PartListener();
+        aa.Init();
 
         activePage.addPartListener(aa);
 

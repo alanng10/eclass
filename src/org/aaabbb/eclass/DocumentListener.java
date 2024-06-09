@@ -1,17 +1,22 @@
 package org.aaabbb.eclass;
 
 import org.eclipse.jface.text.DocumentEvent;
-import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentListener;
 
-public class DocumentListener implements IDocumentListener
-{
-    public boolean Init()
+public class DocumentListener extends Any implements IDocumentListener
+{   
+    public Document Document()
     {
-        return true;
+    	return this.Document_D;
     }
     
-    public Document Document;
+    public boolean DocumentSet(Document value)
+    {
+    	this.Document_D = value;
+    	return true;
+    }
+   
+    protected Document Document_D;
 
     public void documentAboutToBeChanged(DocumentEvent event)
     {
@@ -22,15 +27,15 @@ public class DocumentListener implements IDocumentListener
     {
         Log.This().Info("Document Changed");
 
-        IDocument document;
-        document = event.getDocument();
-
+        Document a;
+        a = this.Document();
+        
         String text;
-        text = document.get();
+        text = a.IDocument().get();
 
-        this.Document.Load.Text = text;
+        a.Load().Text = text;
 
-        this.Document.Job.Schedule(1000);
+        Plugin.This().Infra().DocumentSchedule(a);
 
         Log.This().Info("Text: " + text);
     }
