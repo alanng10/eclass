@@ -308,13 +308,12 @@ public class ClassRead extends Any
             return -1;
         }
         
-        int a;
-        a = this.DataBuffer.get();
-        if (a < 0)
-        {
-            return -1;
-        }
+        byte k;
+        k = this.DataBuffer.get();
         
+        int a;
+        a = k;
+        a = a & 0xff;
         return a;
     }
 }
