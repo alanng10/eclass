@@ -13,8 +13,6 @@ public class Startup implements IStartup
 {
     public void earlyStartup()
     {
-        Log.This().Info("Startup");
-
         IWorkbench k;
         k = PlatformUI.getWorkbench();
 
