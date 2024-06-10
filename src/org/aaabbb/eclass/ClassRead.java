@@ -30,6 +30,19 @@ public class ClassRead extends Any
     }
     
     protected Class Class_D;
+    
+    public int Status()
+    {
+    	return this.Status_D;
+    }
+    
+    public boolean StatusSet(int value)
+    {
+    	this.Status_D = value;
+    	return true;
+    }
+    
+    protected int Status_D;
 
     private ByteBuffer DataBuffer;
 
@@ -68,24 +81,17 @@ public class ClassRead extends Any
             return null;
         }
 
-        Field[] field;
-        field = this.ExecuteFieldArray(a);
-        if (field == null)
+        Comp[] comp;
+        comp = this.ExecuteCompArray();
+        if (comp == null)
         {
             return null;
         }
         
-        Maide[] maide;
-        maide = this.ExecuteMaideArray(a);
-        if (maide == null)
-        {
-            return null;
-        }
 
         a.NameSet(name);
         a.BaseSet(base);
-        a.FieldSet(field);
-        a.MaideSet(maide);
+        a.CompSet(comp);
         return a;
     }
     
@@ -121,7 +127,7 @@ public class ClassRead extends Any
         return a;
     }
 
-    private Field[] ExecuteFieldArray(Class c)
+    private Field[] ExecuteFieldArray()
     {
         int count;
         count = this.ExecuteInt();
@@ -138,7 +144,7 @@ public class ClassRead extends Any
         while (i < count)
         {
             Field a;
-            a = this.ExecuteField(c);
+            a = this.ExecuteField();
             if (a == null)
             {
                 return null;
@@ -151,22 +157,22 @@ public class ClassRead extends Any
         return array;
     }
 
-    private Field ExecuteField(Class c)
+    private Field ExecuteField()
     {
-        String varClass;
-        varClass = this.ExecuteString();
-        if (varClass == null)
-        {
-            return null;
-        }
+    	String varClass;
+    	varClass = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
+    	
+    	String name;
+    	name = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
         
-        String name;
-        name = this.ExecuteString();
-        if (name == null)
-        {
-            return null;
-        }
-
         int count;
         count = this.ExecuteByte();
         if (count == -1)
@@ -183,51 +189,21 @@ public class ClassRead extends Any
         return a;
     }
 
-    private Maide[] ExecuteMaideArray(Class c)
+    private Maide ExecuteMaide()
     {
-        int count;
-        count = this.ExecuteInt();
-        if (count == -1)
-        {
-            return null;
-        }
-        
-        Maide[] array;
-        array = new Maide[count];
-
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            Maide a;
-            a = this.ExecuteMaide(c);
-            if (a == null)
-            {
-                return null;
-            }
-
-            array[i] = a;
-
-            i = i + 1;
-        }
-        return array;
-    }
-
-    private Maide ExecuteMaide(Class c)
-    {
-        String varClass;
-        varClass = this.ExecuteString();
-        if (varClass == null)
-        {
-            return null;
-        }
-        
-        String name;
-        name = this.ExecuteString();
-        if (name == null)
-        {
-            return null;
-        }
+    	String varClass;
+    	varClass = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
+    	
+    	String name;
+    	name = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
         
         int count;
         count = this.ExecuteByte();
@@ -243,6 +219,40 @@ public class ClassRead extends Any
         a.NameSet(name);
         a.CountSet(count);
         return a;
+    }
+    
+    private String ExecuteOptionalString()
+    {
+    	int aa;
+    	boolean b;
+    	
+    	aa = this.ExecuteByte();
+    	if (aa == -1)
+    	{
+    		return null;
+    	}
+    	
+    	b = this.IsNull(aa);
+    	
+    	String a;
+    	a = null;
+    	if (!b)
+    	{
+            a = this.ExecuteString();
+    	}
+    	return a;
+    }
+    
+    private boolean IsNull(int k)
+    {
+    	boolean a;
+    	a = false;
+    	
+    	if (k == 0)
+    	{
+    		a = true;
+    	}
+    	return a;
     }
 
     private String ExecuteString()
@@ -288,6 +298,7 @@ public class ClassRead extends Any
     {
         if (this.DataBuffer.remaining() < 4)
         {
+        	this.StatusSet(2);
             return -1;
         }
         
@@ -295,6 +306,7 @@ public class ClassRead extends Any
         a = this.DataBuffer.getInt();
         if (a < 0)
         {
+        	this.StatusSet(3);
             return -1;
         }
         
@@ -305,6 +317,7 @@ public class ClassRead extends Any
     {
         if (this.DataBuffer.remaining() < 1)
         {
+        	this.StatusSet(1);
             return -1;
         }
         

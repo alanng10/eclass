@@ -28,29 +28,16 @@ public class Class extends Any
     
     protected BaseName Base_D;
 
-    public Field[] Field()
+    public Comp[] Comp()
     {
-        return this.Field_D;
+        return this.Comp_D;
     }
     
-    public boolean FieldSet(Field[] value)
+    public boolean CompSet(Comp[] value)
     {
-        this.Field_D = value;
+        this.Comp_D = value;
         return true;
     }
     
-    protected Field[] Field_D;
-
-    public Maide[] Maide()
-    {
-        return this.Maide_D;
-    }
-    
-    public boolean MaideSet(Maide[] value)
-    {
-        this.Maide_D = value;
-        return true;
-    }
-    
-    protected Maide[] Maide_D;
+    protected Comp[] Comp_D;
 }
