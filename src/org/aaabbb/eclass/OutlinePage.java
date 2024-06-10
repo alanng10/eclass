@@ -17,7 +17,20 @@ public class OutlinePage extends ContentOutlinePage
         return true;
     }
     
-    public boolean Update(Root a)
+    public Document Document()
+    {
+    	return this.Document_D;
+    }
+    
+    public boolean DocumentSet(Document value)
+    {
+    	this.Document_D = value;
+    	return true;
+    }
+   
+    protected Document Document_D;
+    
+    public boolean Update()
     {
         Log.This().Info("OutlinePage.Update 1111");
 
@@ -34,6 +47,8 @@ public class OutlinePage extends ContentOutlinePage
         
         Log.This().Info("OutlinePage.Update 4444");
         
+        Root a;
+        a = this.Document().Load().Root();
         Object k;
         k = null;
         if (!(a == null))
@@ -84,8 +99,17 @@ public class OutlinePage extends ContentOutlinePage
 
         Log.This().Info("OutlinePage.createControl 8888");
 
-        viewer.setInput(null);
+        Root a;
+        a = this.Document().Load().Root();
+        Object k;
+        k = null;
+        if (!(a == null))
+        {
+        	Log.This().Info("OutlinePage.createControl 9999");
+        	k = a.Class();
+        }
+        viewer.setInput(k);
         
-        Log.This().Info("OutlinePage.createControl 9999");
+        Log.This().Info("OutlinePage.createControl AAAA");
     }
 }

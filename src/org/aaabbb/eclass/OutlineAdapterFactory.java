@@ -60,7 +60,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 OutlinePage a;
                 a = aa.OutlinePage();
                 
-                a.Update(aa.Load().Root());
+                a.Update();
 
                 Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
 
