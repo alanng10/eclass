@@ -17,6 +17,25 @@ public class OutlinePage extends ContentOutlinePage
         return true;
     }
     
+    public void dispose() {
+    	super.dispose();
+    
+    	this.IsFinalSet(true);
+    }
+    
+    public boolean IsFinal()
+    {
+    	return this.IsFinal_D;
+    }
+    
+    public boolean IsFinalSet(boolean value)
+    {
+    	this.IsFinal_D = value;
+    	return true;
+    }
+   
+    protected boolean IsFinal_D;
+    
     public Document Document()
     {
     	return this.Document_D;

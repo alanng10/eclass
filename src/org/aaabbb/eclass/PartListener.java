@@ -10,7 +10,8 @@ public class PartListener extends Any implements IPartListener2
 {
     private IDocument ClassIDocument(IWorkbenchPartReference partRef)
     {
-        IWorkbenchPart part = partRef.getPart(false);
+        IWorkbenchPart part;
+        part = partRef.getPart(false);
         if (part instanceof IEditorPart)
         {
             IEditorPart editor;
