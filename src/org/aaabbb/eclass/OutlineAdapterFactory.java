@@ -11,12 +11,8 @@ public class OutlineAdapterFactory implements IAdapterFactory
     @SuppressWarnings("unchecked")
     public <T> T getAdapter(Object adaptableObject, java.lang.Class<T> required)
     {
-        Log.This().Info("OutlineAdapterFactory.getAdapter 1111");
-
         if (IContentOutlinePage.class.equals(required))
         {
-            Log.This().Info("OutlineAdapterFactory.getAdapter 2222");
-
             AbstractTextEditor editor;
             editor = (AbstractTextEditor)adaptableObject;
 
@@ -31,8 +27,6 @@ public class OutlineAdapterFactory implements IAdapterFactory
 
             if (!(ka == null))
             {
-                Log.This().Info("OutlineAdapterFactory.getAdapter 6666");
-
                 Document aa;
                 aa = Plugin.This().DocumentTable().get(ka);
 
@@ -41,14 +35,11 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 
                 if (b)
                 {
-                    Log.This().Info("OutlineAdapterFactory.getAdapter 8888");
                     aa = infra.DocumentCreate(ka);
                 }
                 
                 if (!b)
-                {
-                	Log.This().Info("OutlineAdapterFactory.getAdapter AAAA");
-                	
+                {                	
                 	boolean ba;
                 	ba = false;
                 	
@@ -87,14 +78,10 @@ public class OutlineAdapterFactory implements IAdapterFactory
             	a = aa.OutlinePage();
                 
                 a.Update();
-                
-                Log.This().Info("OutlineAdapterFactory.getAdapter EEEE");
 
                 return (T)a;
             }
         }
-
-        Log.This().Info("OutlineAdapterFactory.getAdapter FFFF");
         return null;
     }
 

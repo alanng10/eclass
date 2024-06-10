@@ -7,13 +7,11 @@ public class TreeContentProvider implements ITreeContentProvider
 {
     private Object[] ArrayEmpty = new Object[0];
 
-    @Override
     public Object[] getElements(Object inputElement)
     {
         return this.getChildren(inputElement);
     }
 
-    @Override
     public Object[] getChildren(Object parentElement)
     {
         if (parentElement instanceof Class)

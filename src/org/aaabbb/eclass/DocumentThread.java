@@ -66,25 +66,17 @@ public class DocumentThread extends Thread
 
     public void run()
     {
-        Log.This().Info("DocumentThread.run 1111");
-
         boolean b;
         b = false;
 
-        Log.This().Info("DocumentThread.run 2222");
-
         while (!b)
         {
-            Log.This().Info("DocumentThread.run 3333");
-
             try
             {
                 this.Phore().acquire();
             } catch (InterruptedException e)
             {
             }
-
-            Log.This().Info("DocumentThread.run 4444");
 
             Document oo;
             oo = null;
@@ -93,12 +85,8 @@ public class DocumentThread extends Thread
                 oo = this.Queue().poll();
             }
 
-            Log.This().Info("DocumentThread.run 5555");
-
             if (!(oo == null))
             {
-                Log.This().Info("DocumentThread.run 6666");
-
                 Root k;
                 k = new Root();
                 k.Init();
@@ -154,24 +142,14 @@ public class DocumentThread extends Thread
 
                 this.N = this.N + 1;
 
-                Log.This().Info("DocumentThread.run 7777");
-
                 OutlineUpdateJob job;
                 job = new OutlineUpdateJob();
                 job.Init();
                 job.DocumentSet(oo);
 
-                Log.This().Info("DocumentThread.run 8888");
-
                 job.Schedule(0);
-
-                Log.This().Info("DocumentThread.run 9999");
             }
-
-            Log.This().Info("DocumentThread.run AAAA");
         }
-
-        Log.This().Info("DocumentThread.run BBBB");
     }
 
     @SuppressWarnings("unused")

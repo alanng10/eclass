@@ -20,13 +20,10 @@ public class DocumentListener extends Any implements IDocumentListener
 
     public void documentAboutToBeChanged(DocumentEvent event)
     {
-        Log.This().Info("Document About to Change");
     }
 
     public void documentChanged(DocumentEvent event)
     {
-        Log.This().Info("Document Changed");
-
         Document a;
         a = this.Document();
         
