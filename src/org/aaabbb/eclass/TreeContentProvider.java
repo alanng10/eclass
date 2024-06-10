@@ -22,11 +22,17 @@ public class TreeContentProvider extends Any implements ITreeContentProvider
             int countK;
             countK = 2;
             
-            int count;
-            count = countK + a.Field().length + a.Maide().length;
+            Comp[] compArray;
+            compArray = a.Comp();
+            
+            int compCount;
+            compCount = compArray.length;
+            
+            int arrayCount;
+            arrayCount = countK + compCount;
 
             Object[] array;
-            array = new Object[count];
+            array = new Object[arrayCount];
 
             array[0] = a.Name();
             
@@ -35,26 +41,14 @@ public class TreeContentProvider extends Any implements ITreeContentProvider
             int start;
             start = countK;
             
-            int countA;
-            countA = a.Field().length;
-
+            int count;
+            count = compCount;
+            
             int i;
             i = 0;
-            while (i < countA)
+            while (i < count)
             {
-                array[start + i] = a.Field()[i];
-
-                i = i + 1;
-            }
-
-            start = start + countA;
-
-            countA = a.Maide().length;
-
-            i = 0;
-            while (i < countA)
-            {
-                array[start + i] = a.Maide()[i];
+                array[start + i] = compArray[i];
 
                 i = i + 1;
             }

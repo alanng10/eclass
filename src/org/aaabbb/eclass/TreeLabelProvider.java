@@ -36,13 +36,22 @@ public class TreeLabelProvider extends Any implements ILabelProvider
         {
             return plugin.ImageIconBaseName();
         }
-        if (element instanceof Field)
+        if (element instanceof Comp)
         {
-            return plugin.ImageIconField();
-        }
-        if (element instanceof Maide)
-        {
-            return plugin.ImageIconMaide();
+        	Comp comp;
+        	comp = (Comp)element;
+        	
+        	int kind;
+        	kind = comp.Kind();
+        	
+        	if (kind == 0)
+        	{
+        		return plugin.ImageIconField();
+        	}
+        	if (kind == 1)
+        	{
+        		return plugin.ImageIconMaide();
+        	}
         }
         return null;
     }
@@ -61,17 +70,11 @@ public class TreeLabelProvider extends Any implements ILabelProvider
             an = (BaseName)element;
             return an.Value();
         }
-        if (element instanceof Field)
+        if (element instanceof Comp)
         {
-            Field ab;
-            ab = (Field)element;
+            Comp ab;
+            ab = (Comp)element;
             return ab.Name();
-        }
-        if (element instanceof Maide)
-        {
-            Maide ac;
-            ac = (Maide)element;
-            return ac.Name();
         }
         return null;
     }

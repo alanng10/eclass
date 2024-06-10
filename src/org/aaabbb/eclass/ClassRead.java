@@ -87,7 +87,6 @@ public class ClassRead extends Any
         {
             return null;
         }
-        
 
         a.NameSet(name);
         a.BaseSet(base);
@@ -127,7 +126,7 @@ public class ClassRead extends Any
         return a;
     }
 
-    private Field[] ExecuteFieldArray()
+    private Comp[] ExecuteCompArray()
     {
         int count;
         count = this.ExecuteInt();
@@ -136,15 +135,15 @@ public class ClassRead extends Any
             return null;
         }
         
-        Field[] array;
-        array = new Field[count];
+        Comp[] array;
+        array = new Comp[count];
 
         int i;
         i = 0;
         while (i < count)
         {
-            Field a;
-            a = this.ExecuteField();
+            Comp a;
+            a = this.ExecuteComp();
             if (a == null)
             {
                 return null;
@@ -157,8 +156,15 @@ public class ClassRead extends Any
         return array;
     }
 
-    private Field ExecuteField()
+    private Comp ExecuteComp()
     {
+        int kind;
+        kind = this.ExecuteByte();
+        if (kind == -1)
+        {
+            return null;
+        }
+    	
     	String varClass;
     	varClass = this.ExecuteOptionalString();
     	if (!(this.Status() == 0))
@@ -180,41 +186,10 @@ public class ClassRead extends Any
             return null;
         }
         
-        Field a;
-        a = new Field();
+        Comp a;
+        a = new Comp();
         a.Init();
-        a.ClassSet(varClass);
-        a.NameSet(name);
-        a.CountSet(count);
-        return a;
-    }
-
-    private Maide ExecuteMaide()
-    {
-    	String varClass;
-    	varClass = this.ExecuteOptionalString();
-    	if (!(this.Status() == 0))
-    	{
-    		return null;
-    	}
-    	
-    	String name;
-    	name = this.ExecuteOptionalString();
-    	if (!(this.Status() == 0))
-    	{
-    		return null;
-    	}
-        
-        int count;
-        count = this.ExecuteByte();
-        if (count == -1)
-        {
-            return null;
-        }
-        
-        Maide a;
-        a = new Maide();
-        a.Init();
+        a.KindSet(kind);
         a.ClassSet(varClass);
         a.NameSet(name);
         a.CountSet(count);
