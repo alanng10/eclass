@@ -8,96 +8,96 @@ import org.eclipse.ui.IWorkbenchPartReference;
 
 public class PartListener extends Any implements IPartListener2
 {
-    private IDocument ClassIDocument(IWorkbenchPartReference partRef)
-    {
-        IWorkbenchPart part;
-        part = partRef.getPart(false);
-        if (part instanceof IEditorPart)
-        {
-            IEditorPart editor;
-            editor = (IEditorPart) part;
+	private IDocument ClassIDocument(IWorkbenchPartReference partRef)
+	{
+		IWorkbenchPart part;
+		part = partRef.getPart(false);
+		if (part instanceof IEditorPart)
+		{
+			IEditorPart editor;
+			editor = (IEditorPart)part;
 
-            IDocument a;
-            a = Plugin.This().Infra().EditorDocument(editor);
-            return a;
-        }
-        return null;
-    }
+			IDocument a;
+			a = Plugin.This().Infra().EditorDocument(editor);
+			return a;
+		}
+		return null;
+	}
 
-    private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
-    {
-        IDocument o;
-        o = this.ClassIDocument(partRef);
+	private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
+	{
+		IDocument o;
+		o = this.ClassIDocument(partRef);
 
-        if (!(o == null))
-        {
-            Infra infra;
-            infra = Plugin.This().Infra();
+		if (!(o == null))
+		{
+			Infra infra;
+			infra = Plugin.This().Infra();
 
-            Document a;
-            a = Plugin.This().DocumentTable().get(o);
-            
-            if (a == null)
-            {
-            	a = infra.DocumentCreate(o);
-            }
-            
-            infra.DocumentSchedule(a);
-        }
-        
-        return true;
-    }
+			Document a;
+			a = Plugin.This().DocumentTable().get(o);
 
-    public void partOpened(IWorkbenchPartReference partRef)
-    {
-        this.ClassDocumentNew(partRef);
-    }
+			if (a == null)
+			{
+				a = infra.DocumentCreate(o);
+			}
 
-    public void partClosed(IWorkbenchPartReference partRef)
-    {
-        IDocument o;
-        o = this.ClassIDocument(partRef);
+			infra.DocumentSchedule(a);
+		}
 
-        if (!(o == null))
-        {
-            Document a;
-            a = Plugin.This().DocumentTable().get(o);
-            
-            OutlinePage aa;
-            aa = a.OutlinePage();
-            
-            if (!aa.IsFinal())
-            {
-            	aa.Final();   
-            }
-            
-            a.OutlinePageSet(null);
-            
-            Plugin.This().DocumentTable().remove(o);
-        }
-    }
+		return true;
+	}
 
-    public void partInputChanged(IWorkbenchPartReference partRef)
-    {
-    }
+	public void partOpened(IWorkbenchPartReference partRef)
+	{
+		this.ClassDocumentNew(partRef);
+	}
 
-    public void partVisible(IWorkbenchPartReference partRef)
-    {
-    }
+	public void partClosed(IWorkbenchPartReference partRef)
+	{
+		IDocument o;
+		o = this.ClassIDocument(partRef);
 
-    public void partHidden(IWorkbenchPartReference partRef)
-    {
-    }
+		if (!(o == null))
+		{
+			Document a;
+			a = Plugin.This().DocumentTable().get(o);
 
-    public void partDeactivated(IWorkbenchPartReference partRef)
-    {
-    }
+			OutlinePage aa;
+			aa = a.OutlinePage();
 
-    public void partBroughtToTop(IWorkbenchPartReference partRef)
-    {
-    }
+			if (!aa.IsFinal())
+			{
+				aa.Final();
+			}
 
-    public void partActivated(IWorkbenchPartReference partRef)
-    {
-    }
+			a.OutlinePageSet(null);
+
+			Plugin.This().DocumentTable().remove(o);
+		}
+	}
+
+	public void partInputChanged(IWorkbenchPartReference partRef)
+	{
+	}
+
+	public void partVisible(IWorkbenchPartReference partRef)
+	{
+	}
+
+	public void partHidden(IWorkbenchPartReference partRef)
+	{
+	}
+
+	public void partDeactivated(IWorkbenchPartReference partRef)
+	{
+	}
+
+	public void partBroughtToTop(IWorkbenchPartReference partRef)
+	{
+	}
+
+	public void partActivated(IWorkbenchPartReference partRef)
+	{
+	}
 }
