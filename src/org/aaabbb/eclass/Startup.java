@@ -35,8 +35,11 @@ public class Startup implements IStartup
 
     private boolean CreateDocumentList(IWorkbenchPage page)
     {
+    	Plugin plugin;
+    	plugin = Plugin.This();
+    	
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = plugin.Infra();
 
         IEditorReference[] k;
         k = page.getEditorReferences();
@@ -60,13 +63,15 @@ public class Startup implements IStartup
 
                 if (!(aa == null))
                 {
-                    Document a;
-                    a = infra.DocumentCreate(aa);
-
-                    if (!(a == null))
-                    {
-                        infra.DocumentSchedule(a);
-                    }
+                	Document a;
+                	a = plugin.DocumentTable().get(aa);
+                	
+                	if (a == null)
+                	{
+                		a = infra.DocumentCreate(aa);	
+                	}
+                    
+                    infra.DocumentSchedule(a);
                 }
             }
 
