@@ -74,7 +74,10 @@ public class PartListener extends Any implements IPartListener2
             OutlinePage aa;
             aa = a.OutlinePage();
             
-            aa.Final();
+            if (!aa.IsFinal())
+            {
+            	aa.Final();   
+            }
             
             a.OutlinePageSet(null);
             
