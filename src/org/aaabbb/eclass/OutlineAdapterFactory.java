@@ -54,15 +54,11 @@ public class OutlineAdapterFactory implements IAdapterFactory
                     aa = infra.DocumentCreate(ka);
 
                     Log.This().Info("OutlineAdapterFactory.getAdapter 9999");
-
-                    infra.DocumentSchedule(aa);
-
-                    Log.This().Info("OutlineAdapterFactory.getAdapter AAAA");
                 }
                 
                 if (!b)
                 {
-                	Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
+                	Log.This().Info("OutlineAdapterFactory.getAdapter AAAA");
                 	
                 	boolean ba;
                 	ba = false;
@@ -95,14 +91,18 @@ public class OutlineAdapterFactory implements IAdapterFactory
                         aa.OutlinePageSet(kk);
                 	}
                     
-                    Log.This().Info("OutlineAdapterFactory.getAdapter CCCC");
+                    Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
                 }
+                
+                Log.This().Info("OutlineAdapterFactory.getAdapter CCCC");
+                
+                infra.DocumentSchedule(aa);
+                
+                Log.This().Info("OutlineAdapterFactory.getAdapter DDDD");
                 
                 OutlinePage a;
             	a = aa.OutlinePage();
                 
-            	Log.This().Info("OutlineAdapterFactory.getAdapter DDDD");
-            	
                 a.Update();
                 
                 Log.This().Info("OutlineAdapterFactory.getAdapter EEEE");
