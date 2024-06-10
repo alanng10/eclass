@@ -120,13 +120,6 @@ public class DocumentThread extends Thread
                 aa.NameSet("Count");
                 aa.ClassSet("Int");
 
-                Comp ab;
-                ab = new Comp();
-                ab.Init();
-                ab.KindSet(0);
-                ab.NameSet("Index");
-                ab.ClassSet("String");
-
                 Comp ac;
                 ac = new Comp();
                 ac.Init();
@@ -134,9 +127,16 @@ public class DocumentThread extends Thread
                 ac.NameSet("Execute");
                 ac.ClassSet("Bool");
                 
+                Comp ab;
+                ab = new Comp();
+                ab.Init();
+                ab.KindSet(0);
+                ab.NameSet("Index");
+                ab.ClassSet("String");
+
                 ak[0] = aa;
-                ak[1] = ab;
-               	ak[2] = ac;
+                ak[1] = ac;
+               	ak[2] = ab;
 
                 k.ClassSet(a);
 
