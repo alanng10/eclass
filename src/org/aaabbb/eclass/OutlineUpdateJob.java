@@ -21,6 +21,8 @@ public class OutlineUpdateJob extends Job
 	
     public IStatus runInUIThread(IProgressMonitor monitor)
     {
+    	Log.This().Info("OutlineUpdateJob.runInUIThread 1111");
+    	
     	Document a;
     	a = this.Document();
     	
@@ -31,10 +33,12 @@ public class OutlineUpdateJob extends Job
         {
         	if (!ka.IsFinal())
         	{
+            	Log.This().Info("OutlineUpdateJob.runInUIThread 2222");
         		ka.Update();
         	}
         }
-    	
+        
+    	Log.This().Info("OutlineUpdateJob.runInUIThread 3333");    	
     	return Status.OK_STATUS;
     }
 }
