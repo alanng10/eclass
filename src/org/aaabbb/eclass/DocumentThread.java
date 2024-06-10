@@ -132,7 +132,6 @@ public class DocumentThread extends Thread
                 ac.Init();
                 ac.NameSet("Execute");
                 ac.ClassSet("Bool");
-                ac.ParamSet(new Var[0]);
 
                 a.Maide()[0] = ac;
 

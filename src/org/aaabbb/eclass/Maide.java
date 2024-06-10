@@ -40,17 +40,4 @@ public class Maide extends Any
     }
     
     protected int Count_D;
-    
-    public Var[] Param()
-    {
-        return this.Param_D;
-    }
-    
-    public boolean ParamSet(Var[] value)
-    {
-        this.Param_D = value;
-        return true;
-    }
-    
-    protected Var[] Param_D;
 }

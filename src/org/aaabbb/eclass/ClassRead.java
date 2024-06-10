@@ -236,74 +236,12 @@ public class ClassRead extends Any
             return null;
         }
         
-        Var[] param;
-        param = this.ExecuteVarArray();
-        if (param == null)
-        {
-            return null;
-        }
-        
         Maide a;
         a = new Maide();
         a.Init();
         a.ClassSet(varClass);
         a.NameSet(name);
         a.CountSet(count);
-        a.ParamSet(param);
-        return a;
-    }
-
-    private Var[] ExecuteVarArray()
-    {
-        int count;
-        count = this.ExecuteInt();
-        if (count == -1)
-        {
-            return null;
-        }
-        
-        Var[] array;
-        array = new Var[count];
-
-        int i;
-        i = 0;
-        while (i < count)
-        {
-            Var a;
-            a = this.ExecuteVar();
-            if (a == null)
-            {
-                return null;
-            }
-
-            array[i] = a;
-
-            i = i + 1;
-        }
-        return array;
-    }
-
-    private Var ExecuteVar()
-    {
-        String varClass;
-        varClass = this.ExecuteString();
-        if (varClass == null)
-        {
-            return null;
-        }
-        
-        String name;
-        name = this.ExecuteString();
-        if (name == null)
-        {
-            return null;
-        }
-        
-        Var a;
-        a = new Var();
-        a.Init();
-        a.ClassSet(varClass);
-        a.NameSet(name);
         return a;
     }
 
@@ -324,14 +262,17 @@ public class ClassRead extends Any
         while (i < count)
         {
             int o;
-            o = this.ExecuteChar();
+            o = this.ExecuteByte();
             if (o == -1)
             {
                 return null;
             }
             
+            byte ob;
+            ob = (byte)o;
+            
             char oc;
-            oc = (char)o;
+            oc = (char)ob;
 
             array[i] = oc;
 
@@ -342,19 +283,7 @@ public class ClassRead extends Any
         a = String.valueOf(array);
         return a;
     }
-    
-    private int ExecuteChar()
-    {
-        if (this.DataBuffer.remaining() < 2)
-        {
-            return -1;
-        }
-        
-        int a;
-        a = this.DataBuffer.getChar();
-        return a;
-    }
-
+ 
     private int ExecuteInt()
     {
         if (this.DataBuffer.remaining() < 4)
