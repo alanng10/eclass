@@ -3,7 +3,7 @@ package org.aaabbb.eclass;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-public class TreeContentProvider implements ITreeContentProvider
+public class TreeContentProvider extends Any implements ITreeContentProvider
 {
     private Object[] ArrayEmpty = new Object[0];
 

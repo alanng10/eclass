@@ -88,10 +88,12 @@ public class OutlinePage extends ContentOutlinePage
 
         TreeContentProvider aa;
         aa = new TreeContentProvider();
+        aa.Init();
 
         TreeLabelProvider ab;
         ab = new TreeLabelProvider();
-
+        ab.Init();
+        
         TreeViewer viewer;
         viewer = this.getTreeViewer();
 

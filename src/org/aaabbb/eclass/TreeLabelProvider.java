@@ -4,7 +4,7 @@ import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.swt.graphics.Image;
 
-public class TreeLabelProvider implements ILabelProvider
+public class TreeLabelProvider extends Any implements ILabelProvider
 {
     public void addListener(ILabelProviderListener listener)
     {
