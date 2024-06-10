@@ -56,7 +56,17 @@ public class OutlineAdapterFactory implements IAdapterFactory
 
                     Log.This().Info("OutlineAdapterFactory.getAdapter AAAA");
                 }
-
+                
+                OutlinePage kkk;
+                kkk = aa.OutlinePage();
+                if (!(kkk == null))
+                {
+                	if (!kkk.IsFinal())
+                	{
+                		kkk.Final();
+                	}
+                }
+                
                 OutlinePage a;
                 a = new OutlinePage();
                 a.Init();
@@ -65,7 +75,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 aa.OutlinePageSet(a);
                 
                 a.Update();
-
+                
                 Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
 
                 return (T)a;
