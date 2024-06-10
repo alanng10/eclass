@@ -44,7 +44,13 @@ public class OutlineAdapterFactory implements IAdapterFactory
 
                 Log.This().Info("OutlineAdapterFactory.getAdapter 7777");
 
-                if (aa == null)
+                OutlinePage a;
+                a = null;
+                
+                boolean b;
+                b = (aa == null);
+                
+                if (b)
                 {
                     Log.This().Info("OutlineAdapterFactory.getAdapter 8888");
 
@@ -55,28 +61,38 @@ public class OutlineAdapterFactory implements IAdapterFactory
                     infra.DocumentSchedule(aa);
 
                     Log.This().Info("OutlineAdapterFactory.getAdapter AAAA");
+                    
+                    a = aa.OutlinePage();
+                    
+                    Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
                 }
                 
-                OutlinePage kkk;
-                kkk = aa.OutlinePage();
-                if (!(kkk == null))
+                if (!b)
                 {
-                	if (!kkk.IsFinal())
-                	{
-                		kkk.Final();
-                	}
+                	Log.This().Info("OutlineAdapterFactory.getAdapter CCCC");
+                	
+                	OutlinePage kkk;
+                    kkk = aa.OutlinePage();
+                    if (!(kkk == null))
+                    {
+                    	if (!kkk.IsFinal())
+                    	{
+                    		kkk.Final();
+                    	}
+                    }
+                    
+                    a = new OutlinePage();
+                    a.Init();
+                    a.DocumentSet(aa);
+                    
+                    aa.OutlinePageSet(a);
+                    
+                    Log.This().Info("OutlineAdapterFactory.getAdapter DDDD");
                 }
-                
-                OutlinePage a;
-                a = new OutlinePage();
-                a.Init();
-                a.DocumentSet(aa);
-                
-                aa.OutlinePageSet(a);
                 
                 a.Update();
                 
-                Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
+                Log.This().Info("OutlineAdapterFactory.getAdapter EEEE");
 
                 return (T)a;
             }
