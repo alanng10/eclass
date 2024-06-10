@@ -157,8 +157,10 @@ public class DocumentThread extends Thread
     {
         this.ExecuteA();
         
-        Log.This().Info("DocumentThread exit with status: " + this.Status);
-        
+        if (!(this.Status == 0))
+        {
+        	Log.This().Error("DocumentThread exit with status: " + this.Status, null);
+        }
         return;
     }
     

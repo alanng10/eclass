@@ -145,15 +145,11 @@ public class Plugin extends AbstractUIPlugin
         super.start(context);
         plugin = this;
 
-        Log.This().Info("Plugin Start");
-
         this.Init();
     }
 
     public void stop(BundleContext context) throws Exception
     {
-        Log.This().Info("Plugin Stop");
-
         plugin = null;
         super.stop(context);
     }

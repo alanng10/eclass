@@ -16,8 +16,6 @@ public class Infra extends Any
             return null;
         }
 
-        Log.This().Info("Class Document Create");
-
         Document a;
         a = new Document();
         a.Init();
