@@ -20,20 +20,14 @@ public class OutlineAdapterFactory implements IAdapterFactory
             AbstractTextEditor editor;
             editor = (AbstractTextEditor)adaptableObject;
 
-            Log.This().Info("OutlineAdapterFactory.getAdapter 3333");
-
             IEditorPart ko;
             ko = editor;
 
             Infra infra;
             infra = Plugin.This().Infra();
 
-            Log.This().Info("OutlineAdapterFactory.getAdapter 4444");
-
             IDocument ka;
             ka = infra.EditorDocument(ko);
-
-            Log.This().Info("OutlineAdapterFactory.getAdapter 5555");
 
             if (!(ka == null))
             {
@@ -42,18 +36,13 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 Document aa;
                 aa = Plugin.This().DocumentTable().get(ka);
 
-                Log.This().Info("OutlineAdapterFactory.getAdapter 7777");
-
                 boolean b;
                 b = (aa == null);
                 
                 if (b)
                 {
                     Log.This().Info("OutlineAdapterFactory.getAdapter 8888");
-
                     aa = infra.DocumentCreate(ka);
-
-                    Log.This().Info("OutlineAdapterFactory.getAdapter 9999");
                 }
                 
                 if (!b)
@@ -89,16 +78,10 @@ public class OutlineAdapterFactory implements IAdapterFactory
                     	kk.DocumentSet(aa);
                         
                         aa.OutlinePageSet(kk);
-                	}
-                    
-                    Log.This().Info("OutlineAdapterFactory.getAdapter BBBB");
+                	}                    
                 }
                 
-                Log.This().Info("OutlineAdapterFactory.getAdapter CCCC");
-                
                 infra.DocumentSchedule(aa);
-                
-                Log.This().Info("OutlineAdapterFactory.getAdapter DDDD");
                 
                 OutlinePage a;
             	a = aa.OutlinePage();
