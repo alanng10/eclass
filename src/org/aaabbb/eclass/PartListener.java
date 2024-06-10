@@ -37,14 +37,16 @@ public class PartListener extends Any implements IPartListener2
             infra = Plugin.This().Infra();
 
             Document a;
-            a = infra.DocumentCreate(o);
-
-            if (!(a == null))
+            a = Plugin.This().DocumentTable().get(o);
+            
+            if (a == null)
             {
-                infra.DocumentSchedule(a);
+            	a = infra.DocumentCreate(o);
             }
+            
+            infra.DocumentSchedule(a);
         }
-
+        
         return true;
     }
 
