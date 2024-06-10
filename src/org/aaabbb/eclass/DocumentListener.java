@@ -4,7 +4,7 @@ import org.eclipse.jface.text.DocumentEvent;
 import org.eclipse.jface.text.IDocumentListener;
 
 public class DocumentListener extends Any implements IDocumentListener
-{   
+{
     public Document Document()
     {
     	return this.Document_D;
