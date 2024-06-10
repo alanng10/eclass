@@ -34,9 +34,18 @@ public class OutlinePage extends ContentOutlinePage
         
         Log.This().Info("OutlinePage.Update 4444");
         
-        viewer.setInput(a.Class());
+        Object k;
+        k = null;
+        if (!(a == null))
+        {
+        	Log.This().Info("OutlinePage.Update 5555");
+        	k = a.Class();
+        }
+        
+        Log.This().Info("OutlinePage.Update 6666");
+        viewer.setInput(k);
 
-        Log.This().Info("OutlinePage.Update 5555");
+        Log.This().Info("OutlinePage.Update 7777");
         return true;
     }
 
