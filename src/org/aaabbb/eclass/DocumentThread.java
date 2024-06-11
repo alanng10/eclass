@@ -172,7 +172,7 @@ public class DocumentThread extends Thread
 
     public void run()
     {
-    	Log.This().Info("DocumentThread Execute Start");
+//        Log.This().Info("DocumentThread Execute Start");
     	
     	try
     	{
@@ -188,7 +188,7 @@ public class DocumentThread extends Thread
         	Log.This().Error("DocumentThread exit with status: " + this.Status, null);
         }
         
-        Log.This().Info("DocumentThread Execute End");	
+//        Log.This().Info("DocumentThread Execute End");	
         return;
     }
     
@@ -206,18 +206,18 @@ public class DocumentThread extends Thread
         {
             try
             {
-            	Log.This().Info("DocumentThread Phore 1111");
+//            	Log.This().Info("DocumentThread Phore 1111");
             	
                 this.Phore().acquire();
 
-            	Log.This().Info("DocumentThread Phore 2222");
+//            	Log.This().Info("DocumentThread Phore 2222");
             } catch (InterruptedException e)
             {
             }
             
             if (this.Continue())
             {
-            	Log.This().Info("DocumentThread Queue Lock 1111");
+//            	Log.This().Info("DocumentThread Queue Lock 1111");
 
 	            Document oo;
 	            oo = null;
@@ -226,11 +226,11 @@ public class DocumentThread extends Thread
 	                oo = this.Queue().poll();
 	            }
 
-            	Log.This().Info("DocumentThread Queue Lock 2222");
+//            	Log.This().Info("DocumentThread Queue Lock 2222");
 
 	            if (!(oo == null))
 	            {
-	            	Log.This().Info("DocumentThread Document Polled Not Null");
+//	            	Log.This().Info("DocumentThread Document Polled Not Null");
 
 	                String text;
 	                text = oo.Load().Text();
@@ -262,7 +262,7 @@ public class DocumentThread extends Thread
 	                        Class varClass;
 	                        varClass = classRead.Class();
 	
-	                        Log.This().Info("DocumentThread class read is null: " + (varClass == null));
+//	                        Log.This().Info("DocumentThread class read is null: " + (varClass == null));
 	                        
 	                        a.ClassSet(varClass);
 	
@@ -303,11 +303,11 @@ public class DocumentThread extends Thread
     {
         try
         {
-        	Log.This().Info("DocumentThread OutWrite 1111");
+//            Log.This().Info("DocumentThread OutWrite 1111");
         	
             this.Out.write(data, 0, data.length);
             
-            Log.This().Info("DocumentThread OutWrite 2222");
+//            Log.This().Info("DocumentThread OutWrite 2222");
         } catch (IOException e)
         {
             Log.This().Error("Network out cannot write data", e);
@@ -322,11 +322,11 @@ public class DocumentThread extends Thread
         int ka;
         try
         {
-        	Log.This().Info("DocumentThread InnRead 1111");
+//            Log.This().Info("DocumentThread InnRead 1111");
         	
             ka = this.Inn.read(this.SizeData, 0, this.SizeData.length);
             
-            Log.This().Info("DocumentThread InnRead 2222");
+//            Log.This().Info("DocumentThread InnRead 2222");
         } catch (IOException e)
         {
             Log.This().Error("Network inn read data count get error", e);
@@ -349,18 +349,18 @@ public class DocumentThread extends Thread
         int count;
         count = o.getInt(0);
 
-        Log.This().Info("InnRead count: " + count);
+//        Log.This().Info("InnRead count: " + count);
         
         byte[] data;
         data = new byte[count];
 
         try
         {
-        	Log.This().Info("DocumentThread InnRead 3333");
+//            Log.This().Info("DocumentThread InnRead 3333");
         	
             ka = this.Inn.read(data, 0, data.length);
             
-            Log.This().Info("DocumentThread InnRead 4444");
+//            Log.This().Info("DocumentThread InnRead 4444");
         } catch (IOException e)
         {
             Log.This().Error("Network inn read data error", e);
@@ -399,7 +399,7 @@ public class DocumentThread extends Thread
         
         o.putInt(0, byteCount);
         
-        Log.This().Info("OutData count: " + byteCount);
+//        Log.This().Info("OutData count: " + byteCount);
         
         Infra infra;
         infra = Plugin.This().Infra();
@@ -449,7 +449,7 @@ public class DocumentThread extends Thread
 
     private boolean ProcessInit()
     {
-    	Log.This().Info("Process Init Start");
+//    	Log.This().Info("Process Init Start");
     	
     	String k;
     	k = String.valueOf(this.ServerPort);
@@ -464,17 +464,17 @@ public class DocumentThread extends Thread
         ProcessBuilder builder;
         builder = new ProcessBuilder(list);
 
-        Log.This().Info("Process Init 1111");
+//        Log.This().Info("Process Init 1111");
         
         Process process;
         process = null;
         try
         {
-        	Log.This().Info("Process Init 2222");
+//            Log.This().Info("Process Init 2222");
             
         	process = builder.start();
             
-            Log.This().Info("Process Init 3333");
+//            Log.This().Info("Process Init 3333");
         } catch (IOException e)
         {
             Log.This().Error("ClassServer process cannot be started", e);
@@ -484,23 +484,23 @@ public class DocumentThread extends Thread
 
         this.Process = process;
         
-        Log.This().Info("Process Init End");
+//        Log.This().Info("Process Init End");
         return true;
     }
 
     private boolean NetworkInit()
     {
-    	Log.This().Info("Network Init Start");
+//    	Log.This().Info("Network Init Start");
         
     	ServerSocket server;
         server = null;
         try
         {
-        	Log.This().Info("Network Init 1111");
+//            Log.This().Info("Network Init 1111");
         	
             server = new ServerSocket(this.ServerPort);
 
-            Log.This().Info("Network Init 2222");
+//            Log.This().Info("Network Init 2222");
         } catch (IOException e)
         {
             Log.This().Error("Network server cannot be started", e);
@@ -511,11 +511,11 @@ public class DocumentThread extends Thread
         Socket socket;
         try
         {
-        	Log.This().Info("Network Init 3333");
+//            Log.This().Info("Network Init 3333");
 
             socket = server.accept();
             
-        	Log.This().Info("Network Init 4444");
+//            Log.This().Info("Network Init 4444");
         } catch (IOException e)
         {
             Log.This().Error("Network server cannot get peer", e);
@@ -526,11 +526,11 @@ public class DocumentThread extends Thread
         OutputStream out;
         try
         {
-        	Log.This().Info("Network Init 5555");
+//            Log.This().Info("Network Init 5555");
 
             out = socket.getOutputStream();
             
-        	Log.This().Info("Network Init 6666");
+//            Log.This().Info("Network Init 6666");
         } catch (IOException e)
         {
             Log.This().Error("Network peer get out error", e);
@@ -541,11 +541,11 @@ public class DocumentThread extends Thread
         InputStream inn;
         try
         {
-        	Log.This().Info("Network Init 7777");
+//            Log.This().Info("Network Init 7777");
 
             inn = socket.getInputStream();
             
-        	Log.This().Info("Network Init 8888");
+//            Log.This().Info("Network Init 8888");
         } catch (IOException e)
         {
             Log.This().Error("Network peer get inn error", e);
@@ -559,7 +559,7 @@ public class DocumentThread extends Thread
         this.Out = out;
         this.Inn = inn;
         
-    	Log.This().Info("Network Init End");
+//    	Log.This().Info("Network Init End");
         return true;
     }
 
