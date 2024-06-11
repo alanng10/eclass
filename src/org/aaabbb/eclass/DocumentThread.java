@@ -165,7 +165,8 @@ public class DocumentThread extends Thread
 
                 this.N = this.N + 1;
 
-                this.UpdateOutline(oo);            }
+                this.UpdateOutline(oo);
+            }
         }
     }
 
