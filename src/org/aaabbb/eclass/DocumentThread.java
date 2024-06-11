@@ -7,6 +7,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;
 
@@ -24,6 +25,8 @@ public class DocumentThread extends Thread
         this.ClassRead.Init();
 
         this.SizeData = new byte[4];
+        
+        this.ServerPort = 58500;
         return true;
     }
 
@@ -51,6 +54,8 @@ public class DocumentThread extends Thread
     private ServerSocket NetworkServer;
     private Socket Network;
 
+    private int ServerPort;
+    
     private Process Process;
 
     private OutputStream Out;
@@ -344,12 +349,6 @@ public class DocumentThread extends Thread
     {
         boolean b;
 
-        b = this.NetworkStart();
-        if (!b)
-        {
-            return false;
-        }
-
         b = this.ProcessInit();
         if (!b)
         {
@@ -384,27 +383,44 @@ public class DocumentThread extends Thread
         return true;
     }
 
-    private boolean NetworkStart()
+    private boolean ProcessInit()
     {
-        Plugin.This().NetworkStartThread().start();
+    	String k;
+    	k = String.valueOf(this.ServerPort);
+    	
+    	ArrayList<String> list;
+    	list = new ArrayList<String>();
+    	
+    	list.add("C:\\Users\\aaabb\\Project\\ClassServer\\Out\\net8.0\\ClassServer.Console-ExeCon.exe");
+    	list.add("localhost");
+    	list.add(k);
+    	
+        ProcessBuilder builder;
+        builder = new ProcessBuilder();
 
+        Process process;
+        process = null;
+        try
+        {
+            process = builder.start();
+        } catch (IOException e)
+        {
+            Log.This().Error("ClassServer process cannot be started", e);
+            this.Status = 1;
+            return false;
+        }
+
+        this.Process = process;
         return true;
     }
 
     private boolean NetworkInit()
     {
-        try
-        {
-            Plugin.This().NetworkStartThread().Phore().acquire();
-        } catch (InterruptedException e)
-        {
-        }
-
         ServerSocket server;
         server = null;
         try
         {
-            server = new ServerSocket(58500);
+            server = new ServerSocket(this.ServerPort);
         } catch (IOException e)
         {
             Log.This().Error("Network server cannot be started", e);
@@ -452,28 +468,7 @@ public class DocumentThread extends Thread
         this.Inn = inn;
         return true;
     }
-
-    private boolean ProcessInit()
-    {
-        ProcessBuilder builder;
-        builder = new ProcessBuilder("C:\\Users\\aaabb\\Project\\ClassServer\\Out\\net8.0\\ClassServer.exe");
-
-        Process process;
-        process = null;
-        try
-        {
-            process = builder.start();
-        } catch (IOException e)
-        {
-            Log.This().Error("ClassServer process cannot be started", e);
-            this.Status = 1;
-            return false;
-        }
-
-        this.Process = process;
-        return true;
-    }
-
+    
     private boolean ProcessFinal()
     {
         this.Process.destroyForcibly();
