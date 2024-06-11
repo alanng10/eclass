@@ -26,9 +26,6 @@ public class Plugin extends AbstractUIPlugin
         this.DocumentThread_D = new DocumentThread();
         this.DocumentThread_D.Init();
 
-        this.NetworkStartThread_D = new NetworkStartThread();
-        this.NetworkStartThread_D.Init();
-
         this.ImageIconClass_D = this.CreateImageIcon("obj16/class_obj");
 
         this.ImageIconField_D = this.CreateImageIcon("obj16/methdef_obj");
@@ -52,8 +49,6 @@ public class Plugin extends AbstractUIPlugin
 
     private DocumentThread DocumentThread_D;
 
-    private NetworkStartThread NetworkStartThread_D;
-
     private Image ImageIconClass_D;
 
     private Image ImageIconField_D;
@@ -76,11 +71,6 @@ public class Plugin extends AbstractUIPlugin
     public DocumentThread DocumentThread()
     {
         return this.DocumentThread_D;
-    }
-
-    public NetworkStartThread NetworkStartThread()
-    {
-        return this.NetworkStartThread_D;
     }
 
     public Image ImageIconClass()
@@ -150,6 +140,9 @@ public class Plugin extends AbstractUIPlugin
 
     public void stop(BundleContext context) throws Exception
     {
+    	this.DocumentThread().ContinueSet(false);
+    	this.DocumentThread().Phore().release();
+    	
         plugin = null;
         super.stop(context);
     }
