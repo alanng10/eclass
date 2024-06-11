@@ -21,6 +21,8 @@ public class DocumentThread extends Thread
 
         this.Queue_D = new LinkedList<Document>();
 
+        this.ContinueSet(true);
+        
         this.ClassRead = new ClassRead();
         this.ClassRead.Init();
 
@@ -51,6 +53,19 @@ public class DocumentThread extends Thread
 
     private LinkedList<Document> Queue_D;
 
+    public boolean Continue()
+    {
+        return this.Continue_D;
+    }
+    
+    public boolean ContinueSet(boolean value)
+    {
+    	this.Continue_D = value;
+    	return true;
+    }
+
+    protected boolean Continue_D;
+    
     private ServerSocket NetworkServer;
     private Socket Network;
 
@@ -69,7 +84,8 @@ public class DocumentThread extends Thread
 
     private int N;
 
-    public void run()
+    @SuppressWarnings("unused")
+    private void runA()
     {
         boolean b;
         b = false;
@@ -149,20 +165,13 @@ public class DocumentThread extends Thread
 
                 this.N = this.N + 1;
 
-                OutlineUpdateJob job;
-                job = new OutlineUpdateJob();
-                job.Init();
-                job.DocumentSet(oo);
-
-                job.Schedule(0);
-            }
+                this.UpdateOutline(oo);            }
         }
     }
 
-    @SuppressWarnings("unused")
-	private void runA()
+    public void run()
     {
-        this.ExecuteA();
+        this.Execute();
         
         if (!(this.Status == 0))
         {
@@ -171,7 +180,7 @@ public class DocumentThread extends Thread
         return;
     }
     
-    private boolean ExecuteA()
+    private boolean Execute()
     {
         boolean b;
         
@@ -180,10 +189,8 @@ public class DocumentThread extends Thread
         {
             return false;
         }
-        
-        b = false;
 
-        while (!b)
+        while (this.Continue())
         {
             try
             {
@@ -191,54 +198,59 @@ public class DocumentThread extends Thread
             } catch (InterruptedException e)
             {
             }
-
-            Document oo;
-            oo = null;
-            synchronized (this.Lock())
+            
+            if (this.Continue())
             {
-                oo = this.Queue().poll();
-            }
-
-            if (!(oo == null))
-            {
-                String text;
-                text = oo.Load().Text();
-
-                byte[] data;
-                data = this.OutData(text);
-                
-                boolean ba;
-                ba = this.OutWrite(data);
-
-                if (ba)
-                {
-                    byte[] dataA;
-                    dataA = this.InnRead();
-
-                    if (!(dataA == null))
-                    {
-                        ClassRead classRead;
-                        classRead = this.ClassRead;
-
-                        classRead.DataSet(dataA);
-
-                        classRead.Execute();
-
-                        Root a;
-                        a = new Root();
-                        a.Init();
-
-                        Class varClass;
-                        varClass = classRead.Class();
-
-                        a.ClassSet(varClass);
-
-                        oo.Load().RootSet(a);
-
-                        classRead.ClassSet(null);
-                        classRead.DataSet(null);
-                    }
-                }
+	            Document oo;
+	            oo = null;
+	            synchronized (this.Lock())
+	            {
+	                oo = this.Queue().poll();
+	            }
+	
+	            if (!(oo == null))
+	            {
+	                String text;
+	                text = oo.Load().Text();
+	
+	                byte[] data;
+	                data = this.OutData(text);
+	                
+	                boolean ba;
+	                ba = this.OutWrite(data);
+	
+	                if (ba)
+	                {
+	                    byte[] dataA;
+	                    dataA = this.InnRead();
+	
+	                    if (!(dataA == null))
+	                    {
+	                        ClassRead classRead;
+	                        classRead = this.ClassRead;
+	
+	                        classRead.DataSet(dataA);
+	
+	                        classRead.Execute();
+	
+	                        Root a;
+	                        a = new Root();
+	                        a.Init();
+	
+	                        Class varClass;
+	                        varClass = classRead.Class();
+	
+	                        a.ClassSet(varClass);
+	
+	                        oo.Load().RootSet(a);
+	
+	                        classRead.ClassSet(null);
+	                        classRead.DataSet(null);
+	                        
+	                        this.UpdateOutline(oo);
+	                    }
+	                }
+	            }
             }
         }
 
@@ -251,6 +263,17 @@ public class DocumentThread extends Thread
         return true;
     }
 
+    private boolean UpdateOutline(Document o)
+    {
+        OutlineUpdateJob job;
+        job = new OutlineUpdateJob();
+        job.Init();
+        job.DocumentSet(o);
+
+        job.Schedule(0);
+        return true;
+    }
+    
     private boolean OutWrite(byte[] data)
     {
         try
@@ -468,12 +491,6 @@ public class DocumentThread extends Thread
         this.Inn = inn;
         return true;
     }
-    
-    private boolean ProcessFinal()
-    {
-        this.Process.destroyForcibly();
-        return true;
-    }
 
     private boolean NetworkFinal()
     {
@@ -497,6 +514,12 @@ public class DocumentThread extends Thread
             return false;
         }
 
+        return true;
+    }
+    
+    private boolean ProcessFinal()
+    {
+        this.Process.destroyForcibly();
         return true;
     }
 }
