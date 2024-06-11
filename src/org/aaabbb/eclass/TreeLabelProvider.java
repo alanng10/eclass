@@ -62,21 +62,41 @@ public class TreeLabelProvider extends Any implements ILabelProvider
         {
             ClassName aa;
             aa = (ClassName)element;
-            return aa.Value();
+            
+            String ka;
+            ka = aa.Value();
+            ka = this.NameText(ka);
+            return ka;
         }
         if (element instanceof BaseName)
         {
             BaseName an;
             an = (BaseName)element;
-            return an.Value();
+
+            String kb;
+            kb = an.Value();
+            kb = this.NameText(kb);
+            return kb;
         }
         if (element instanceof Comp)
         {
             Comp ab;
             ab = (Comp)element;
-            return ab.Name();
+
+            String kc;
+            kc = ab.Name();
+            kc = this.NameText(kc);
+            return kc;
         }
         return null;
     }
 
+    protected String NameText(String name)
+    {
+    	if (name == null)
+    	{
+    		return "Unnamed";
+    	}
+    	return name;
+    }
 }

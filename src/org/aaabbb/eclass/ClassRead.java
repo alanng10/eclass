@@ -63,10 +63,18 @@ public class ClassRead extends Any
 
     private Class ExecuteClass()
     {
-        Class a;
-        a = new Class();
-        a.Init();
-
+    	boolean b;
+    	b = this.ExecuteOptional();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
+    	
+    	if (!b)
+    	{
+    		return null;
+    	}
+    	
         ClassName name;
         name = this.ExecuteClassName();
         if (name == null)
@@ -88,6 +96,9 @@ public class ClassRead extends Any
             return null;
         }
 
+        Class a;
+        a = new Class();
+        a.Init();
         a.NameSet(name);
         a.BaseSet(base);
         a.CompSet(comp);
@@ -96,12 +107,12 @@ public class ClassRead extends Any
     
     private ClassName ExecuteClassName()
     {
-        String value;
-        value = this.ExecuteString();
-        if (value == null)
-        {
-            return null;
-        }
+    	String value;
+    	value = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
         
         ClassName a;
         a = new ClassName();
@@ -112,12 +123,12 @@ public class ClassRead extends Any
     
     private BaseName ExecuteBaseName()
     {
-        String value;
-        value = this.ExecuteString();
-        if (value == null)
-        {
-            return null;
-        }
+    	String value;
+    	value = this.ExecuteOptionalString();
+    	if (!(this.Status() == 0))
+    	{
+    		return null;
+    	}
         
         BaseName a;
         a = new BaseName();
@@ -198,38 +209,40 @@ public class ClassRead extends Any
     
     private String ExecuteOptionalString()
     {
-    	int aa;
     	boolean b;
-    	
-    	aa = this.ExecuteByte();
-    	if (aa == -1)
+    	b = this.ExecuteOptional();
+    	if (!(this.Status() == 0))
     	{
     		return null;
     	}
     	
-    	b = this.IsNull(aa);
-    	
     	String a;
     	a = null;
-    	if (!b)
+    	if (b)
     	{
             a = this.ExecuteString();
     	}
     	return a;
     }
-    
-    private boolean IsNull(int k)
-    {
-    	boolean a;
-    	a = false;
-    	
-    	if (k == 0)
-    	{
-    		a = true;
-    	}
-    	return a;
-    }
 
+    private boolean ExecuteOptional()
+    {
+    	int aa;
+    	
+    	aa = this.ExecuteByte();
+    	if (aa == -1)
+    	{
+    		return false;
+    	}
+    	
+    	if (aa == 0)
+    	{
+            return false;
+    	}
+    	
+    	return true;
+    }
+    
     private String ExecuteString()
     {
         int count;
