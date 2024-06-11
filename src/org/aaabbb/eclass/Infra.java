@@ -15,6 +15,9 @@ public class Infra extends Any
         {
             return null;
         }
+        
+        String text;
+        text = o.get();
 
         Document a;
         a = new Document();
@@ -33,6 +36,7 @@ public class Infra extends Any
         DocumentLoad load;
         load = new DocumentLoad();
         load.Init();
+        load.TextSet(text);
 
         OutlinePage page;
         page = new OutlinePage();
