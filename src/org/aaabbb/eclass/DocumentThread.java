@@ -231,8 +231,8 @@ public class DocumentThread extends Thread
 	
 	                        classRead.DataSet(dataA);
 	
-	                        classRead.Execute();
-	
+	                        classRead.Execute();	                        
+
 	                        Root a;
 	                        a = new Root();
 	                        a.Init();
@@ -246,6 +246,7 @@ public class DocumentThread extends Thread
 	
 	                        classRead.ClassSet(null);
 	                        classRead.DataSet(null);
+	                        classRead.StatusSet(0);
 	                        
 	                        this.UpdateOutline(oo);
 	                    }
