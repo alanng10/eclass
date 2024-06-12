@@ -44,15 +44,8 @@ public class TreeContentProvider extends Any implements ITreeContentProvider
             int count;
             count = compCount;
             
-            int i;
-            i = 0;
-            while (i < count)
-            {
-                array[start + i] = compArray[i];
-
-                i = i + 1;
-            }
-
+            System.arraycopy(compArray, 0, array, start, count);
+            
             return array;
         }
 
