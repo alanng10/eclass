@@ -84,4 +84,19 @@
             icon="./icon/sourcefile.gif">
       </icon>
    </extension>
+   
+   <extension
+        point="org.eclipse.ui.preferencePages">
+      <page
+            class="org.aaabbb.eclass.ConfigPage"
+            id="org.aaabbb.eclass.configpage"
+            name="Class">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.aaabbb.eclass.ConfigInitializer">
+      </initializer>
+   </extension>
 </plugin>
