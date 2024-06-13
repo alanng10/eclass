@@ -18,7 +18,7 @@ public class OutlineComparator extends ViewerComparator
         return this.Sort_D;
     }
     
-    public boolean SortSet(boolean value)
+    public boolean Sort(boolean value)
     {
         this.Sort_D = value;
         return true;
@@ -31,7 +31,7 @@ public class OutlineComparator extends ViewerComparator
         return this.Kind_D;
     }
     
-    public boolean KindSet(boolean value)
+    public boolean Kind(boolean value)
     {
         this.Kind_D = value;
         return true;

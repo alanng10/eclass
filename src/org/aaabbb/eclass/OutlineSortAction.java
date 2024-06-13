@@ -21,7 +21,7 @@ public class OutlineSortAction extends Action
         return this.Page_D;
     }
     
-    public boolean PageSet(OutlinePage value)
+    public boolean Page(OutlinePage value)
     {
         this.Page_D = value;
         return true;
@@ -34,7 +34,7 @@ public class OutlineSortAction extends Action
         boolean b;
         b = this.isChecked();
         
-        this.Page().Comparator().SortSet(b);
+        this.Page().Comparator().Sort(b);
         
         this.Page().Update();
     }

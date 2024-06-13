@@ -66,7 +66,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
                     	OutlinePage kk;
                     	kk = new OutlinePage();
                     	kk.Init();
-                    	kk.DocumentSet(aa);
+                    	kk.Document(aa);
                         
                         aa.OutlinePage(kk);
                 	}                    

@@ -15,7 +15,7 @@ public class OutlinePage extends ContentOutlinePage
         aa = new OutlineComparator();
         aa.Init();
         
-        this.ComparatorSet(aa);
+        this.Comparator(aa);
         return true;
     }
     
@@ -28,7 +28,7 @@ public class OutlinePage extends ContentOutlinePage
     public void dispose() {
         super.dispose();
     
-        this.IsFinalSet(true);
+        this.IsFinal(true);
     }
     
     public boolean IsFinal()
@@ -36,7 +36,7 @@ public class OutlinePage extends ContentOutlinePage
         return this.IsFinal_D;
     }
     
-    public boolean IsFinalSet(boolean value)
+    public boolean IsFinal(boolean value)
     {
         this.IsFinal_D = value;
         return true;
@@ -49,7 +49,7 @@ public class OutlinePage extends ContentOutlinePage
         return this.Document_D;
     }
     
-    public boolean DocumentSet(Document value)
+    public boolean Document(Document value)
     {
         this.Document_D = value;
         return true;
@@ -62,7 +62,7 @@ public class OutlinePage extends ContentOutlinePage
         return this.Comparator_D;
     }
     
-    public boolean ComparatorSet(OutlineComparator value)
+    public boolean Comparator(OutlineComparator value)
     {
         this.Comparator_D = value;
         return true;
@@ -115,12 +115,12 @@ public class OutlinePage extends ContentOutlinePage
         
         OutlineSortAction aa;
         aa = new OutlineSortAction();
-        aa.PageSet(this);
+        aa.Page(this);
         aa.Init();
         
         OutlineKindAction ab;
         ab = new OutlineKindAction();
-        ab.PageSet(this);
+        ab.Page(this);
         ab.Init();
         
         k.add(aa);

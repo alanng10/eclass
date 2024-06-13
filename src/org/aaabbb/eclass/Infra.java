@@ -41,7 +41,7 @@ public class Infra extends Any
         OutlinePage page;
         page = new OutlinePage();
         page.Init();
-        page.DocumentSet(a);
+        page.Document(a);
 
         a.IDocument(o);
         a.Job(job);
