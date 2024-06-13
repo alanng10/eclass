@@ -82,93 +82,93 @@ public class DocumentThread extends Thread
 
     private byte[] SizeData;
 
-    private int N;
+//    private int N;
 
-    @SuppressWarnings("unused")
-    private void runA()
-    {
-        boolean b;
-        b = false;
-
-        while (!b)
-        {
-            try
-            {
-                this.Phore().acquire();
-            } catch (InterruptedException e)
-            {
-            }
-
-            Document oo;
-            oo = null;
-            synchronized (this.Lock())
-            {
-                oo = this.Queue().poll();
-            }
-
-            if (!(oo == null))
-            {
-                Root k;
-                k = new Root();
-                k.Init();
-
-                Class a;
-                a = new Class();
-                a.Init();
-                
-                ClassName name;
-                name = new ClassName();
-                name.Init();
-                name.ValueSet("Hoasg" + this.N);
-                
-                BaseName base;
-                base = new BaseName();
-                base.Init();
-                base.ValueSet("DeuM");
-                
-                a.Name(name);
-                a.Base(base);
-                
-                Comp[] ak;
-                ak = new Comp[3];
-                
-                a.Comp(ak);
-
-                Comp aa;
-                aa = new Comp();
-                aa.Init();
-                aa.Kind(0);
-                aa.Name("Count");
-                aa.Class("Int");
-
-                Comp ac;
-                ac = new Comp();
-                ac.Init();
-                ac.Kind(1);
-                ac.Name("Execute");
-                ac.Class("Bool");
-                
-                Comp ab;
-                ab = new Comp();
-                ab.Init();
-                ab.Kind(0);
-                ab.Name("Index");
-                ab.Class("String");
-
-                ak[0] = aa;
-                ak[1] = ac;
-               	ak[2] = ab;
-
-                k.ClassSet(a);
-
-                oo.Load().RootSet(k);
-
-                this.N = this.N + 1;
-
-                this.UpdateOutline(oo);
-            }
-        }
-    }
+//    @SuppressWarnings("unused")
+//    private void runA()
+//    {
+//        boolean b;
+//        b = false;
+//
+//        while (!b)
+//        {
+//            try
+//            {
+//                this.Phore().acquire();
+//            } catch (InterruptedException e)
+//            {
+//            }
+//
+//            Document oo;
+//            oo = null;
+//            synchronized (this.Lock())
+//            {
+//                oo = this.Queue().poll();
+//            }
+//
+//            if (!(oo == null))
+//            {
+//                Root k;
+//                k = new Root();
+//                k.Init();
+//
+//                Class a;
+//                a = new Class();
+//                a.Init();
+//                
+//                ClassName name;
+//                name = new ClassName();
+//                name.Init();
+//                name.ValueSet("Hoasg" + this.N);
+//                
+//                BaseName base;
+//                base = new BaseName();
+//                base.Init();
+//                base.ValueSet("DeuM");
+//                
+//                a.Name(name);
+//                a.Base(base);
+//                
+//                Comp[] ak;
+//                ak = new Comp[3];
+//                
+//                a.Comp(ak);
+//
+//                Comp aa;
+//                aa = new Comp();
+//                aa.Init();
+//                aa.Kind(0);
+//                aa.Name("Count");
+//                aa.Class("Int");
+//
+//                Comp ac;
+//                ac = new Comp();
+//                ac.Init();
+//                ac.Kind(1);
+//                ac.Name("Execute");
+//                ac.Class("Bool");
+//                
+//                Comp ab;
+//                ab = new Comp();
+//                ab.Init();
+//                ab.Kind(0);
+//                ab.Name("Index");
+//                ab.Class("String");
+//
+//                ak[0] = aa;
+//                ak[1] = ac;
+//               	ak[2] = ab;
+//
+//                k.ClassSet(a);
+//
+//                oo.Load().RootSet(k);
+//
+//                this.N = this.N + 1;
+//
+//                this.UpdateOutline(oo);
+//            }
+//        }
+//    }
 
     public void run()
     {
