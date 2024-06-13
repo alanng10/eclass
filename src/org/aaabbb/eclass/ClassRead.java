@@ -133,7 +133,7 @@ public class ClassRead extends Any
         BaseName a;
         a = new BaseName();
         a.Init();
-        a.ValueSet(value);
+        a.Value(value);
         return a;
     }
 

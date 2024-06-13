@@ -264,7 +264,7 @@ public class DocumentThread extends Thread
 	
 //	                        Log.This().Info("DocumentThread class read is null: " + (varClass == null));
 	                        
-	                        a.ClassSet(varClass);
+	                        a.Class(varClass);
 	
 	                        oo.Load().RootSet(a);
 	

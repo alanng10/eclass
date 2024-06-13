@@ -7,7 +7,7 @@ public class Root extends Any
         return this.Class_D;
     }
     
-    public boolean ClassSet(Class value)
+    public boolean Class(Class value)
     {
         this.Class_D = value;
         return true;
