@@ -75,7 +75,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
 
             String kb;
             kb = an.Value();
-            kb = this.NameText(kb);
+            kb = this.ClassText(kb);
             return kb;
         }
         if (element instanceof Comp)
@@ -86,7 +86,14 @@ public class TreeLabelProvider extends Any implements ILabelProvider
             String kc;
             kc = ab.Name();
             kc = this.NameText(kc);
-            return kc;
+            
+            String kd;
+            kd = ab.Class();
+            kd = this.ClassText(kd);
+            
+            String ke;
+            ke = kc + " : " + kd;
+            return ke;
         }
         return null;
     }
@@ -98,5 +105,14 @@ public class TreeLabelProvider extends Any implements ILabelProvider
     		return "Unnamed";
     	}
     	return name;
+    }
+    
+    protected String ClassText(String cc)
+    {
+        if (cc == null)
+        {
+            return "Unclassed";
+        }
+        return cc;
     }
 }
