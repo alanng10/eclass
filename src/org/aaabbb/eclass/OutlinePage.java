@@ -17,15 +17,15 @@ public class OutlinePage extends ContentOutlinePage
         ka = new ScopedPreferenceStore(InstanceScope.INSTANCE,
                 "org.aaabbb.eclass");
         
-        this.InitSort = ka.getBoolean("Outline.Sort");
+        this.InitSort_D = ka.getBoolean("Outline.Sort");
         
-        this.InitKind = ka.getBoolean("Outline.Kind");
+        this.InitKind_D = ka.getBoolean("Outline.Kind");
         
         OutlineComparator aa;
         aa = new OutlineComparator();
         aa.Init();
-        aa.Sort(this.InitSort);
-        aa.Kind(this.InitKind);
+        aa.Sort(this.InitSort());
+        aa.Kind(this.InitKind());
         
         this.Comparator(aa);
         return true;
@@ -43,8 +43,19 @@ public class OutlinePage extends ContentOutlinePage
         this.IsFinal(true);
     }
     
-    private boolean InitSort;
-    private boolean InitKind;
+    protected boolean InitSort()
+    {
+        return this.InitSort_D;
+    }
+    
+    protected boolean InitSort_D;
+    
+    protected boolean InitKind()
+    {
+        return this.InitKind_D;
+    }
+    
+    protected boolean InitKind_D;
     
     public boolean IsFinal()
     {
@@ -132,13 +143,13 @@ public class OutlinePage extends ContentOutlinePage
         aa = new OutlineSortAction();
         aa.Page(this);
         aa.Init();
-        aa.setChecked(this.InitSort);
+        aa.setChecked(this.InitSort());
         
         OutlineKindAction ab;
         ab = new OutlineKindAction();
         ab.Page(this);
         ab.Init();
-        ab.setChecked(this.InitKind);
+        ab.setChecked(this.InitKind());
         
         k.add(aa);
         k.add(ab);
