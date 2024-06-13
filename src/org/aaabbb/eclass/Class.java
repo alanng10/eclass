@@ -7,7 +7,7 @@ public class Class extends Any
         return this.Name_D;
     }
     
-    public boolean NameSet(ClassName value)
+    public boolean Name(ClassName value)
     {
         this.Name_D = value;
         return true;
@@ -20,7 +20,7 @@ public class Class extends Any
         return this.Base_D;
     }
     
-    public boolean BaseSet(BaseName value)
+    public boolean Base(BaseName value)
     {
         this.Base_D = value;
         return true;
@@ -33,7 +33,7 @@ public class Class extends Any
         return this.Comp_D;
     }
     
-    public boolean CompSet(Comp[] value)
+    public boolean Comp(Comp[] value)
     {
         this.Comp_D = value;
         return true;

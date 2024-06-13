@@ -99,9 +99,9 @@ public class ClassRead extends Any
         Class a;
         a = new Class();
         a.Init();
-        a.NameSet(name);
-        a.BaseSet(base);
-        a.CompSet(comp);
+        a.Name(name);
+        a.Base(base);
+        a.Comp(comp);
         return a;
     }
     

@@ -126,13 +126,13 @@ public class DocumentThread extends Thread
                 base.Init();
                 base.ValueSet("DeuM");
                 
-                a.NameSet(name);
-                a.BaseSet(base);
+                a.Name(name);
+                a.Base(base);
                 
                 Comp[] ak;
                 ak = new Comp[3];
                 
-                a.CompSet(ak);
+                a.Comp(ak);
 
                 Comp aa;
                 aa = new Comp();
