@@ -63,17 +63,20 @@ public class PartListener extends Any implements IPartListener2
 			Document a;
 			a = Plugin.This().DocumentTable().get(o);
 
-			OutlinePage aa;
-			aa = a.OutlinePage();
-
-			if (!aa.IsFinal())
+			if (!(a == null))
 			{
-				aa.Final();
+			    OutlinePage aa;
+	            aa = a.OutlinePage();
+
+	            if (!aa.IsFinal())
+	            {
+	                aa.Final();
+	            }
+
+	            a.OutlinePage(null);
+
+	            Plugin.This().DocumentTable().remove(o);
 			}
-
-			a.OutlinePage(null);
-
-			Plugin.This().DocumentTable().remove(o);
 		}
 	}
 
