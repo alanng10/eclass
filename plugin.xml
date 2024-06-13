@@ -64,7 +64,7 @@
    
    <extension point="org.eclipse.tm4e.ui.themes">
       <theme id="org.eclipse.tm4e.ui.themes.Light"
-             name="Aaa Bbb Class Theme"
+             name="EClass Class Theme"
              path="./theme/class.css"
              default="true" />
    </extension>
