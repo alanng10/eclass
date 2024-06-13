@@ -40,7 +40,7 @@ public class Plugin extends AbstractUIPlugin
         
         this.ImageIconDescriptorSort_D = this.CreateImageIconDescriptor("elcl16/alphab_sort_co");
         
-        this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor("elcl16/impl_co");
+        this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor("elcl16/th_vertical");
         
         this.Infra_D = new Infra();
         this.Infra_D.Init();
