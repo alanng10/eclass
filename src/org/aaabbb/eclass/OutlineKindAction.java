@@ -7,7 +7,7 @@ public class OutlineKindAction extends Action
 {
     public OutlineKindAction()
     {
-        super("Kind", IAction.AS_CHECK_BOX);
+        super("Group Comps", IAction.AS_CHECK_BOX);
     }
     
     public boolean Init()

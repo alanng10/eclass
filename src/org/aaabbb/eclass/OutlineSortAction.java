@@ -7,12 +7,13 @@ public class OutlineSortAction extends Action
 {
     public OutlineSortAction()
     {
-        super("Sort", IAction.AS_CHECK_BOX);
+        super("Sort Comps", IAction.AS_CHECK_BOX);
     }
     
     public boolean Init()
     {
         this.setImageDescriptor(Plugin.This().ImageIconDescriptorSort());
+        
         return true;
     }
     
