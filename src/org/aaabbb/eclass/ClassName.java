@@ -7,7 +7,7 @@ public class ClassName extends Any
         return this.Value_D;
     }
     
-    public boolean ValueSet(String value)
+    public boolean Value(String value)
     {
         this.Value_D = value;
         return true;

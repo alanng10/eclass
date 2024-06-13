@@ -117,7 +117,7 @@ public class ClassRead extends Any
         ClassName a;
         a = new ClassName();
         a.Init();
-        a.ValueSet(value);
+        a.Value(value);
         return a;
     }
     
