@@ -21,7 +21,7 @@ public class DocumentThread extends Thread
 
         this.Queue_D = new LinkedList<Document>();
 
-        this.ContinueSet(true);
+        this.Continue(true);
         
         this.ClassRead = new ClassRead();
         this.ClassRead.Init();
@@ -58,7 +58,7 @@ public class DocumentThread extends Thread
         return this.Continue_D;
     }
     
-    public boolean ContinueSet(boolean value)
+    public boolean Continue(boolean value)
     {
     	this.Continue_D = value;
     	return true;

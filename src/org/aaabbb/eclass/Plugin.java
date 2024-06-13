@@ -165,7 +165,7 @@ public class Plugin extends AbstractUIPlugin
 
     public void stop(BundleContext context) throws Exception
     {
-    	this.DocumentThread().ContinueSet(false);
+    	this.DocumentThread().Continue(false);
     	this.DocumentThread().Phore().release();
     	
         plugin = null;
