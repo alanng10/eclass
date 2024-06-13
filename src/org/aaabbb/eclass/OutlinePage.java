@@ -1,19 +1,31 @@
 package org.aaabbb.eclass;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.IPageSite;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 public class OutlinePage extends ContentOutlinePage
 {
     public boolean Init()
     {
+        ScopedPreferenceStore ka;
+        ka = new ScopedPreferenceStore(InstanceScope.INSTANCE,
+                "org.aaabbb.eclass");
+        
+        this.InitSort = ka.getBoolean("Outline.Sort");
+        
+        this.InitKind = ka.getBoolean("Outline.Kind");
+        
         OutlineComparator aa;
         aa = new OutlineComparator();
         aa.Init();
+        aa.Sort(this.InitSort);
+        aa.Kind(this.InitKind);
         
         this.Comparator(aa);
         return true;
@@ -30,6 +42,9 @@ public class OutlinePage extends ContentOutlinePage
     
         this.IsFinal(true);
     }
+    
+    private boolean InitSort;
+    private boolean InitKind;
     
     public boolean IsFinal()
     {
@@ -117,11 +132,13 @@ public class OutlinePage extends ContentOutlinePage
         aa = new OutlineSortAction();
         aa.Page(this);
         aa.Init();
+        aa.setChecked(this.InitSort);
         
         OutlineKindAction ab;
         ab = new OutlineKindAction();
         ab.Page(this);
         ab.Init();
+        ab.setChecked(this.InitKind);
         
         k.add(aa);
         k.add(ab);
