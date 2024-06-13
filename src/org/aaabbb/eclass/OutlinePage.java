@@ -1,7 +1,10 @@
 package org.aaabbb.eclass;
 
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.IActionBars;
+import org.eclipse.ui.part.IPageSite;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 
 public class OutlinePage extends ContentOutlinePage
@@ -80,6 +83,19 @@ public class OutlinePage extends ContentOutlinePage
         Object a;
         a = k;
         return a;
+    }
+    
+    public void init(IPageSite pageSite)
+    {
+        super.init(pageSite);
+        
+        IActionBars ka;
+        ka = pageSite.getActionBars();
+        
+        IToolBarManager k;
+        k = ka.getToolBarManager();
+        
+        k.add(new OutlineSortAction());
     }
 
     public void createControl(Composite parent)

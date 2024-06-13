@@ -38,6 +38,8 @@ public class Plugin extends AbstractUIPlugin
 
         this.ImageIconBaseName_D = this.CreateImageIcon("obj16/methpro_obj");
         
+        this.ImageIconDescriptorSort_D = this.CreateImageIconDescriptor("elcl16/alphab_sort_co");
+        
         this.Infra_D = new Infra();
         this.Infra_D.Init();
 
@@ -60,6 +62,8 @@ public class Plugin extends AbstractUIPlugin
     private Image ImageIconClassName_D;
     
     private Image ImageIconBaseName_D;
+    
+    private ImageDescriptor ImageIconDescriptorSort_D;
 
     private Infra Infra_D;
 
@@ -102,6 +106,11 @@ public class Plugin extends AbstractUIPlugin
     {
         return this.ImageIconBaseName_D;
     }
+    
+    public ImageDescriptor ImageIconDescriptorSort()
+    {
+        return this.ImageIconDescriptorSort_D;
+    }
 
     public Infra Infra()
     {
@@ -111,12 +120,19 @@ public class Plugin extends AbstractUIPlugin
     private Image CreateImageIcon(String name)
     {
         ImageDescriptor k;
-        k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
-
+        k = this.CreateImageIconDescriptor(name);
+        
         Image a;
         a = k.createImage();
 
         return a;
+    }
+    
+    private ImageDescriptor CreateImageIconDescriptor(String name)
+    {
+        ImageDescriptor k;
+        k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
+        return k;
     }
     
     private Image CreateImageIconLocal(String name)
