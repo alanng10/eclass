@@ -11,6 +11,11 @@ public class OutlinePage extends ContentOutlinePage
 {
     public boolean Init()
     {
+        OutlineComparator aa;
+        aa = new OutlineComparator();
+        aa.Init();
+        
+        this.ComparatorSet(aa);
         return true;
     }
     
@@ -51,6 +56,19 @@ public class OutlinePage extends ContentOutlinePage
     }
    
     protected Document Document_D;
+    
+    public OutlineComparator Comparator()
+    {
+        return this.Comparator_D;
+    }
+    
+    public boolean ComparatorSet(OutlineComparator value)
+    {
+        this.Comparator_D = value;
+        return true;
+    }
+    
+    protected OutlineComparator Comparator_D;
     
     public boolean Update()
     {
@@ -95,7 +113,12 @@ public class OutlinePage extends ContentOutlinePage
         IToolBarManager k;
         k = ka.getToolBarManager();
         
-        k.add(new OutlineSortAction());
+        OutlineSortAction aa;
+        aa = new OutlineSortAction();
+        aa.PageSet(this);
+        aa.Init();
+        
+        k.add(aa);
     }
 
     public void createControl(Composite parent)
@@ -119,11 +142,6 @@ public class OutlinePage extends ContentOutlinePage
 
         viewer.addSelectionChangedListener(this);
 
-        Root a;
-        a = this.Document().Load().Root();
-        Object k;
-        k = this.Data(a);
-        
-        viewer.setInput(k);        
+        viewer.setComparator(this.Comparator());
     }
 }
