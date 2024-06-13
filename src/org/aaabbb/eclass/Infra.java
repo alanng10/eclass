@@ -43,11 +43,11 @@ public class Infra extends Any
         page.Init();
         page.DocumentSet(a);
 
-        a.IDocumentSet(o);
-        a.JobSet(job);
-        a.ListenerSet(listener);
-        a.LoadSet(load);
-        a.OutlinePageSet(page);
+        a.IDocument(o);
+        a.Job(job);
+        a.Listener(listener);
+        a.Load(load);
+        a.OutlinePage(page);
 
         o.addDocumentListener(listener);
 

@@ -293,7 +293,7 @@ public class DocumentThread extends Thread
         OutlineUpdateJob job;
         job = new OutlineUpdateJob();
         job.Init();
-        job.DocumentSet(o);
+        job.Document(o);
 
         job.Schedule(0);
         return true;

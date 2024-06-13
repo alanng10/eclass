@@ -9,7 +9,7 @@ public class Document extends Any
     	return this.IDocument_D;
     }
     
-    public boolean IDocumentSet(IDocument value)
+    public boolean IDocument(IDocument value)
     {
     	this.IDocument_D = value;
     	return true;
@@ -22,7 +22,7 @@ public class Document extends Any
     	return this.Job_D;
     }
     
-    public boolean JobSet(DocumentJob value)
+    public boolean Job(DocumentJob value)
     {
     	this.Job_D = value;
     	return true;
@@ -35,7 +35,7 @@ public class Document extends Any
     	return this.Listener_D;
     }
     
-    public boolean ListenerSet(DocumentListener value)
+    public boolean Listener(DocumentListener value)
     {
     	this.Listener_D = value;
     	return true;
@@ -48,7 +48,7 @@ public class Document extends Any
     	return this.Load_D;
     }
     
-    public boolean LoadSet(DocumentLoad value)
+    public boolean Load(DocumentLoad value)
     {
     	this.Load_D = value;
     	return true;
@@ -61,7 +61,7 @@ public class Document extends Any
     	return this.OutlinePage_D;
     }
     
-    public boolean OutlinePageSet(OutlinePage value)
+    public boolean OutlinePage(OutlinePage value)
     {
     	this.OutlinePage_D = value;
     	return true;

@@ -11,7 +11,7 @@ public class OutlineUpdateJob extends Job
     	return this.Document_D;
     }
     
-    public boolean DocumentSet(Document value)
+    public boolean Document(Document value)
     {
     	this.Document_D = value;
     	return true;

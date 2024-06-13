@@ -71,7 +71,7 @@ public class PartListener extends Any implements IPartListener2
 				aa.Final();
 			}
 
-			a.OutlinePageSet(null);
+			a.OutlinePage(null);
 
 			Plugin.This().DocumentTable().remove(o);
 		}

@@ -68,7 +68,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
                     	kk.Init();
                     	kk.DocumentSet(aa);
                         
-                        aa.OutlinePageSet(kk);
+                        aa.OutlinePage(kk);
                 	}                    
                 }
                 
