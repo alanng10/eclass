@@ -10,7 +10,7 @@ public class ClassRead extends Any
 		return this.Data_D;
 	}
 	
-	public boolean DataSet(byte[] value)
+	public boolean Data(byte[] value)
 	{
 		this.Data_D = value;
 		return true;
@@ -23,7 +23,7 @@ public class ClassRead extends Any
     	return this.Class_D;
     }
     
-    public boolean ClassSet(Class value)
+    public boolean Class(Class value)
     {
     	this.Class_D = value;
     	return true;
@@ -36,7 +36,7 @@ public class ClassRead extends Any
     	return this.Status_D;
     }
     
-    public boolean StatusSet(int value)
+    public boolean Status(int value)
     {
     	this.Status_D = value;
     	return true;
@@ -55,7 +55,7 @@ public class ClassRead extends Any
 
         this.DataBuffer = o;
 
-        this.ClassSet(this.ExecuteClass());
+        this.Class(this.ExecuteClass());
 
         this.DataBuffer = null;
         return true;
@@ -286,7 +286,7 @@ public class ClassRead extends Any
     {
         if (this.DataBuffer.remaining() < 4)
         {
-        	this.StatusSet(2);
+        	this.Status(2);
             return -1;
         }
         
@@ -294,7 +294,7 @@ public class ClassRead extends Any
         a = this.DataBuffer.getInt();
         if (a < 0)
         {
-        	this.StatusSet(3);
+        	this.Status(3);
             return -1;
         }
         
@@ -305,7 +305,7 @@ public class ClassRead extends Any
     {
         if (this.DataBuffer.remaining() < 1)
         {
-        	this.StatusSet(1);
+        	this.Status(1);
             return -1;
         }
         

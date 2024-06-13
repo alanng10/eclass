@@ -26,7 +26,7 @@ public class Infra extends Any
         DocumentJob job;
         job = new DocumentJob();
         job.Init();
-        job.DocumentSet(a);
+        job.Document(a);
 
         DocumentListener listener;
         listener = new DocumentListener();
