@@ -58,6 +58,9 @@ public class TreeLabelProvider extends Any implements ILabelProvider
 
     public String getText(Object element)
     {
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
         if (element instanceof ClassName)
         {
             ClassName aa;
@@ -65,7 +68,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
             
             String ka;
             ka = aa.Value();
-            ka = this.NameText(ka);
+            ka = infra.NameText(ka);
             return ka;
         }
         if (element instanceof BaseName)
@@ -75,7 +78,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
 
             String kb;
             kb = an.Value();
-            kb = this.ClassText(kb);
+            kb = infra.ClassText(kb);
             return kb;
         }
         if (element instanceof Comp)
@@ -83,36 +86,8 @@ public class TreeLabelProvider extends Any implements ILabelProvider
             Comp ab;
             ab = (Comp)element;
 
-            String kc;
-            kc = ab.Name();
-            kc = this.NameText(kc);
-            
-            String kd;
-            kd = ab.Class();
-            kd = this.ClassText(kd);
-            
-            String ke;
-            ke = kc + " : " + kd;
-            return ke;
+            return ab.Label();
         }
         return null;
-    }
-
-    protected String NameText(String name)
-    {
-    	if (name == null)
-    	{
-    		return "Unnamed";
-    	}
-    	return name;
-    }
-    
-    protected String ClassText(String cc)
-    {
-        if (cc == null)
-        {
-            return "Unclassed";
-        }
-        return cc;
     }
 }

@@ -167,4 +167,23 @@ public class Infra extends Any
         }
         return true;
     }
+    
+
+    public String NameText(String name)
+    {
+        if (name == null)
+        {
+            return "Unnamed";
+        }
+        return name;
+    }
+    
+    public String ClassText(String cc)
+    {
+        if (cc == null)
+        {
+            return "Unclassed";
+        }
+        return cc;
+    }
 }

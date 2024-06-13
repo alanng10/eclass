@@ -53,4 +53,17 @@ public class Comp extends Any
     }
     
     protected int Count_D;
+
+    public String Label()
+    {
+        return this.Label_D;
+    }
+    
+    public boolean Label(String value)
+    {
+        this.Label_D = value;
+        return true;
+    }
+    
+    protected String Label_D;
 }

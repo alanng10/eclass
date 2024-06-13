@@ -71,6 +71,9 @@ public class OutlineComparator extends ViewerComparator
     
     public int compare(Viewer viewer, Object e1, Object e2)
     {
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
         int cat1;
         int cat2;
         
@@ -87,31 +90,32 @@ public class OutlineComparator extends ViewerComparator
 
         if (this.Sort())
         {
-            String aa;
-            String ab;
+            Comp aa;
+            aa = (Comp)e1;
+            Comp ab;
+            ab = (Comp)e2;
+     
+            String kea;
+            String keb;
+            kea = infra.NameText(aa.Name());
+            keb = infra.NameText(ab.Name());
             
-            aa = this.GetLabel(viewer, e1);
-            ab = this.GetLabel(viewer, e2);
+            int k;
+            k = kea.compareTo(keb);
             
-            return aa.compareTo(ab);
+            if (!(k == 0))
+            {
+                return k;
+            }
+            
+            kea = infra.ClassText(aa.Class());
+            keb = infra.ClassText(ab.Class());
+            
+            k = kea.compareTo(keb);
+            
+            return k;
         }
         
         return 0;
-    }
-    
-    protected String GetLabel(Viewer viewer, Object element)
-    {
-        ContentViewer aa;
-        aa = (ContentViewer)viewer;
-        
-        IBaseLabelProvider ka;
-        ka = aa.getLabelProvider();
-        
-        ILabelProvider kb;
-        kb = (ILabelProvider)ka;
-        
-        String a;
-        a = kb.getText(element);
-        return a;
     }
 }

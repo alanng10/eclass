@@ -272,6 +272,11 @@ public class DocumentThread extends Thread
 	                        classRead.Data(null);
 	                        classRead.Status(0);
 	                        
+                            if (!(varClass == null))
+                            {
+                                this.SetCompLabel(varClass.Comp());
+                            }
+	                        
 	                        this.UpdateOutline(oo);
 	                    }
 	                }
@@ -286,6 +291,55 @@ public class DocumentThread extends Thread
         }
         
         return true;
+    }
+    
+    private boolean SetCompLabel(Comp[] array)
+    {
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
+        int count;
+        count = array.length;
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Comp a;
+            a = array[i];
+            
+            String name;
+            name = infra.NameText(a.Name());
+            
+            String varClass;
+            varClass = infra.ClassText(a.Class());
+            
+            String label;
+            label = name + " : " + varClass;
+            
+            a.Label(label);
+            
+            i = i + 1;
+        }
+        
+        return true;
+    }
+    
+    protected String NameText(String name)
+    {
+        if (name == null)
+        {
+            return "Unnamed";
+        }
+        return name;
+    }
+    
+    protected String ClassText(String cc)
+    {
+        if (cc == null)
+        {
+            return "Unclassed";
+        }
+        return cc;
     }
 
     private boolean UpdateOutline(Document o)
