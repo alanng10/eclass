@@ -178,12 +178,12 @@ public class Infra extends Any
         return name;
     }
     
-    public String ClassLabel(String cc)
+    public String ClassLabel(String varClass)
     {
-        if (cc == null)
+        if (varClass == null)
         {
             return "Unclassed";
         }
-        return cc;
+        return varClass;
     }
 }
