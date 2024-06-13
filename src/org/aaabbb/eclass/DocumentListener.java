@@ -10,7 +10,7 @@ public class DocumentListener extends Any implements IDocumentListener
     	return this.Document_D;
     }
     
-    public boolean DocumentSet(Document value)
+    public boolean Document(Document value)
     {
     	this.Document_D = value;
     	return true;
@@ -30,7 +30,7 @@ public class DocumentListener extends Any implements IDocumentListener
         String text;
         text = a.IDocument().get();
 
-        a.Load().TextSet(text);
+        a.Load().Text(text);
 
         Plugin.This().Infra().DocumentSchedule(a);
 

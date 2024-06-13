@@ -31,12 +31,12 @@ public class Infra extends Any
         DocumentListener listener;
         listener = new DocumentListener();
         listener.Init();
-        listener.DocumentSet(a);
+        listener.Document(a);
 
         DocumentLoad load;
         load = new DocumentLoad();
         load.Init();
-        load.TextSet(text);
+        load.Text(text);
 
         OutlinePage page;
         page = new OutlinePage();

@@ -7,7 +7,7 @@ public class DocumentLoad extends Any
     	return this.Text_D;
     }
     
-    public boolean TextSet(String value)
+    public boolean Text(String value)
     {
     	this.Text_D = value;
     	return true;
@@ -20,7 +20,7 @@ public class DocumentLoad extends Any
     	return this.Root_D;
     }
     
-    public boolean RootSet(Root value)
+    public boolean Root(Root value)
     {
     	this.Root_D = value;
     	return true;
