@@ -40,6 +40,8 @@ public class Plugin extends AbstractUIPlugin
         
         this.ImageIconDescriptorSort_D = this.CreateImageIconDescriptor("elcl16/alphab_sort_co");
         
+        this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor("elcl16/th_vertical");
+        
         this.Infra_D = new Infra();
         this.Infra_D.Init();
 
@@ -64,6 +66,8 @@ public class Plugin extends AbstractUIPlugin
     private Image ImageIconBaseName_D;
     
     private ImageDescriptor ImageIconDescriptorSort_D;
+    
+    private ImageDescriptor ImageIconDescriptorKind_D;
 
     private Infra Infra_D;
 
@@ -110,6 +114,11 @@ public class Plugin extends AbstractUIPlugin
     public ImageDescriptor ImageIconDescriptorSort()
     {
         return this.ImageIconDescriptorSort_D;
+    }
+    
+    public ImageDescriptor ImageIconDescriptorKind()
+    {
+        return this.ImageIconDescriptorKind_D;
     }
 
     public Infra Infra()

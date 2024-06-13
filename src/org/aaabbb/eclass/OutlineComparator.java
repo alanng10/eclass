@@ -13,21 +13,34 @@ public class OutlineComparator extends ViewerComparator
         return true;
     }
     
-    
-    public boolean Alphabetical()
+    public boolean Sort()
     {
-        return this.Alphabetical_D;
+        return this.Sort_D;
     }
     
-    public boolean AlphabeticalSet(boolean value)
+    public boolean SortSet(boolean value)
     {
-        this.Alphabetical_D = value;
+        this.Sort_D = value;
         return true;
     }
     
-    protected boolean Alphabetical_D;
+    protected boolean Sort_D;
     
-    public int category(Object element) {
+    public boolean Kind()
+    {
+        return this.Kind_D;
+    }
+    
+    public boolean KindSet(boolean value)
+    {
+        this.Kind_D = value;
+        return true;
+    }
+    
+    protected boolean Kind_D;
+    
+    public int category(Object element)
+    {
         if (element instanceof ClassName)
         {
             return 0;
@@ -40,32 +53,47 @@ public class OutlineComparator extends ViewerComparator
         
         if (element instanceof Comp)
         {
+            if (this.Kind())
+            {
+                Comp comp;
+                comp = (Comp)element;
+                
+                int k;
+                k = 2 + comp.Kind();
+                return k;
+            }
+            
             return 2;
         }
         
         return 0;
     }
     
-    public int compare(Viewer viewer, Object e1, Object e2) {
+    public int compare(Viewer viewer, Object e1, Object e2)
+    {
         int cat1;
         int cat2;
-
+        
         cat1 = this.category(e1);
         cat2 = this.category(e2);
         
-        if (!(cat1 == cat2)) {
-            return cat1 - cat2;
+        int ka;
+        ka = cat1 - cat2;
+        
+        if (!(ka == 0))
+        {
+            return ka;
         }
 
-        if (this.Alphabetical())
+        if (this.Sort())
         {
-            String name1;
-            String name2;
+            String aa;
+            String ab;
             
-            name1 = this.GetLabel(viewer, e1);
-            name2 = this.GetLabel(viewer, e2);
+            aa = this.GetLabel(viewer, e1);
+            ab = this.GetLabel(viewer, e2);
             
-            return name1.compareTo(name2);
+            return aa.compareTo(ab);
         }
         
         return 0;
