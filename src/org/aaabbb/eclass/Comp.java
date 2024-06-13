@@ -7,7 +7,7 @@ public class Comp extends Any
         return this.Kind_D;
     }
     
-    public boolean KindSet(int value)
+    public boolean Kind(int value)
     {
         this.Kind_D = value;
         return true;
@@ -20,7 +20,7 @@ public class Comp extends Any
         return this.Class_D;
     }
     
-    public boolean ClassSet(String value)
+    public boolean Class(String value)
     {
         this.Class_D = value;
         return true;
@@ -33,7 +33,7 @@ public class Comp extends Any
         return this.Name_D;
     }
     
-    public boolean NameSet(String value)
+    public boolean Name(String value)
     {
         this.Name_D = value;
         return true;
@@ -46,7 +46,7 @@ public class Comp extends Any
         return this.Count_D;
     }
     
-    public boolean CountSet(int value)
+    public boolean Count(int value)
     {
         this.Count_D = value;
         return true;

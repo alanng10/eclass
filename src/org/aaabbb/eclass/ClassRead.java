@@ -200,10 +200,10 @@ public class ClassRead extends Any
         Comp a;
         a = new Comp();
         a.Init();
-        a.KindSet(kind);
-        a.ClassSet(varClass);
-        a.NameSet(name);
-        a.CountSet(count);
+        a.Kind(kind);
+        a.Class(varClass);
+        a.Name(name);
+        a.Count(count);
         return a;
     }
     

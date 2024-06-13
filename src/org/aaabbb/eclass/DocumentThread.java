@@ -137,23 +137,23 @@ public class DocumentThread extends Thread
                 Comp aa;
                 aa = new Comp();
                 aa.Init();
-                aa.KindSet(0);
-                aa.NameSet("Count");
-                aa.ClassSet("Int");
+                aa.Kind(0);
+                aa.Name("Count");
+                aa.Class("Int");
 
                 Comp ac;
                 ac = new Comp();
                 ac.Init();
-                ac.KindSet(1);
-                ac.NameSet("Execute");
-                ac.ClassSet("Bool");
+                ac.Kind(1);
+                ac.Name("Execute");
+                ac.Class("Bool");
                 
                 Comp ab;
                 ab = new Comp();
                 ab.Init();
-                ab.KindSet(0);
-                ab.NameSet("Index");
-                ab.ClassSet("String");
+                ab.Kind(0);
+                ab.Name("Index");
+                ab.Class("String");
 
                 ak[0] = aa;
                 ak[1] = ac;
