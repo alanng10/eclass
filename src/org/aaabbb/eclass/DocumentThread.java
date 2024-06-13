@@ -308,10 +308,10 @@ public class DocumentThread extends Thread
             a = array[i];
             
             String name;
-            name = infra.NameText(a.Name());
+            name = infra.NameLabel(a.Name());
             
             String varClass;
-            varClass = infra.ClassText(a.Class());
+            varClass = infra.ClassLabel(a.Class());
             
             String label;
             label = name + " : " + varClass;

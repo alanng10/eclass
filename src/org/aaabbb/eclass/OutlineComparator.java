@@ -1,8 +1,5 @@
 package org.aaabbb.eclass;
 
-import org.eclipse.jface.viewers.ContentViewer;
-import org.eclipse.jface.viewers.IBaseLabelProvider;
-import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerComparator;
 
@@ -97,8 +94,8 @@ public class OutlineComparator extends ViewerComparator
      
             String kea;
             String keb;
-            kea = infra.NameText(aa.Name());
-            keb = infra.NameText(ab.Name());
+            kea = infra.NameLabel(aa.Name());
+            keb = infra.NameLabel(ab.Name());
             
             int k;
             k = kea.compareTo(keb);
@@ -108,8 +105,8 @@ public class OutlineComparator extends ViewerComparator
                 return k;
             }
             
-            kea = infra.ClassText(aa.Class());
-            keb = infra.ClassText(ab.Class());
+            kea = infra.ClassLabel(aa.Class());
+            keb = infra.ClassLabel(ab.Class());
             
             k = kea.compareTo(keb);
             

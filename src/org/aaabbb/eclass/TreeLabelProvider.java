@@ -68,7 +68,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
             
             String ka;
             ka = aa.Value();
-            ka = infra.NameText(ka);
+            ka = infra.NameLabel(ka);
             return ka;
         }
         if (element instanceof BaseName)
@@ -78,7 +78,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
 
             String kb;
             kb = an.Value();
-            kb = infra.ClassText(kb);
+            kb = infra.ClassLabel(kb);
             return kb;
         }
         if (element instanceof Comp)

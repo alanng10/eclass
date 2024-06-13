@@ -169,7 +169,7 @@ public class Infra extends Any
     }
     
 
-    public String NameText(String name)
+    public String NameLabel(String name)
     {
         if (name == null)
         {
@@ -178,7 +178,7 @@ public class Infra extends Any
         return name;
     }
     
-    public String ClassText(String cc)
+    public String ClassLabel(String cc)
     {
         if (cc == null)
         {
