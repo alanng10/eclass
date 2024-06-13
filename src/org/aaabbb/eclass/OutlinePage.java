@@ -118,7 +118,13 @@ public class OutlinePage extends ContentOutlinePage
         aa.PageSet(this);
         aa.Init();
         
+        OutlineKindAction ab;
+        ab = new OutlineKindAction();
+        ab.PageSet(this);
+        ab.Init();
+        
         k.add(aa);
+        k.add(ab);
     }
 
     public void createControl(Composite parent)
