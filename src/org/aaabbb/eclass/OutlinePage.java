@@ -14,8 +14,7 @@ public class OutlinePage extends ContentOutlinePage
     public boolean Init()
     {
         ScopedPreferenceStore ka;
-        ka = new ScopedPreferenceStore(InstanceScope.INSTANCE,
-                "org.aaabbb.eclass");
+        ka = new ScopedPreferenceStore(InstanceScope.INSTANCE, Plugin.PLUGIN_ID);
         
         this.InitSort_D = ka.getBoolean("Outline.Sort");
         
