@@ -13,7 +13,7 @@ public class Comp extends Any
         return true;
     }
     
-    protected int Kind_D;	
+    protected int Kind_D;
 	
     public String Class()
     {
