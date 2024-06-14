@@ -48,6 +48,8 @@ public class ClassRead extends Any
 
     public boolean Execute()
     {
+        this.Status(0);
+        
         ByteBuffer o;
         o = ByteBuffer.wrap(this.Data());
 

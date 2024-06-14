@@ -182,7 +182,6 @@ public class DocumentThread extends Thread
 	
 	                        classRead.Class(null);
 	                        classRead.Data(null);
-	                        classRead.Status(0);
 	                        
                             if (!(varClass == null))
                             {
