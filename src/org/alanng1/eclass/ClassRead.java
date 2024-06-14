@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

@@ -22,4 +22,4 @@ Bundle-Vendor: AAABBB
 Automatic-Module-Name: org.aaabbb.eclass
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.aaabbb.eclass.Plugin
+Bundle-Activator: org.alanng1.eclass.Plugin

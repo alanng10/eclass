@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 public class DocumentLoad extends Any
 {

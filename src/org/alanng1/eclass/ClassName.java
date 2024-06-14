@@ -1,6 +1,6 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
-public class BaseName extends Any
+public class ClassName extends Any
 {
     public String Value()
     {

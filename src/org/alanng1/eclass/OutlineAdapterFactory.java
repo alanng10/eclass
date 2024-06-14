@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.jface.text.IDocument;

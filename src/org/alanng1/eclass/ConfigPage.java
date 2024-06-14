@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.BooleanFieldEditor;

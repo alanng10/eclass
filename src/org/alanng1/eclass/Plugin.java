@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import java.util.Hashtable;
 
@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 
 public class Plugin extends AbstractUIPlugin
 {
-    public static final String PLUGIN_ID = "org.aaabbb.eclass";
+    public static final String PLUGIN_ID = "org.alanng1.eclass";
 
     private static Plugin plugin;
 

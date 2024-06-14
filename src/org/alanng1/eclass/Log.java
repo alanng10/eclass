@@ -1,4 +1,4 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;

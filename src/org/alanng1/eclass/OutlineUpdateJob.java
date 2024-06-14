@@ -1,11 +1,11 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 
-public class DocumentJob extends Job
-{
+public class OutlineUpdateJob extends Job
+{	
     public Document Document()
     {
     	return this.Document_D;
@@ -18,26 +18,23 @@ public class DocumentJob extends Job
     }
    
     protected Document Document_D;
-
+	
     public IStatus runInUIThread(IProgressMonitor monitor)
     {
-        Document o;
-        o = this.Document();
-
-        DocumentThread thread;
-        thread = Plugin.This().DocumentThread();
-
-        Object lock;
-        lock = thread.Lock();
-
-        synchronized (lock)
+    	Document a;
+    	a = this.Document();
+    	
+    	OutlinePage ka;
+    	ka = a.OutlinePage();
+    	
+        if (!(ka == null))
         {
-            thread.Queue().offer(o);
+        	if (!ka.IsFinal())
+        	{
+        		ka.Update();
+        	}
         }
-
-        thread.Phore().release();
-
-        return Status.OK_STATUS;
+        
+    	return Status.OK_STATUS;
     }
-
 }

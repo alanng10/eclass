@@ -1,18 +1,19 @@
-package org.aaabbb.eclass;
+package org.alanng1.eclass;
 
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IAction;
 
-public class OutlineKindAction extends Action
+public class OutlineSortAction extends Action
 {
-    public OutlineKindAction()
+    public OutlineSortAction()
     {
-        super("Group Comps", IAction.AS_CHECK_BOX);
+        super("Sort Comps", IAction.AS_CHECK_BOX);
     }
     
     public boolean Init()
     {
-        this.setImageDescriptor(Plugin.This().ImageIconDescriptorKind());
+        this.setImageDescriptor(Plugin.This().ImageIconDescriptorSort());
+        
         return true;
     }
     
@@ -34,7 +35,7 @@ public class OutlineKindAction extends Action
         boolean b;
         b = this.isChecked();
         
-        this.Page().Comparator().Kind(b);
+        this.Page().Comparator().Sort(b);
         
         this.Page().Update();
     }
