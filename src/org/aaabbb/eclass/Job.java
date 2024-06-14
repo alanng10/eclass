@@ -8,7 +8,7 @@ public class Job extends UIJob
 {
     public Job()
     {
-        super("AaaBbb Class Job");
+        super("EClass Job");
     }
     
     public boolean Init()
