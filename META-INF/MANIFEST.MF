@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: EClass
-Bundle-SymbolicName: org.aaabbb.eclass;singleton:=true
+Bundle-SymbolicName: org.alanng1.eclass;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.contenttype,
@@ -18,8 +18,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jdt.ui;bundle-version="3.32.0",
  org.eclipse.tm4e.core;bundle-version="0.12.0",
  org.eclipse.tm4e.ui;bundle-version="0.12.0"
-Bundle-Vendor: AAABBB
-Automatic-Module-Name: org.aaabbb.eclass
+Bundle-Vendor: AlanNg
+Automatic-Module-Name: org.alanng1.eclass
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.alanng1.eclass.Plugin
