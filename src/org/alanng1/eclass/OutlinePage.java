@@ -176,5 +176,7 @@ public class OutlinePage extends ContentOutlinePage
         viewer.addSelectionChangedListener(this);
 
         viewer.setComparator(this.Comparator());
+        
+        this.Update();
     }
 }
