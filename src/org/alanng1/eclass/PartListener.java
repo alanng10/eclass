@@ -5,23 +5,49 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 public class PartListener extends Any implements IPartListener2
 {
+    private IEditorPart EditorPart(IWorkbenchPartReference partRef)
+    {
+        IWorkbenchPart part;
+        part = partRef.getPart(false);
+        
+        if (part instanceof IEditorPart)
+        {
+            IEditorPart a;
+            a = (IEditorPart)part;
+            return a;
+        }
+        return null;
+    }
+    
+    
 	private IDocument ClassIDocument(IWorkbenchPartReference partRef)
 	{
-		IWorkbenchPart part;
-		part = partRef.getPart(false);
-		if (part instanceof IEditorPart)
-		{
-			IEditorPart editor;
-			editor = (IEditorPart)part;
-
-			IDocument a;
-			a = Plugin.This().Infra().EditorDocument(editor);
-			return a;
-		}
-		return null;
+	    Infra infra;
+	    infra = Plugin.This().Infra();
+	    
+	    IEditorPart ka;
+	    ka = this.EditorPart(partRef);
+	    
+	    if (ka == null)
+	    {
+	        return null;
+	    }
+	    
+	    ITextEditor editor;
+	    editor = infra.Editor(ka);
+		
+	    if (editor == null)
+	    {
+	        return null;
+	    }
+	    
+		IDocument a;
+		a = infra.EditorDocument(editor);
+		return a;
 	}
 
 	private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
@@ -39,7 +65,16 @@ public class PartListener extends Any implements IPartListener2
 
 			if (a == null)
 			{
-				a = infra.DocumentCreate(o);
+			    IWorkbenchPart part;
+		        part = partRef.getPart(false);
+		        
+		        IEditorPart aa;
+		        aa = (IEditorPart)part;
+		        
+		        ITextEditor editor;
+		        editor = (ITextEditor)aa;
+		        
+				a = infra.DocumentCreate(o, editor);
 			}
 
 			infra.DocumentSchedule(a);

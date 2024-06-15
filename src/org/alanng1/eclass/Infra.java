@@ -9,7 +9,7 @@ import org.eclipse.ui.texteditor.ITextEditor;
 
 public class Infra extends Any
 {
-    public Document DocumentCreate(IDocument o)
+    public Document DocumentCreate(IDocument o, ITextEditor editor)
     {
         if (Plugin.This().DocumentTable().containsKey(o))
         {
@@ -32,7 +32,7 @@ public class Infra extends Any
         listener = new DocumentListener();
         listener.Init();
         listener.Document(a);
-
+        
         DocumentLoad load;
         load = new DocumentLoad();
         load.Init();
@@ -44,6 +44,7 @@ public class Infra extends Any
         page.Document(a);
 
         a.IDocument(o);
+        a.Editor(editor);
         a.Job(job);
         a.Listener(listener);
         a.Load(load);
@@ -62,37 +63,51 @@ public class Infra extends Any
         return true;
     }
 
-    public IDocument EditorDocument(IEditorPart editor)
+    public ITextEditor Editor(IEditorPart part)
+    {
+        if (part instanceof ITextEditor)
+        {
+            ITextEditor a;
+            a = (ITextEditor)part;
+            return a;
+        }
+        return null;
+    }
+    
+    public IDocument EditorDocument(ITextEditor editor)
     {
         IEditorInput input;
         input = editor.getEditorInput();
-        if (editor instanceof ITextEditor & input instanceof FileEditorInput)
+        
+        if (!(input instanceof FileEditorInput))
         {
-            ITextEditor ee;
-            ee = (ITextEditor) editor;
-
-            FileEditorInput eo;
-            eo = (FileEditorInput) input;
-
-            IPath path;
-            path = eo.getPath();
-
-            String eu;
-            eu = path.getFileExtension();
-
-            if (!(eu == null))
-            {
-                eu = eu.toLowerCase();
-
-                if (eu.equals("cla"))
-                {
-                    IDocument document;
-                    document = ee.getDocumentProvider().getDocument(input);
-                    return document;
-                }
-            }
+            return null;
         }
-        return null;
+        
+        FileEditorInput eo;
+        eo = (FileEditorInput)input;
+
+        IPath path;
+        path = eo.getPath();
+
+        String eu;
+        eu = path.getFileExtension();
+
+        if (eu == null)
+        {
+            return null;
+        }
+        
+        eu = eu.toLowerCase();
+
+        if (!eu.equals("cla"))
+        {
+            return null;
+        }
+        
+        IDocument document;
+        document = editor.getDocumentProvider().getDocument(input);
+        return document;
     }
     
     public boolean CheckRange(int totalCount, int index, int count)

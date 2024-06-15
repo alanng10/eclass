@@ -2,6 +2,8 @@ package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.IActionBars;
@@ -173,8 +175,53 @@ public class OutlinePage extends ContentOutlinePage
 
         viewer.setLabelProvider(ab);
 
-        viewer.addSelectionChangedListener(this);
-
         viewer.setComparator(this.Comparator());
+    }
+    
+    public void selectionChanged(SelectionChangedEvent event)
+    {
+        super.selectionChanged(event);
+                
+        IStructuredSelection k;
+        k = event.getStructuredSelection();
+        
+        Object ka;
+        ka = k.getFirstElement();
+        
+        if (ka == null)
+        {
+            return;
+        }
+        
+//        String aa;
+//        aa = ka.getClass().getCanonicalName();
+    
+//        Log.This().Info("OutlinePage.selectionChanged element class: " + aa);
+
+        if (!(ka instanceof Node))
+        {
+            return;
+        }
+        
+        Infra infra;
+        infra = Plugin.This().Infra();
+   
+        Node node;
+        node = (Node)ka;
+    
+        int index;
+        int count;
+        index = node.Range().Index();
+        count = node.Range().Count();
+        
+        int totalCount;
+        totalCount = this.Document().IDocument().getLength();
+        
+        if (!infra.CheckRange(totalCount, index, count))
+        {
+            return;
+        }
+        
+        this.Document().Editor().selectAndReveal(index, count);
     }
 }

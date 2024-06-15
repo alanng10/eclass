@@ -4,6 +4,7 @@ import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
+import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 
 public class OutlineAdapterFactory implements IAdapterFactory
@@ -35,7 +36,10 @@ public class OutlineAdapterFactory implements IAdapterFactory
                 
                 if (b)
                 {
-                    aa = infra.DocumentCreate(ka);
+                    ITextEditor kaa;
+                    kaa = editor;
+                    
+                    aa = infra.DocumentCreate(ka, kaa);
                 }
                 
                 if (!b)

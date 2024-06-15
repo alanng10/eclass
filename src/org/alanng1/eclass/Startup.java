@@ -8,6 +8,7 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 public class Startup implements IStartup
 {
@@ -56,20 +57,26 @@ public class Startup implements IStartup
 
             if (!(kk == null))
             {
-                IDocument aa;
-                aa = infra.EditorDocument(kk);
-
-                if (!(aa == null))
+                ITextEditor ke;
+                ke = infra.Editor(kk);
+                
+                if (!(ke == null))
                 {
-                	Document a;
-                	a = plugin.DocumentTable().get(aa);
-                	
-                	if (a == null)
-                	{
-                		a = infra.DocumentCreate(aa);	
-                	}
-                    
-                    infra.DocumentSchedule(a);
+                    IDocument aa;
+                    aa = infra.EditorDocument(ke);
+
+                    if (!(aa == null))
+                    {
+                        Document a;
+                        a = plugin.DocumentTable().get(aa);
+                        
+                        if (a == null)
+                        {
+                            a = infra.DocumentCreate(aa, ke);   
+                        }
+                        
+                        infra.DocumentSchedule(a);
+                    }   
                 }
             }
 
