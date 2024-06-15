@@ -1,6 +1,6 @@
 package org.alanng1.eclass;
 
-public class BaseName extends Any
+public class BaseName extends Node
 {
     public String Value()
     {

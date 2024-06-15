@@ -1,6 +1,6 @@
 package org.alanng1.eclass;
 
-public class Comp extends Any
+public class Comp extends Node
 {
     public int Kind()
     {

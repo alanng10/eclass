@@ -1,6 +1,6 @@
 package org.alanng1.eclass;
 
-public class Class extends Any
+public class Class extends Node
 {
     public ClassName Name()
     {

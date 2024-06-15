@@ -1,6 +1,7 @@
 package org.alanng1.eclass;
 
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.ui.texteditor.ITextEditor;
 
 public class Document extends Any
 {
@@ -16,6 +17,19 @@ public class Document extends Any
     }
     
     protected IDocument IDocument_D;
+    
+    public ITextEditor Editor()
+    {
+        return this.Editor_D;
+    }
+    
+    public boolean Editor(ITextEditor value)
+    {
+        this.Editor_D = value;
+        return true;
+    }
+    
+    protected ITextEditor Editor_D;    
     
     public DocumentJob Job()
     {
