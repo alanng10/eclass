@@ -2,7 +2,6 @@ package org.alanng1.eclass;
 
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
@@ -12,81 +11,81 @@ public class OutlineAdapterFactory implements IAdapterFactory
     @SuppressWarnings("unchecked")
     public <T> T getAdapter(Object adaptableObject, java.lang.Class<T> required)
     {
-        if (IContentOutlinePage.class.equals(required))
+        if (!(IContentOutlinePage.class.equals(required)))
         {
-            AbstractTextEditor editor;
-            editor = (AbstractTextEditor)adaptableObject;
-
-            IEditorPart ko;
-            ko = editor;
-
-            Infra infra;
-            infra = Plugin.This().Infra();
-
-            IDocument ka;
-            ka = infra.EditorDocument(ko);
-
-            if (!(ka == null))
-            {
-                Document aa;
-                aa = Plugin.This().DocumentTable().get(ka);
-
-                boolean b;
-                b = (aa == null);
-                
-                if (b)
-                {
-                    ITextEditor kaa;
-                    kaa = editor;
-                    
-                    aa = infra.DocumentCreate(ka, kaa);
-                }
-                
-                if (!b)
-                {                	
-                	boolean ba;
-                	ba = false;
-                	
-                	OutlinePage kkk;
-                    kkk = aa.OutlinePage();
-                    
-                    if (!ba)
-                    {
-	                    if (kkk == null)
-	                    {
-	                    	ba = true;
-	                    }
-                    }
-                    if (!ba)
-                    {
-                    	if (kkk.IsFinal())
-                    	{
-                    		ba = true;
-                    	}
-                    }
-                    
-                    if (ba)
-                	{
-                    	OutlinePage kk;
-                    	kk = new OutlinePage();
-                    	kk.Init();
-                    	kk.Document(aa);
-                        
-                        aa.OutlinePage(kk);
-                	}                    
-                }
-                
-                infra.DocumentSchedule(aa);
-                
-                OutlinePage a;
-            	a = aa.OutlinePage();
-                
-                a.Update();
-
-                return (T)a;
-            }
+            return null;
         }
-        return null;
+
+        Infra infra;
+        infra = Plugin.This().Infra();
+
+        AbstractTextEditor kkk;
+        kkk = (AbstractTextEditor)adaptableObject;
+
+        ITextEditor editor;
+        editor = kkk;
+        
+        IDocument ka;
+        ka = infra.EditorDocument(editor);
+
+        if (ka == null)
+        {
+            return null;
+        }
+        
+        Document aa;
+        aa = Plugin.This().DocumentTable().get(ka);
+
+        boolean b;
+        b = (aa == null);
+        
+        if (b)
+        {                    
+            aa = infra.DocumentCreate(ka, editor);
+        }
+        
+        if (!b)
+        {                	
+        	boolean ba;
+        	ba = false;
+        	
+        	OutlinePage kaa;
+            kaa = aa.OutlinePage();
+            
+            if (!ba)
+            {
+                if (kaa == null)
+                {
+                	ba = true;
+                }
+            }
+            if (!ba)
+            {
+            	if (kaa.IsFinal())
+            	{
+            		ba = true;
+            	}
+            }
+            
+            if (ba)
+        	{
+            	OutlinePage kab;
+            	kab = new OutlinePage();
+            	kab.Init();
+            	kab.Document(aa);
+                
+                aa.OutlinePage(kab);
+        	}                    
+        }
+        
+        infra.DocumentSchedule(aa);
+        
+        OutlinePage a;
+    	a = aa.OutlinePage();
+        
+        a.Update();
+
+        return (T)a;
     }
 
     public java.lang.Class<?>[] getAdapterList()

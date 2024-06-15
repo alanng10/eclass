@@ -23,57 +23,63 @@ public class PartListener extends Any implements IPartListener2
         return null;
     }
     
-    
 	private IDocument ClassIDocument(IWorkbenchPartReference partRef)
 	{
-	    Infra infra;
-	    infra = Plugin.This().Infra();
-	    
-	    IEditorPart ka;
-	    ka = this.EditorPart(partRef);
-	    
-	    if (ka == null)
-	    {
-	        return null;
-	    }
-	    
-	    ITextEditor editor;
-	    editor = infra.Editor(ka);
-		
-	    if (editor == null)
-	    {
-	        return null;
-	    }
-	    
-		IDocument a;
-		a = infra.EditorDocument(editor);
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
+        IEditorPart ka;
+        ka = this.EditorPart(partRef);
+        
+        if (ka == null)
+        {
+            return null;
+        }
+        
+        ITextEditor editor;
+        editor = infra.Editor(ka);
+        
+        if (editor == null)
+        {
+            return null;
+        }
+        
+        IDocument a;
+        a = infra.EditorDocument(editor);
 		return a;
 	}
 
 	private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
 	{
-		IDocument o;
-		o = this.ClassIDocument(partRef);
+        Infra infra;
+        infra = Plugin.This().Infra();
+        
+        IEditorPart ka;
+        ka = this.EditorPart(partRef);
+        
+        if (ka == null)
+        {
+            return true;
+        }
+        
+        ITextEditor editor;
+        editor = infra.Editor(ka);
+        
+        if (editor == null)
+        {
+            return true;
+        }
+        
+        IDocument o;
+        o = infra.EditorDocument(editor);
 
 		if (!(o == null))
 		{
-			Infra infra;
-			infra = Plugin.This().Infra();
-
 			Document a;
 			a = Plugin.This().DocumentTable().get(o);
 
 			if (a == null)
 			{
-			    IWorkbenchPart part;
-		        part = partRef.getPart(false);
-		        
-		        IEditorPart aa;
-		        aa = (IEditorPart)part;
-		        
-		        ITextEditor editor;
-		        editor = (ITextEditor)aa;
-		        
 				a = infra.DocumentCreate(o, editor);
 			}
 
