@@ -209,10 +209,18 @@ public class OutlinePage extends ContentOutlinePage
         Node node;
         node = (Node)ka;
     
+        Range range;
+        range = node.Range();
+        
+        if (range == null)
+        {
+            return;
+        }
+        
         int index;
         int count;
-        index = node.Range().Index();
-        count = node.Range().Count();
+        index = range.Index();
+        count = range.Count();
         
         int totalCount;
         totalCount = this.Document().IDocument().getLength();
