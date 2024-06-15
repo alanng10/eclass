@@ -97,6 +97,13 @@ public class ClassRead extends Any
         {
             return null;
         }
+        
+        Range range;
+        range = this.ExecuteRange();
+        if (range == null)
+        {
+            return null;
+        }
 
         Class a;
         a = new Class();
@@ -104,6 +111,7 @@ public class ClassRead extends Any
         a.Name(name);
         a.Base(base);
         a.Comp(comp);
+        a.Range(range);
         return a;
     }
     
@@ -115,11 +123,23 @@ public class ClassRead extends Any
     	{
     		return null;
     	}
-        
+    	
+        Range range;
+        range = null;
+        if (!(value == null))
+        {
+            range = this.ExecuteRange();
+            if (range == null)
+            {
+                return null;
+            }
+        }
+    	
         ClassName a;
         a = new ClassName();
         a.Init();
         a.Value(value);
+        a.Range(range);
         return a;
     }
     
@@ -132,10 +152,22 @@ public class ClassRead extends Any
     		return null;
     	}
         
+    	Range range;
+    	range = null;
+    	if (!(value == null))
+    	{
+    	    range = this.ExecuteRange();
+            if (range == null)
+            {
+                return null;
+            }
+    	}
+        
         BaseName a;
         a = new BaseName();
         a.Init();
         a.Value(value);
+        a.Range(range);
         return a;
     }
 
@@ -199,12 +231,44 @@ public class ClassRead extends Any
             return null;
         }
         
+        Range range;
+        range = this.ExecuteRange();
+        if (range == null)
+        {
+            return null;
+        }
+        
         Comp a;
         a = new Comp();
         a.Init();
         a.Kind(kind);
         a.Class(varClass);
         a.Name(name);
+        a.Count(count);
+        a.Range(range);
+        return a;
+    }
+    
+    protected Range ExecuteRange()
+    {
+        int index;
+        index = this.ExecuteInt();
+        if (index == -1)
+        {
+            return null;
+        }
+        
+        int count;
+        count = this.ExecuteInt();
+        if (count == -1)
+        {
+            return null;
+        }
+        
+        Range a;
+        a = new Range();
+        a.Init();
+        a.Index(index);
         a.Count(count);
         return a;
     }
