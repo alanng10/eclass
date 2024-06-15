@@ -234,24 +234,6 @@ public class DocumentThread extends Thread
         
         return true;
     }
-    
-    protected String NameText(String name)
-    {
-        if (name == null)
-        {
-            return "Unnamed";
-        }
-        return name;
-    }
-    
-    protected String ClassText(String cc)
-    {
-        if (cc == null)
-        {
-            return "Unclassed";
-        }
-        return cc;
-    }
 
     private boolean UpdateOutline(Document o)
     {
