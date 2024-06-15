@@ -60,10 +60,16 @@ public class ClassRead extends Any
         this.Class(this.ExecuteClass());
 
         this.DataBuffer = null;
+        
+        if (!(this.Status() == 0))
+        {
+            return false;
+        }
+        
         return true;
     }
 
-    private Class ExecuteClass()
+    protected Class ExecuteClass()
     {
     	boolean b;
     	b = this.ExecuteOptional();
@@ -115,7 +121,7 @@ public class ClassRead extends Any
         return a;
     }
     
-    private ClassName ExecuteClassName()
+    protected ClassName ExecuteClassName()
     {
     	String value;
     	value = this.ExecuteOptionalString();
@@ -143,7 +149,7 @@ public class ClassRead extends Any
         return a;
     }
     
-    private BaseName ExecuteBaseName()
+    protected BaseName ExecuteBaseName()
     {
     	String value;
     	value = this.ExecuteOptionalString();
@@ -171,7 +177,7 @@ public class ClassRead extends Any
         return a;
     }
 
-    private Comp[] ExecuteCompArray()
+    protected Comp[] ExecuteCompArray()
     {
         int count;
         count = this.ExecuteInt();
@@ -201,7 +207,7 @@ public class ClassRead extends Any
         return array;
     }
 
-    private Comp ExecuteComp()
+    protected Comp ExecuteComp()
     {
         int kind;
         kind = this.ExecuteByte();
@@ -273,7 +279,7 @@ public class ClassRead extends Any
         return a;
     }
     
-    private String ExecuteOptionalString()
+    protected String ExecuteOptionalString()
     {
     	boolean b;
     	b = this.ExecuteOptional();
@@ -291,7 +297,7 @@ public class ClassRead extends Any
     	return a;
     }
 
-    private boolean ExecuteOptional()
+    protected boolean ExecuteOptional()
     {
     	int aa;
     	
@@ -309,7 +315,7 @@ public class ClassRead extends Any
     	return true;
     }
     
-    private String ExecuteString()
+    protected String ExecuteString()
     {
         int count;
         count = this.ExecuteInt();
@@ -348,7 +354,7 @@ public class ClassRead extends Any
         return a;
     }
  
-    private int ExecuteInt()
+    protected int ExecuteInt()
     {
         if (this.DataBuffer.remaining() < 4)
         {
@@ -367,7 +373,7 @@ public class ClassRead extends Any
         return a;
     }
 
-    private int ExecuteByte()
+    protected int ExecuteByte()
     {
         if (this.DataBuffer.remaining() < 1)
         {

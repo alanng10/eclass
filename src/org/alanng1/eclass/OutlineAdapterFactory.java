@@ -40,12 +40,12 @@ public class OutlineAdapterFactory implements IAdapterFactory
         b = (aa == null);
         
         if (b)
-        {                    
+        {
             aa = infra.DocumentCreate(ka, editor);
         }
         
         if (!b)
-        {                	
+        {
         	boolean ba;
         	ba = false;
         	
@@ -75,7 +75,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
             	kab.Document(aa);
                 
                 aa.OutlinePage(kab);
-        	}                    
+        	}
         }
         
         infra.DocumentSchedule(aa);
