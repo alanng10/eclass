@@ -15,12 +15,15 @@ public class OutlinePage extends ContentOutlinePage
 {
     public boolean Init()
     {
+        ConfigIndex configIndex;
+        configIndex = Plugin.This().ConfigIndex();
+        
         ScopedPreferenceStore ka;
         ka = new ScopedPreferenceStore(InstanceScope.INSTANCE, Plugin.PLUGIN_ID);
 
-        this.InitSort_D = ka.getBoolean("Outline.Sort");
+        this.InitSort_D = ka.getBoolean(configIndex.OutlineSort());
 
-        this.InitKind_D = ka.getBoolean("Outline.Kind");
+        this.InitKind_D = ka.getBoolean(configIndex.OutlineKind());
 
         OutlineComparator aa;
         aa = new OutlineComparator();

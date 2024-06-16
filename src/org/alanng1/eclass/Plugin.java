@@ -42,6 +42,9 @@ public class Plugin extends AbstractUIPlugin
         
         this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor("elcl16/th_vertical");
         
+        this.ConfigIndex_D = new ConfigIndex();
+        this.ConfigIndex_D.Init();
+        
         this.Infra_D = new Infra();
         this.Infra_D.Init();
 
@@ -69,6 +72,8 @@ public class Plugin extends AbstractUIPlugin
     
     private ImageDescriptor ImageIconDescriptorKind_D;
 
+    private ConfigIndex ConfigIndex_D;
+    
     private Infra Infra_D;
 
     public Hashtable<IDocument, Document> DocumentTable()
@@ -119,6 +124,11 @@ public class Plugin extends AbstractUIPlugin
     public ImageDescriptor ImageIconDescriptorKind()
     {
         return this.ImageIconDescriptorKind_D;
+    }
+    
+    public ConfigIndex ConfigIndex()
+    {
+        return this.ConfigIndex_D;
     }
 
     public Infra Infra()
