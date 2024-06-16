@@ -16,9 +16,9 @@ public class ConfigPage extends FieldEditorPreferencePage implements IWorkbenchP
 
     protected void createFieldEditors()
     {
-        this.addField(new BooleanFieldEditor("Outline.Sort", "&Sort outline Comps alphabetically", this.getFieldEditorParent()));
+        this.addField(new BooleanFieldEditor("Outline.Sort", "&Sort outline comps alphabetically", this.getFieldEditorParent()));
         
-        this.addField(new BooleanFieldEditor("Outline.Kind", "&Group outline Comps by kind", this.getFieldEditorParent()));
+        this.addField(new BooleanFieldEditor("Outline.Kind", "&Group outline comps by kind", this.getFieldEditorParent()));
     }
 
     public void init(IWorkbench workbench)
