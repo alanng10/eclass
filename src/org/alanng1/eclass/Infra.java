@@ -188,7 +188,7 @@ public class Infra extends Any
     {
         if (name == null)
         {
-            return "Unnamed";
+            return "#Unnamed";
         }
         return name;
     }
@@ -197,7 +197,7 @@ public class Infra extends Any
     {
         if (varClass == null)
         {
-            return "Unclassed";
+            return "#Unclassed";
         }
         return varClass;
     }
