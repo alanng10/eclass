@@ -37,14 +37,14 @@ public class DocumentThread extends Thread
         return this.Phore_D;
     }
 
-    private Semaphore Phore_D;
+    protected Semaphore Phore_D;
 
     public Object Lock()
     {
         return this.Lock_D;
     }
 
-    private Object Lock_D;
+    protected Object Lock_D;
 
     public LinkedList<Document> Queue()
     {
