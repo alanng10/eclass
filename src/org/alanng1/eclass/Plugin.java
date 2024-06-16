@@ -1,8 +1,10 @@
 package org.alanng1.eclass;
 
 import java.util.Hashtable;
+import java.util.Optional;
 
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ResourceLocator;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -147,22 +149,35 @@ public class Plugin extends AbstractUIPlugin
         return a;
     }
     
-    private ImageDescriptor CreateImageIconDescriptor(String name)
-    {
-        ImageDescriptor k;
-        k = Plugin.imageDescriptorFromPlugin("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
-        return k;
-    }
-    
     private Image CreateImageIconLocal(String name)
     {
         ImageDescriptor k;
-        k = Plugin.imageDescriptorFromPlugin(PLUGIN_ID, "icon/" + name);
+        k = this.CreateImageIconDescriptorLocal(name);
 
         Image a;
         a = k.createImage();
 
         return a;
+    }
+    
+    private ImageDescriptor CreateImageIconDescriptor(String name)
+    {
+        return this.CreateImageDescriptor("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
+    }
+    
+    private ImageDescriptor CreateImageIconDescriptorLocal(String name)
+    {
+        return this.CreateImageDescriptor(PLUGIN_ID, "icon/" + name);
+    }
+    
+    private ImageDescriptor CreateImageDescriptor(String bundleName, String path)
+    {
+        Optional<ImageDescriptor> ka;
+        ka = ResourceLocator.imageDescriptorFromBundle(bundleName, path);
+        
+        ImageDescriptor k;
+        k = ka.get();
+        return k;
     }
 
     public void start(BundleContext context) throws Exception
