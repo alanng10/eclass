@@ -16,7 +16,7 @@
     	<content-type
 			base-type="org.eclipse.core.runtime.text"
 			file-extensions="cla"
-			id="org.alanng1.eclass.class"
+			id="org.alanng10.eclass.class"
 			name="Class"
 			priority="normal">
 		</content-type>
@@ -25,7 +25,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editorContentTypeBinding
-            contentTypeId="org.alanng1.eclass.class"
+            contentTypeId="org.alanng10.eclass.class"
             editorId="org.eclipse.ui.genericeditor.GenericEditor">
       </editorContentTypeBinding>
    </extension>
@@ -38,7 +38,7 @@
     	point="org.eclipse.e4.ui.css.swt.theme">
       <theme
             basestylesheeturi="css/default.css"
-            id="org.alanng1.eclass.css.default"
+            id="org.alanng10.eclass.css.default"
             label="EClass">
       </theme>
    	</extension>
@@ -50,7 +50,7 @@
             path="./syntax/class.tmLanguage.json" >
       </grammar>      
       <scopeNameContentTypeBinding
-            contentTypeId="org.alanng1.eclass.class"
+            contentTypeId="org.alanng10.eclass.class"
             scopeName="source.class">
       </scopeNameContentTypeBinding>
    </extension>
@@ -58,7 +58,7 @@
   	<extension 
   		point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
       <languageConfiguration 
-      	contentTypeId="org.alanng1.eclass.class" 
+      	contentTypeId="org.alanng10.eclass.class" 
       	path="./config/language-configuration.json" />
    </extension>
    
@@ -73,14 +73,14 @@
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
       <presentationReconciler
             class="org.eclipse.tm4e.ui.text.TMPresentationReconciler"
-            contentType="org.alanng1.eclass.class">
+            contentType="org.alanng10.eclass.class">
       </presentationReconciler>
    </extension>
    
    <extension
      	point="org.eclipse.ui.genericeditor.icons">
       <icon
-            contentType="org.alanng1.eclass.class"
+            contentType="org.alanng10.eclass.class"
             icon="./icon/sourcefile.gif">
       </icon>
    </extension>
@@ -89,7 +89,7 @@
         point="org.eclipse.ui.preferencePages">
       <page
             class="org.alanng10.eclass.ConfigPage"
-            id="org.alanng1.eclass.configpage"
+            id="org.alanng10.eclass.configpage"
             name="Class">
       </page>
    </extension>
