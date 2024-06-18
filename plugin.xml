@@ -6,7 +6,7 @@
   		point="org.eclipse.core.runtime.adapters">
 	  <factory
 	    adaptableType="org.eclipse.ui.texteditor.AbstractTextEditor"
-	    class="org.alanng1.eclass.OutlineAdapterFactory">
+	    class="org.alanng10.eclass.OutlineAdapterFactory">
 	    <adapter type="org.eclipse.ui.views.contentoutline.IContentOutlinePage"/>
 	  </factory>
 	</extension>
@@ -31,7 +31,7 @@
    </extension>
    <extension
          point="org.eclipse.ui.startup">
-         <startup class="org.alanng1.eclass.Startup"/>
+         <startup class="org.alanng10.eclass.Startup"/>
    </extension>
    
 	<extension
@@ -88,7 +88,7 @@
    <extension
         point="org.eclipse.ui.preferencePages">
       <page
-            class="org.alanng1.eclass.ConfigPage"
+            class="org.alanng10.eclass.ConfigPage"
             id="org.alanng1.eclass.configpage"
             name="Class">
       </page>
@@ -96,7 +96,7 @@
    <extension
          point="org.eclipse.core.runtime.preferences">
       <initializer
-            class="org.alanng1.eclass.ConfigInitializer">
+            class="org.alanng10.eclass.ConfigInitializer">
       </initializer>
    </extension>
 </plugin>

@@ -22,4 +22,4 @@ Bundle-Vendor: AlanNg
 Automatic-Module-Name: org.alanng1.eclass
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.alanng1.eclass.Plugin
+Bundle-Activator: org.alanng10.eclass.Plugin
