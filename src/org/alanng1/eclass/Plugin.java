@@ -28,21 +28,21 @@ public class Plugin extends AbstractUIPlugin
         this.DocumentThread_D = new DocumentThread();
         this.DocumentThread_D.Init();
 
-        this.ImageIconClass_D = this.CreateImageIcon("obj16/class_obj");
+        this.ImageIconClass_D = this.CreateImageIcon(false, "obj16/class_obj");
 
-        this.ImageIconField_D = this.CreateImageIcon("obj16/methdef_obj");
+        this.ImageIconField_D = this.CreateImageIcon(false, "obj16/methdef_obj");
 
-        this.ImageIconMaide_D = this.CreateImageIcon("obj16/methpri_obj");
+        this.ImageIconMaide_D = this.CreateImageIcon(false, "obj16/methpri_obj");
         
-        this.ImageIconSourceFile_D = this.CreateImageIconLocal("sourcefile.gif");
+        this.ImageIconSourceFile_D = this.CreateImageIcon(true, "sourcefile.gif");
         
-        this.ImageIconClassName_D = this.CreateImageIcon("obj16/methpub_obj");
+        this.ImageIconClassName_D = this.CreateImageIcon(false, "obj16/methpub_obj");
 
-        this.ImageIconBaseName_D = this.CreateImageIcon("obj16/methpro_obj");
+        this.ImageIconBaseName_D = this.CreateImageIcon(false, "obj16/methpro_obj");
         
-        this.ImageIconDescriptorSort_D = this.CreateImageIconDescriptor("elcl16/alphab_sort_co");
+        this.ImageIconDescriptorSort_D = this.CreateImageIconDescriptor(false, "elcl16/alphab_sort_co");
         
-        this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor("elcl16/th_vertical");
+        this.ImageIconDescriptorKind_D = this.CreateImageIconDescriptor(false, "elcl16/th_vertical");
         
         this.ConfigIndex_D = new ConfigIndex();
         this.ConfigIndex_D.Init();
@@ -138,10 +138,10 @@ public class Plugin extends AbstractUIPlugin
         return this.Infra_D;
     }
 
-    private Image CreateImageIcon(String name)
+    private Image CreateImageIcon(boolean local, String name)
     {
         ImageDescriptor k;
-        k = this.CreateImageIconDescriptor(name);
+        k = this.CreateImageIconDescriptor(local, name);
         
         Image a;
         a = k.createImage();
@@ -149,25 +149,15 @@ public class Plugin extends AbstractUIPlugin
         return a;
     }
     
-    private Image CreateImageIconLocal(String name)
-    {
-        ImageDescriptor k;
-        k = this.CreateImageIconDescriptorLocal(name);
-
-        Image a;
-        a = k.createImage();
-
-        return a;
-    }
     
-    private ImageDescriptor CreateImageIconDescriptor(String name)
+    private ImageDescriptor CreateImageIconDescriptor(boolean local, String name)
     {
+        if (local)
+        {
+            return this.CreateImageDescriptor(PLUGIN_ID, "icon/" + name);
+        }
+         
         return this.CreateImageDescriptor("org.eclipse.jdt.ui", "icons/full/" + name + ".png");
-    }
-    
-    private ImageDescriptor CreateImageIconDescriptorLocal(String name)
-    {
-        return this.CreateImageDescriptor(PLUGIN_ID, "icon/" + name);
     }
     
     private ImageDescriptor CreateImageDescriptor(String bundleName, String path)

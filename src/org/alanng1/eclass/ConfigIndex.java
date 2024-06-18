@@ -12,7 +12,6 @@ public class ConfigIndex extends Any
         return true;
     }
     
-    
     public String OutlineSort()
     {
         return this.OutlineSort_D;
