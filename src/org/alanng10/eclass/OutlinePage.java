@@ -2,6 +2,7 @@ package org.alanng10.eclass;
 
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -186,8 +187,16 @@ public class OutlinePage extends ContentOutlinePage
     {
         super.selectionChanged(event);
 
+        ISelection kk;
+        kk = event.getSelection();
+        
+        if (!(kk instanceof IStructuredSelection))
+        {
+            return;
+        }
+        
         IStructuredSelection k;
-        k = event.getStructuredSelection();
+        k = (IStructuredSelection)kk;
 
         Object ka;
         ka = k.getFirstElement();
