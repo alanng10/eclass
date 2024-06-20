@@ -3,11 +3,13 @@ package org.alanng10.eclass;
 import java.util.Hashtable;
 import java.util.Optional;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceLocator;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.ui.preferences.ScopedPreferenceStore;
 import org.osgi.framework.BundleContext;
 
 public class Plugin extends AbstractUIPlugin
@@ -24,9 +26,6 @@ public class Plugin extends AbstractUIPlugin
     public boolean Init()
     {
         this.DocumentTable_D = new Hashtable<IDocument, Document>();
-
-        this.DocumentThread_D = new DocumentThread();
-        this.DocumentThread_D.Init();
 
         this.ImageIconClass_D = this.CreateImageIcon(false, "obj16/class_obj");
 
@@ -49,8 +48,6 @@ public class Plugin extends AbstractUIPlugin
         
         this.Infra_D = new Infra();
         this.Infra_D.Init();
-
-        this.DocumentThread().start();
         return true;
     }
     
@@ -137,6 +134,49 @@ public class Plugin extends AbstractUIPlugin
     {
         return this.Infra_D;
     }
+    
+    public boolean ThreadStart()
+    {
+        ConfigIndex configIndex;
+        configIndex = this.ConfigIndex();
+        
+        ScopedPreferenceStore ka;
+        ka = new ScopedPreferenceStore(InstanceScope.INSTANCE, Plugin.PLUGIN_ID);
+
+        String classServerFilePath;
+        classServerFilePath = ka.getString(configIndex.ClassServerFilePath());
+
+        int networkPortServer;
+        networkPortServer = ka.getInt(configIndex.NetworkPortServer());
+        
+        if (classServerFilePath == null)
+        {
+            return false;
+        }
+        
+        if (classServerFilePath.length() == 0)
+        {
+            return false;
+        }
+        
+        if (!(0 < networkPortServer))
+        {
+            return false;
+        }
+        
+        DocumentThread thread;
+        thread = new DocumentThread();
+
+        thread.ClassServerFilePath(classServerFilePath);
+        thread.NetworkPortServer(networkPortServer);
+
+        thread.Init();
+        
+        this.DocumentThread_D = thread;
+        
+        thread.start();
+        return true;
+    }
 
     private Image CreateImageIcon(boolean local, String name)
     {
@@ -148,7 +188,6 @@ public class Plugin extends AbstractUIPlugin
 
         return a;
     }
-    
     
     private ImageDescriptor CreateImageIconDescriptor(boolean local, String name)
     {
@@ -176,6 +215,8 @@ public class Plugin extends AbstractUIPlugin
         plugin = this;
 
         this.Init();
+        
+        this.ThreadStart();
     }
 
     public void stop(BundleContext context) throws Exception
