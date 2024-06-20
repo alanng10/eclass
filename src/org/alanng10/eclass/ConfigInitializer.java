@@ -14,6 +14,10 @@ public class ConfigInitializer extends AbstractPreferenceInitializer
         ScopedPreferenceStore k;
         k = new ScopedPreferenceStore(InstanceScope.INSTANCE, Plugin.PLUGIN_ID);
         
+        k.setDefault(configIndex.ClassServerFilePath(), "");
+        
+        k.setDefault(configIndex.NetworkPortServer(), 58500);
+        
         k.setDefault(configIndex.OutlineSort(), false);
         
         k.setDefault(configIndex.OutlineKind(), false);

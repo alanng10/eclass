@@ -6,7 +6,7 @@ public class ConfigIndex extends Any
     {
         super.Init();
         
-        this.ServerFilePath_D = "Server.FilePath";
+        this.ClassServerFilePath_D = "ClassServer.FilePath";
         
         this.NetworkPortServer_D = "Network.PortServer";
         
@@ -16,12 +16,12 @@ public class ConfigIndex extends Any
         return true;
     }
 
-    public String ServerFilePath()
+    public String ClassServerFilePath()
     {
-        return this.ServerFilePath_D;
+        return this.ClassServerFilePath_D;
     }
     
-    protected String ServerFilePath_D;
+    protected String ClassServerFilePath_D;
 
     public String NetworkPortServer()
     {

@@ -27,8 +27,6 @@ public class DocumentThread extends Thread
         this.ClassRead.Init();
 
         this.SizeData = new byte[4];
-        
-        this.ServerPort = 58500;
         return true;
     }
 
@@ -66,10 +64,34 @@ public class DocumentThread extends Thread
 
     protected boolean Continue_D;
     
+    public String ClassServerFilePath()
+    {
+        return this.ClassServerFilePath_D;
+    }
+    
+    public boolean ClassServerFilePath(String value)
+    {
+        this.ClassServerFilePath_D = value;
+        return true;
+    }
+    
+    protected String ClassServerFilePath_D;
+    
+    public int NetworkPortServer()
+    {
+        return this.NetworkPortServer_D;
+    }
+    
+    public boolean NetworkPortServer(int value)
+    {
+        this.NetworkPortServer_D = value;
+        return true;
+    }
+    
+    protected int NetworkPortServer_D;
+    
     private ServerSocket NetworkServer;
     private Socket Network;
-
-    private int ServerPort;
     
     private Process Process;
 
@@ -403,7 +425,7 @@ public class DocumentThread extends Thread
 //    	Log.This().Info("Process Init Start");
     	
     	String k;
-    	k = String.valueOf(this.ServerPort);
+    	k = String.valueOf(this.NetworkPortServer());
     	
     	ArrayList<String> list;
     	list = new ArrayList<String>();
@@ -449,7 +471,7 @@ public class DocumentThread extends Thread
         {
 //            Log.This().Info("Network Init 1111");
         	
-            server = new ServerSocket(this.ServerPort);
+            server = new ServerSocket(this.NetworkPortServer());
 
 //            Log.This().Info("Network Init 2222");
         } catch (IOException e)
