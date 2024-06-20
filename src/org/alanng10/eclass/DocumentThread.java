@@ -263,28 +263,49 @@ public class DocumentThread extends Thread
         }
         return true;
     }
+    
+    private boolean InnReadData(byte[] data, int index, int count)
+    {
+        int indexA;
+        int countA;
+        indexA = index;
+        countA = count;
+        
+        while (0 < countA)
+        {
+            int ka;
+            ka = 0;
+            try
+            { 
+                ka = this.Inn.read(data, indexA, countA);
+                
+            } catch (IOException e)
+            {
+                Log.This().Error("Network inn read data exception error", e);
+                this.Status = 11;
+                return false;
+            }
+            
+            if (ka == -1)
+            {
+                Log.This().Error("Network inn read data end of file error", null);
+                this.Status = 12;
+                return false;
+            }
+            
+            indexA = indexA + ka;
+            countA = countA - ka;
+        }
+        
+        return true;
+    }
 
     private byte[] InnRead()
     {
-        int ka;
-        try
+        boolean b;
+        b = this.InnReadData(this.SizeData, 0, this.SizeData.length);
+        if (!b)
         {
-//            Log.This().Info("DocumentThread InnRead 1111");
-        	
-            ka = this.Inn.read(this.SizeData, 0, this.SizeData.length);
-            
-//            Log.This().Info("DocumentThread InnRead 2222");
-        } catch (IOException e)
-        {
-            Log.This().Error("Network inn read data count get error", e);
-            this.Status = 11;
-            return null;
-        }
-
-        if (ka < this.SizeData.length)
-        {
-            Log.This().Error("Network inn read data count get error", null);
-            this.Status = 12;
             return null;
         }
 
@@ -296,29 +317,12 @@ public class DocumentThread extends Thread
         int count;
         count = o.getInt(0);
 
-//        Log.This().Info("InnRead count: " + count);
-        
         byte[] data;
         data = new byte[count];
 
-        try
+        b = this.InnReadData(data, 0, data.length);
+        if (!b)
         {
-//            Log.This().Info("DocumentThread InnRead 3333");
-        	
-            ka = this.Inn.read(data, 0, data.length);
-            
-//            Log.This().Info("DocumentThread InnRead 4444");
-        } catch (IOException e)
-        {
-            Log.This().Error("Network inn read data error", e);
-            this.Status = 13;
-            return null;
-        }
-
-        if (ka < count)
-        {
-            Log.This().Error("Network inn read data error", null);
-            this.Status = 14;
             return null;
         }
 
