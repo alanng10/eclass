@@ -424,13 +424,16 @@ public class DocumentThread extends Thread
     {
 //    	Log.This().Info("Process Init Start");
     	
+        String aa;
+        aa = this.ClassServerFilePath();
+        
     	String k;
     	k = String.valueOf(this.NetworkPortServer());
     	
     	ArrayList<String> list;
     	list = new ArrayList<String>();
     	
-    	list.add("C:\\Users\\aaabb\\Project\\ClassServer\\Out\\net8.0\\ClassServer.Console-ExeCon.exe");
+    	list.add(aa);
     	list.add("localhost");
     	list.add(k);
     	
