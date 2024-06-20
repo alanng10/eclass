@@ -3,6 +3,8 @@ package org.alanng10.eclass;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
+import org.eclipse.jface.preference.IntegerFieldEditor;
+import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPreferencePage;
 import org.eclipse.ui.preferences.ScopedPreferenceStore;
@@ -18,6 +20,10 @@ public class ConfigPage extends FieldEditorPreferencePage implements IWorkbenchP
     {
         ConfigIndex configIndex;
         configIndex = Plugin.This().ConfigIndex();
+        
+        this.addField(new StringFieldEditor(configIndex.ClassServerFilePath(), "&Class server executable file path", this.getFieldEditorParent()));
+        
+        this.addField(new IntegerFieldEditor(configIndex.NetworkPortServer(), "&Network port server number", this.getFieldEditorParent()));
         
         this.addField(new BooleanFieldEditor(configIndex.OutlineSort(), "&Sort outline comps alphabetically", this.getFieldEditorParent()));
         
