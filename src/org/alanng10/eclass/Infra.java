@@ -50,8 +50,11 @@ public class Infra extends Any
         a.Load(load);
         a.OutlinePage(page);
 
-        o.addDocumentListener(listener);
-
+        if (!(Plugin.This().DocumentThread() == null))
+        {
+            o.addDocumentListener(listener);
+        }
+        
         Plugin.This().DocumentTable().put(a.IDocument(), a);
 
         return a;
@@ -59,6 +62,11 @@ public class Infra extends Any
 
     public boolean DocumentSchedule(Document a)
     {
+        if (Plugin.This().DocumentThread() == null)
+        {
+            return false;
+        }
+        
         a.Job().Schedule(1000);
         return true;
     }

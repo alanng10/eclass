@@ -26,7 +26,7 @@ public class DocumentJob extends Job
 
         DocumentThread thread;
         thread = Plugin.This().DocumentThread();
-
+        
         Object lock;
         lock = thread.Lock();
 
