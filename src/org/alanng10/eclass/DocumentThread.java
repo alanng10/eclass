@@ -168,25 +168,25 @@ public class DocumentThread extends Thread
 
 	                String text;
 	                text = oo.Load().Text();
-	
+
 	                byte[] data;
 	                data = this.OutData(text);
-	                
+
 	                boolean ba;
 	                ba = this.OutWrite(data);
-	
+
 	                if (ba)
 	                {
 	                    byte[] dataA;
 	                    dataA = this.InnRead();
-	
+
 	                    if (!(dataA == null))
 	                    {
 	                        ClassRead classRead;
 	                        classRead = this.ClassRead;
-	
+
 	                        classRead.Data(dataA);
-	
+
 	                        classRead.Execute();
 
 	                        Root a;
