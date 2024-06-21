@@ -187,7 +187,7 @@ public class DocumentThread extends Thread
 	
 	                        classRead.Data(dataA);
 	
-	                        classRead.Execute();	                        
+	                        classRead.Execute();
 
 	                        Root a;
 	                        a = new Root();
