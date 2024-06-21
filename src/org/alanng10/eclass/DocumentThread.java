@@ -192,7 +192,7 @@ public class DocumentThread extends Thread
 	                        Root a;
 	                        a = new Root();
 	                        a.Init();
-	
+
 	                        Class varClass;
 	                        varClass = classRead.Class();
 	
