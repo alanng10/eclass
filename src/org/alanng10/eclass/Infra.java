@@ -11,11 +11,6 @@ public class Infra extends Any
 {
     public Document DocumentCreate(IDocument o, ITextEditor editor)
     {
-        if (Plugin.This().DocumentTable().containsKey(o))
-        {
-            return null;
-        }
-        
         String text;
         text = o.get();
 
