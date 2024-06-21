@@ -67,7 +67,7 @@ public class Infra extends Any
             return false;
         }
         
-        a.Job().Schedule(810);
+        a.Job().Schedule(500);
         return true;
     }
 
