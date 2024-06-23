@@ -20,6 +20,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.tm4e.ui;bundle-version="0.12.0"
 Bundle-Vendor: AlanNg
 Automatic-Module-Name: org.alanng10.eclass
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.alanng10.eclass.Plugin
