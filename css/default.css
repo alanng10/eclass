@@ -1,9 +1,9 @@
 .MPartStack
 {
-  swt-tab-renderer: null;
-  swt-selected-tabs-background: #0056E6 #3691FD 100%;
-  swt-simple: false;
-  swt-mru-visible: true;
+    swt-tab-renderer: null;
+    swt-selected-tabs-background: #0056E6 #3691FD 100%;
+    swt-simple: false;
+    swt-mru-visible: true;
 }
 
 .MPartStack > CTabItem:selected
