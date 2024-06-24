@@ -59,7 +59,7 @@ public class TreeLabelProvider extends Any implements ILabelProvider
     public String getText(Object element)
     {
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
         
         if (element instanceof ClassName)
         {

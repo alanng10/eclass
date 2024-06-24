@@ -26,7 +26,7 @@ public class PartListener extends Any implements IPartListener2
 	private IDocument ClassIDocument(IWorkbenchPartReference partRef)
 	{
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
         
         IEditorPart ka;
         ka = this.EditorPart(partRef);
@@ -52,7 +52,7 @@ public class PartListener extends Any implements IPartListener2
 	private boolean ClassDocumentNew(IWorkbenchPartReference partRef)
 	{
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
         
         IEditorPart ka;
         ka = this.EditorPart(partRef);

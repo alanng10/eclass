@@ -229,8 +229,8 @@ public class DocumentThread extends Thread
     private boolean SetCompLabel(Comp[] array)
     {
         Infra infra;
-        infra = Plugin.This().Infra();
-        
+        infra = Infra.This();
+
         int count;
         count = array.length;
         int i;
@@ -375,7 +375,7 @@ public class DocumentThread extends Thread
 //        Log.This().Info("OutData count: " + byteCount);
         
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
         
         infra.DataGetString(data, 4, text);
         

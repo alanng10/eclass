@@ -9,6 +9,11 @@ import org.eclipse.ui.texteditor.ITextEditor;
 
 public class Infra extends Any
 {
+    public static Infra This()
+    {
+        return Plugin.This().Infra();
+    }
+    
     public Document DocumentCreate(IDocument o, ITextEditor editor)
     {
         String text;

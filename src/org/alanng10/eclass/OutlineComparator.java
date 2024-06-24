@@ -69,7 +69,7 @@ public class OutlineComparator extends ViewerComparator
     public int compare(Viewer viewer, Object e1, Object e2)
     {
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
         
         int cat1;
         int cat2;

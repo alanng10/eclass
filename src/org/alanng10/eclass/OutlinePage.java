@@ -217,7 +217,7 @@ public class OutlinePage extends ContentOutlinePage
         }
 
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
 
         Node node;
         node = (Node)ka;

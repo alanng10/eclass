@@ -17,7 +17,7 @@ public class OutlineAdapterFactory implements IAdapterFactory
         }
 
         Infra infra;
-        infra = Plugin.This().Infra();
+        infra = Infra.This();
 
         AbstractTextEditor kkk;
         kkk = (AbstractTextEditor)adaptableObject;

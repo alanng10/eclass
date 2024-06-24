@@ -32,7 +32,7 @@ public class DocumentListener extends Any implements IDocumentListener
 
         a.Load().Text(text);
 
-        Plugin.This().Infra().DocumentSchedule(a);
+        Infra.This().DocumentSchedule(a);
 
 //        Log.This().Info("DocumentListener Changed Schedule");
     }

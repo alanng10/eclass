@@ -38,7 +38,7 @@ public class Startup implements IStartup
     	plugin = Plugin.This();
     	
         Infra infra;
-        infra = plugin.Infra();
+        infra = Infra.This();
 
         IEditorReference[] k;
         k = page.getEditorReferences();
