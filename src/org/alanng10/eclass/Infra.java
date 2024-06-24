@@ -11,7 +11,19 @@ public class Infra extends Any
 {
     public static Infra This()
     {
-        return Plugin.This().Infra();
+        return This_D;
+    }
+
+    private static final Infra This_D = ShareCreate();
+
+    private static Infra ShareCreate()
+    {
+        Infra share;
+        share = new Infra();
+        Any a;
+        a = share;
+        a.Init();
+        return share;
     }
     
     public Document DocumentCreate(IDocument o, ITextEditor editor)

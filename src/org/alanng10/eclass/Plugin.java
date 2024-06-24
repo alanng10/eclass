@@ -45,9 +45,6 @@ public class Plugin extends AbstractUIPlugin
         
         this.ConfigIndex_D = new ConfigIndex();
         this.ConfigIndex_D.Init();
-        
-        this.Infra_D = new Infra();
-        this.Infra_D.Init();
         return true;
     }
     
@@ -72,8 +69,6 @@ public class Plugin extends AbstractUIPlugin
     private ImageDescriptor ImageIconDescriptorKind_D;
 
     private ConfigIndex ConfigIndex_D;
-    
-    private Infra Infra_D;
 
     public Hashtable<IDocument, Document> DocumentTable()
     {
@@ -128,11 +123,6 @@ public class Plugin extends AbstractUIPlugin
     public ConfigIndex ConfigIndex()
     {
         return this.ConfigIndex_D;
-    }
-
-    public Infra Infra()
-    {
-        return this.Infra_D;
     }
     
     public boolean ThreadStart()
