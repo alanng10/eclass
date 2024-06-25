@@ -22,12 +22,12 @@
 		"Keyword": {
 			"patterns": [{
 				"name": "keyword.class",
-				"match": "\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b"
+				"match": "(?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))"
 			}]
 		},
 		"ClassName": {
 			"patterns": [{
-				"match": "\\b(((class)[\\s]+(?!(\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)([\\s]*:[\\s]*(?!(\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*))?)|((new|share|cast|prudate|probate|precate|private)[\\s]+(?!(\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*))|((?!(\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)[\\s]+(?!(\\b(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)\\b))([A-Za-z][A-Za-z0-9_]*)))\\b",
+				"match": "(?<=(?:^|[^A-Za-z0-9_]+))(((class)[\\s]+(?!((?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))))([A-Za-z][A-Za-z0-9_]*)([\\s]*:[\\s]*(?!((?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))))([A-Za-z][A-Za-z0-9_]*))?)|((new|share|cast|prudate|probate|precate|private)[\\s]+(?!((?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))))([A-Za-z][A-Za-z0-9_]*))|((?!((?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))))([A-Za-z][A-Za-z0-9_]*)[\\s]+(?!((?<=(?:^|[^A-Za-z0-9_]+))(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=(?:$|[^A-Za-z0-9_]+))))([A-Za-z][A-Za-z0-9_]*)))(?=(?:$|[^A-Za-z0-9_]+))",
 				"captures": {
 					"3" : { "name": "keyword.class" },
 					"6" : { "name": "entity.name.type.class" },
@@ -47,7 +47,7 @@
 		"IntValue": {
 			"patterns": [{
 				"name": "constant.numeric.class",
-				"match": "\\b([0-9]+)\\b"
+				"match": "(?<=(?:^|[^A-Za-z0-9_]+))([0-9]+)(?=(?:$|[^A-Za-z0-9_]+))"
 			}]
 		},
 		"StringValue": {
