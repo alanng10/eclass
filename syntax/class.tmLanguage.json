@@ -27,18 +27,26 @@
 		},
 		"KeywordClassName": {
 			"patterns": [{
-				"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|prudate|probate|precate|private)[ ]*(?=$|[^A-Za-z0-9_])",
+				"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])",
 				"beginCaptures": {
 					"1": {
 						"name": "keyword.class"
 					}
 				},
-				"end": "([ ]*(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*))|.",
+				"end": "((?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*))|.",
 				"endCaptures": {
 					"4" : {
 						"name": "entity.name.type.class"
 					}
-				}
+				},
+				"patterns": [
+					{
+						"include": "#Comment"
+					},
+					{
+						"match": "[ ]+"
+					}
+				]
 			}]
 		},
 		"ClassName": {
