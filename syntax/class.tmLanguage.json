@@ -12,9 +12,6 @@
 			"include": "#WordClass"
 		},
 		{
-			"include": "#VarDefine"
-		},
-		{
 			"include": "#Keyword"
 		},
 		{
@@ -46,13 +43,13 @@
 			]
 		},
 		"WordClass" : {
-			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])",
+			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|var|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.class"
 				}
 			},
-			"end": "((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_]))|((?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_]))",
+			"end": "((?<=^|[^A-Za-z0-9_])(class|get|set|this|var|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_]))|((?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|var|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_]))",
 			"endCaptures": {
 				"1": {
 					"name": "keyword.class"
@@ -67,30 +64,16 @@
 				}
 			]
 		},
-		"VarDefine" : {
-			"begin": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])",
-			"beginCaptures": {
-				"3": {
-					"name": "entity.name.type.class"
-				}
-			},
-			"end": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])",
-			"patterns": [
-				{
-					"include": "#Info"
-				}
-			]
-		},
 		"ClassName": {
 			"patterns": [{
 				"name": "entity.name.type.class",
-				"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
+				"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|var|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
 			}]
 		},
 		"Keyword": {
 			"patterns": [{
 				"name": "keyword.class",
-				"match": "(?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
+				"match": "(?<=^|[^A-Za-z0-9_])(class|get|set|this|var|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
 			}]
 		},
 		"Info": {
