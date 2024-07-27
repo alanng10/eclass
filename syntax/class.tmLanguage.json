@@ -6,7 +6,7 @@
 			"include": "#Comment"
 		},
 		{
-			"include": "ClassDefine"
+			"include": "#ClassDefine"
 		},
 		{
 			"include": "#Keyword"
