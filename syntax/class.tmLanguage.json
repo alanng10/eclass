@@ -3,10 +3,13 @@
 	"name": "Class",
 	"patterns": [
 		{
-			"include": "#Comment"
+			"include": "#Info"
 		},
 		{
 			"include": "#ClassDefine"
+		},
+		{
+			"include": "#WordClass"
 		},
 		{
 			"include": "#Keyword"
@@ -20,7 +23,7 @@
 	],
 	"repository": {
 		"ClassDefine": {
-			"begin": "\\b(class)\\b",
+			"begin": "(?<=^|[^A-Za-z0-9_])(class)(?=$|[^A-Za-z0-9_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.class"
@@ -29,10 +32,29 @@
 			"end": "(?=\\{)",
 			"patterns": [
 				{
-					"include": "#Comment"
+					"include": "#Info"
 				},
 				{
 					"include": "#ClassName"
+				}
+			]
+		},
+		"WordClass" : {
+			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.class"
+				}
+			},
+			"end": "(?<=^|[^A-Za-z0-9_])([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])",
+			"endCaptures": {
+				"1": {
+					"name": "entity.name.type.class"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#Info"
 				}
 			]
 		},
@@ -48,7 +70,7 @@
 				"match": "(?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
 			}]
 		},
-		"Comment": {
+		"Info": {
 			"patterns": [{
 				"name": "comment.class",
 				"match": "#(.*)"
