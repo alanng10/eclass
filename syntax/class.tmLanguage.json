@@ -12,6 +12,9 @@
 			"include": "#WordClass"
 		},
 		{
+			"include": "#VarDefine"
+		},
+		{
 			"include": "#Keyword"
 		},
 		{
@@ -58,6 +61,20 @@
 					"name": "entity.name.type.class"
 				}
 			},
+			"patterns": [
+				{
+					"include": "#Info"
+				}
+			]
+		},
+		"VarDefine" : {
+			"begin": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])",
+			"beginCaptures": {
+				"3": {
+					"name": "entity.name.type.class"
+				}
+			},
+			"end": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|get|set|this|base|new|share|cast|null|true|false|sign|bit|return|inf|while|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])",
 			"patterns": [
 				{
 					"include": "#Info"
