@@ -5,15 +5,22 @@
 
 .keyword
 {
-    color: blue;
+    color: #7f0055;
+    font-weight: bold;
+}
+
+.entity.name.type
+{
+    color: #004080;
+    font-weight: bold;
 }
 
 .constant.numeric
 {
-    color: #800000;
+    color: rgb(23, 95, 70);
 }
 
 .string.quoted
 {
-    color: #800000;
+    color: rgb(23, 95, 70);
 }
