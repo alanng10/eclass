@@ -23,7 +23,7 @@ public class ConfigPage extends FieldEditorPreferencePage implements IWorkbenchP
         
         this.addField(new StringFieldEditor(configIndex.ClassServerFilePath(), "&Class server executable file path", this.getFieldEditorParent()));
         
-        this.addField(new IntegerFieldEditor(configIndex.NetworkPortHost(), "&Network port server number", this.getFieldEditorParent()));
+        this.addField(new IntegerFieldEditor(configIndex.NetworkPortHost(), "&Network port host number", this.getFieldEditorParent()));
         
         this.addField(new BooleanFieldEditor(configIndex.OutlineSort(), "&Sort outline comps alphabetically", this.getFieldEditorParent()));
         
