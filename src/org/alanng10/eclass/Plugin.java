@@ -136,8 +136,8 @@ public class Plugin extends AbstractUIPlugin
         String classServerFilePath;
         classServerFilePath = ka.getString(configIndex.ClassServerFilePath());
 
-        int networkPortServer;
-        networkPortServer = ka.getInt(configIndex.NetworkPortHost());
+        int networkPortHost;
+        networkPortHost = ka.getInt(configIndex.NetworkPortHost());
         
         if (classServerFilePath == null)
         {
@@ -149,7 +149,7 @@ public class Plugin extends AbstractUIPlugin
             return false;
         }
         
-        if (!(0 < networkPortServer))
+        if (!(0 < networkPortHost))
         {
             return false;
         }
@@ -158,7 +158,7 @@ public class Plugin extends AbstractUIPlugin
         thread = new DocumentThread();
 
         thread.ClassServerFilePath(classServerFilePath);
-        thread.NetworkPortServer(networkPortServer);
+        thread.NetworkPortHost(networkPortHost);
 
         thread.Init();
         

@@ -77,18 +77,18 @@ public class DocumentThread extends Thread
     
     protected String ClassServerFilePath_D;
     
-    public int NetworkPortServer()
+    public int NetworkPortHost()
     {
-        return this.NetworkPortServer_D;
+        return this.NetworkPortHost_D;
     }
     
-    public boolean NetworkPortServer(int value)
+    public boolean NetworkPortHost(int value)
     {
-        this.NetworkPortServer_D = value;
+        this.NetworkPortHost_D = value;
         return true;
     }
     
-    protected int NetworkPortServer_D;
+    protected int NetworkPortHost_D;
     
     private ServerSocket NetworkServer;
     private Socket Network;
@@ -428,7 +428,7 @@ public class DocumentThread extends Thread
         aa = this.ClassServerFilePath();
         
     	String k;
-    	k = String.valueOf(this.NetworkPortServer());
+    	k = String.valueOf(this.NetworkPortHost());
     	
     	ArrayList<String> list;
     	list = new ArrayList<String>();
@@ -474,7 +474,7 @@ public class DocumentThread extends Thread
         {
 //            Log.This().Info("Network Init 1111");
         	
-            server = new ServerSocket(this.NetworkPortServer());
+            server = new ServerSocket(this.NetworkPortHost());
 
 //            Log.This().Info("Network Init 2222");
         } catch (IOException e)
