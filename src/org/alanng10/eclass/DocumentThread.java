@@ -93,7 +93,7 @@ public class DocumentThread extends Thread
     private ServerSocket NetworkServer;
     private Socket Network;
     
-    private Process Process;
+    private Process Program;
 
     private OutputStream Out;
     private InputStream Inn;
@@ -422,7 +422,7 @@ public class DocumentThread extends Thread
 
     private boolean ProcessInit()
     {
-//    	Log.This().Info("Process Init Start");
+//    	Log.This().Info("Program Init Start");
     	
         String aa;
         aa = this.ClassServerFilePath();
@@ -440,17 +440,17 @@ public class DocumentThread extends Thread
         ProcessBuilder builder;
         builder = new ProcessBuilder(list);
 
-//        Log.This().Info("Process Init 1111");
+//        Log.This().Info("Program Init 1111");
         
         Process process;
         process = null;
         try
         {
-//            Log.This().Info("Process Init 2222");
+//            Log.This().Info("Program Init 2222");
             
         	process = builder.start();
             
-//            Log.This().Info("Process Init 3333");
+//            Log.This().Info("Program Init 3333");
         } catch (IOException e)
         {
             Log.This().Error("ClassServer process cannot be started", e);
@@ -458,9 +458,9 @@ public class DocumentThread extends Thread
             return false;
         }
 
-        this.Process = process;
+        this.Program = process;
         
-//        Log.This().Info("Process Init End");
+//        Log.This().Info("Program Init End");
         return true;
     }
 
@@ -566,7 +566,7 @@ public class DocumentThread extends Thread
     
     private boolean ProcessFinal()
     {
-        this.Process.destroyForcibly();
+        this.Program.destroyForcibly();
         return true;
     }
 }
