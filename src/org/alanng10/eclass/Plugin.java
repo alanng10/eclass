@@ -137,7 +137,7 @@ public class Plugin extends AbstractUIPlugin
         classServerFilePath = ka.getString(configIndex.ClassServerFilePath());
 
         int networkPortServer;
-        networkPortServer = ka.getInt(configIndex.NetworkPortServer());
+        networkPortServer = ka.getInt(configIndex.NetworkPortHost());
         
         if (classServerFilePath == null)
         {

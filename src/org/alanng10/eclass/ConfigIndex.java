@@ -8,7 +8,7 @@ public class ConfigIndex extends Any
         
         this.ClassServerFilePath_D = "ClassServer.FilePath";
         
-        this.NetworkPortServer_D = "Network.PortServer";
+        this.NetworkPortHost_D = "Network.PortHost";
         
         this.OutlineSort_D = "Outline.Sort";
         
@@ -23,12 +23,12 @@ public class ConfigIndex extends Any
     
     protected String ClassServerFilePath_D;
 
-    public String NetworkPortServer()
+    public String NetworkPortHost()
     {
-        return this.NetworkPortServer_D;
+        return this.NetworkPortHost_D;
     }
     
-    protected String NetworkPortServer_D;
+    protected String NetworkPortHost_D;
     
     public String OutlineSort()
     {

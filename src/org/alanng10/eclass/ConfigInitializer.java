@@ -16,7 +16,7 @@ public class ConfigInitializer extends AbstractPreferenceInitializer
         
         k.setDefault(configIndex.ClassServerFilePath(), "");
         
-        k.setDefault(configIndex.NetworkPortServer(), 58500);
+        k.setDefault(configIndex.NetworkPortHost(), 58500);
         
         k.setDefault(configIndex.OutlineSort(), false);
         
