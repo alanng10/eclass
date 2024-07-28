@@ -49,13 +49,20 @@
 					"name": "keyword.class"
 				}
 			},
-			"end": "((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_]))|((?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_]))",
+			"end": "(([\\.,:;=+\\-*\\/&|!<>(){}])|([A-Za-z0-9_]+)|(\"((\\\\\")|([^\"\\n]))*([\"]?)))",
 			"endCaptures": {
 				"1": {
-					"name": "keyword.class"
-				},
-				"3": {
-					"name": "entity.name.type.class"
+					"patterns": [
+						{
+							"include": "#StringValue"
+						},
+						{
+							"include": "#Keyword"
+						},
+						{
+							"include": "#ClassName"
+						}
+					]
 				}
 			},
 			"patterns": [
