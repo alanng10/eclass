@@ -77,13 +77,13 @@
 		"ClassName": {
 			"patterns": [{
 				"name": "entity.name.type.class",
-				"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
+				"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|are|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
 			}]
 		},
 		"Keyword": {
 			"patterns": [{
 				"name": "keyword.class",
-				"match": "(?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
+				"match": "(?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|are|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
 			}]
 		},
 		"Info": {
