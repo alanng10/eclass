@@ -31,6 +31,19 @@ public class ClassRead extends Any
     
     protected Class Class_D;
     
+    public Error[] Error()
+    {
+        return this.Error_D;
+    }
+    
+    public boolean Error(Error[] value)
+    {
+        this.Error_D = value;
+        return true;
+    }
+   
+    protected Error[] Error_D;
+    
     public int Status()
     {
     	return this.Status_D;
@@ -57,7 +70,15 @@ public class ClassRead extends Any
 
         this.DataBuffer = o;
 
-        this.Class(this.ExecuteClass());
+        Class varClass;
+        varClass = this.ExecuteClass();
+
+        Error[] error;
+        error = this.ExecuteErrorArray();
+
+        this.Class(varClass);
+        
+        this.Error(error);
 
         this.DataBuffer = null;
         
@@ -276,6 +297,108 @@ public class ClassRead extends Any
         a.Init();
         a.Index(index);
         a.Count(count);
+        return a;
+    }
+    
+    protected Error[] ExecuteErrorArray()
+    {
+        int count;
+        count = this.ExecuteInt();
+        if (count == -1)
+        {
+            return null;
+        }
+        
+        Error[] array;
+        array = new Error[count];
+
+        int i;
+        i = 0;
+        while (i < count)
+        {
+            Error a;
+            a = this.ExecuteError();
+            if (a == null)
+            {
+                return null;
+            }
+            
+            array[i] = a;
+
+            i = i + 1;
+        }
+        return array;
+    }
+    
+    protected Error ExecuteError()
+    {
+        String text;
+        text = this.ExecuteString();
+        if (text == null)
+        {
+            return null;
+        }
+        
+        PosRange range;
+        range = this.ExecutePosRange();
+        if (range == null)
+        {
+            return null;
+        }
+        
+        Error a;
+        a = new Error();
+        a.Init();
+        a.Text(text);
+        a.Range(range);
+        return a;
+    }
+    
+    protected PosRange ExecutePosRange()
+    {
+        Pos start;
+        start = this.ExecutePos();
+        if (start == null)
+        {
+            return null;
+        }
+        
+        Pos end;
+        end = this.ExecutePos();
+        if (end == null)
+        {
+            return null;
+        }
+        
+        PosRange a;
+        a = new PosRange();
+        a.Init();
+        a.Start(start);
+        a.End(end);
+        return a;
+    }
+    
+    protected Pos ExecutePos()
+    {
+        int row;
+        row = this.ExecuteInt();
+        if (row == -1)
+        {
+            return null;
+        }
+        
+        int col;
+        col = this.ExecuteInt();
+        if (col == -1)
+        {
+            return null;
+        }
+        
+        Pos a;
+        a = new Pos();
+        a.Init();
+        a.Row(row);
+        a.Col(col);
         return a;
     }
     

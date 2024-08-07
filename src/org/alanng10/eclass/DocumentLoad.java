@@ -27,4 +27,18 @@ public class DocumentLoad extends Any
     }
    
     protected Root Root_D;
+    
+    
+    public Error[] Error()
+    {
+        return this.Error_D;
+    }
+    
+    public boolean Error(Error[] value)
+    {
+        this.Error_D = value;
+        return true;
+    }
+   
+    protected Error[] Error_D;
 }
