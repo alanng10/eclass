@@ -198,7 +198,7 @@ public class Infra extends Any
         
         this.StringAppendPos(h, start);
         
-        h.append("-");
+        h.append(" - ");
         
         this.StringAppendPos(h, end);
         
@@ -209,10 +209,19 @@ public class Infra extends Any
     
     public boolean StringAppendPos(StringBuilder h, Pos pos)
     {
+        int ka;
+        int kb;
+        
+        ka = pos.Row();
+        ka = ka + 1;
+        
+        kb = pos.Col();
+        kb = kb + 1;
+        
         h.append("(");
-        h.append(pos.Row());
+        h.append(ka);
         h.append(", ");
-        h.append(pos.Col());
+        h.append(kb);
         h.append(")");
         return true;
     }
