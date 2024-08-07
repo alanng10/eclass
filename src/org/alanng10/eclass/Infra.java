@@ -1,5 +1,6 @@
 package org.alanng10.eclass;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
@@ -54,9 +55,16 @@ public class Infra extends Any
         page = new OutlinePage();
         page.Init();
         page.Document(a);
+        
+        FileEditorInput input;
+        input = this.EditorFileInput(editor);
+        
+        IFile file;
+        file = input.getFile();
 
         a.IDocument(o);
         a.Editor(editor);
+        a.File(file);
         a.Job(job);
         a.Listener(listener);
         a.Load(load);
@@ -94,7 +102,7 @@ public class Infra extends Any
         return null;
     }
     
-    public IDocument EditorDocument(ITextEditor editor)
+    public FileEditorInput EditorFileInput(ITextEditor editor)
     {
         IEditorInput input;
         input = editor.getEditorInput();
@@ -104,8 +112,21 @@ public class Infra extends Any
             return null;
         }
         
+        FileEditorInput a;
+        a = (FileEditorInput)input;
+        
+        return a;
+    }
+    
+    public IDocument EditorDocument(ITextEditor editor)
+    {   
         FileEditorInput eo;
-        eo = (FileEditorInput)input;
+        eo = this.EditorFileInput(editor);
+        
+        if (eo == null)
+        {
+            return null;
+        }
 
         IPath path;
         path = eo.getPath();
@@ -126,7 +147,7 @@ public class Infra extends Any
         }
         
         IDocument document;
-        document = editor.getDocumentProvider().getDocument(input);
+        document = editor.getDocumentProvider().getDocument(eo);
         return document;
     }
     

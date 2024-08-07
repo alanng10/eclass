@@ -1,5 +1,6 @@
 package org.alanng10.eclass;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.texteditor.ITextEditor;
 
@@ -30,6 +31,19 @@ public class Document extends Any
     }
 
     protected ITextEditor Editor_D;
+    
+    public IFile File()
+    {
+        return this.File_D;
+    }
+
+    public boolean File(IFile value)
+    {
+        this.File_D = value;
+        return true;
+    }
+
+    protected IFile File_D;
 
     public DocumentJob Job()
     {
