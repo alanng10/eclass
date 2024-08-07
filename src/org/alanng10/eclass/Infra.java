@@ -1,6 +1,8 @@
 package org.alanng10.eclass;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.ui.IEditorInput;
@@ -149,6 +151,70 @@ public class Infra extends Any
         IDocument document;
         document = editor.getDocumentProvider().getDocument(eo);
         return document;
+    }
+    
+    public boolean CreateMarker(IFile file, Error error)
+    {
+        IMarker marker;
+        marker = null;
+        try
+        {
+            marker = file.createMarker(IMarker.PROBLEM);
+        } catch (CoreException e)
+        {
+            Log.This().Error("Create marker error", e);
+            return false;
+        }
+        
+        String ka;
+        ka = error.Text();
+        
+        String k;
+        k = this.StringPosRange(error.Range());
+        
+        try
+        {
+            marker.setAttribute(IMarker.MESSAGE, ka);
+            marker.setAttribute(IMarker.SEVERITY, IMarker.SEVERITY_ERROR);
+            marker.setAttribute(IMarker.LOCATION, k);
+        } catch (CoreException e)
+        {
+            Log.This().Error("Set marker attribute error", e);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    public String StringPosRange(PosRange range)
+    {
+        StringBuilder h;
+        h = new StringBuilder();
+        
+        Pos start;
+        Pos end;
+        start = range.Start();
+        end = range.End();
+        
+        this.StringAppendPos(h, start);
+        
+        h.append("-");
+        
+        this.StringAppendPos(h, end);
+        
+        String a;
+        a = h.toString();
+        return a;
+    }
+    
+    public boolean StringAppendPos(StringBuilder h, Pos pos)
+    {
+        h.append("(");
+        h.append(pos.Row());
+        h.append(", ");
+        h.append(pos.Col());
+        h.append(")");
+        return true;
     }
     
     public boolean CheckRange(int totalCount, int index, int count)
