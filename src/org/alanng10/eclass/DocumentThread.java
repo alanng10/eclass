@@ -189,19 +189,25 @@ public class DocumentThread extends Thread
 
 	                        classRead.Execute();
 
-	                        Root a;
-	                        a = new Root();
-	                        a.Init();
-
 	                        Class varClass;
 	                        varClass = classRead.Class();
 	
-//	                        Log.This().Info("DocumentThread class read is null: " + (varClass == null));
+	                        Error[] error;
+	                        error = classRead.Error();
 	                        
+//	                        Log.This().Info("DocumentThread class read is null: " + (varClass == null));
+
+	                        Root a;
+                            a = new Root();
+                            a.Init();
+
 	                        a.Class(varClass);
 	
 	                        oo.Load().Root(a);
+	                        
+	                        oo.Load().Error(error);
 	
+	                        classRead.Error(null);
 	                        classRead.Class(null);
 	                        classRead.Data(null);
 	                        
