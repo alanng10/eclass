@@ -217,6 +217,8 @@ public class DocumentThread extends Thread
                             }
 	                        
 	                        this.UpdateOutline(oo);
+	                        
+	                        this.UpdateProblem(oo);
 	                    }
 	                }
 	            }
@@ -267,6 +269,17 @@ public class DocumentThread extends Thread
     {
         OutlineUpdateJob job;
         job = new OutlineUpdateJob();
+        job.Init();
+        job.Document(o);
+
+        job.Schedule(0);
+        return true;
+    }
+    
+    private boolean UpdateProblem(Document o)
+    {
+        ProblemUpdateJob job;
+        job = new ProblemUpdateJob();
         job.Init();
         job.Document(o);
 
