@@ -23,7 +23,7 @@
 	],
 	"repository": {
 		"ClassDefine": {
-			"begin": "(?<=^|[^A-Za-z0-9])(class)(?=$|[^A-Za-z0-9])",
+			"begin": "(?<=^|[^A-Za-z0-9_])(class)(?=$|[^A-Za-z0-9_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.class"
@@ -48,14 +48,14 @@
 				}
 			]
 		},
-		"WordClass" : {
-			"begin": "(?<=^|[^A-Za-z0-9])(new|share|cast|var|prudate|probate|precate|private)(?=$|[^A-Za-z0-9])",
+		"WordClass": {
+			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|var|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.class"
 				}
 			},
-			"end": "(([A-Za-z0-9]+)|(\"((\\\\[^\\n])|([^\"\\n]))*([\"]?))|([^# \\n]))",
+			"end": "(([A-Za-z0-9_]+)|(\"((\\\\[^\\n])|([^\"\\n]))*([\"]?))|([^# \\n]))",
 			"endCaptures": {
 				"1": {
 					"patterns": [
@@ -81,34 +81,44 @@
 			]
 		},
 		"ClassName": {
-			"patterns": [{
-				"name": "entity.name.type.class",
-				"match": "(?<=^|[^A-Za-z0-9])(?!((?<=^|[^A-Za-z0-9])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9])))([A-Za-z][A-Za-z0-9]*)(?=$|[^A-Za-z0-9])"
-			}]
+			"patterns": [
+				{
+					"name": "entity.name.type.class",
+					"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
+				}
+			]
 		},
 		"Keyword": {
-			"patterns": [{
-				"name": "keyword.class",
-				"match": "(?<=^|[^A-Za-z0-9])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9])"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.class",
+					"match": "(?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prudate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
+				}
+			]
 		},
 		"Info": {
-			"patterns": [{
-				"name": "comment.class",
-				"match": "#(.*)"
-			}]
+			"patterns": [
+				{
+					"name": "comment.class",
+					"match": "#(.*)"
+				}
+			]
 		},
 		"IntValue": {
-			"patterns": [{
-				"name": "constant.numeric.class",
-				"match": "(?<=^|[^A-Za-z0-9])(([0-9]+)|(0s([np]([0-9]*))?)|(0h([a-f0-9]*))|(0h(s([np]([a-f0-9]*))?)?))(?=$|[^A-Za-z0-9])"
-			}]
+			"patterns": [
+				{
+					"name": "constant.numeric.class",
+					"match": "(?<=^|[^A-Za-z0-9_])(([0-9]+)|(0s([np]([0-9]*))?)|(0h([a-f0-9]*))|(0h(s([np]([a-f0-9]*))?)?))(?=$|[^A-Za-z0-9_])"
+				}
+			]
 		},
 		"StringValue": {
-			"patterns": [{
-				"name": "string.quoted.class",
-				"match": "\"((\\\\[^\\n])|([^\"\\n]))*([\"]?)"
-			}]
+			"patterns": [
+				{
+					"name": "string.quoted.class",
+					"match": "\"((\\\\[^\\n])|([^\"\\n]))*([\"]?)"
+				}
+			]
 		}
 	},
 	"scopeName": "source.class"
