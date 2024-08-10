@@ -198,7 +198,7 @@ public class Infra extends Any
         
         this.StringAppendPos(h, start);
         
-        h.append(" - ");
+        h.append(" to ");
         
         this.StringAppendPos(h, end);
         
@@ -218,9 +218,9 @@ public class Infra extends Any
         kb = pos.Col();
         kb = kb + 1;
         
-        h.append("(");
+        h.append("(Row ");
         h.append(ka);
-        h.append(", ");
+        h.append(", Col ");
         h.append(kb);
         h.append(")");
         return true;
