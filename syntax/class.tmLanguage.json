@@ -18,7 +18,7 @@
 			"include": "#WordClass"
 		},
 		{
-			"include": "#Keyword"
+			"include": "#Index"
 		}
 	],
 	"repository": {
@@ -41,7 +41,7 @@
 					"include": "#IntValue"
 				},
 				{
-					"include": "#Keyword"
+					"include": "#Index"
 				},
 				{
 					"include": "#ClassName"
@@ -49,7 +49,7 @@
 			]
 		},
 		"WordClass": {
-			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|var|prusate|precate|probate|private)(?=$|[^A-Za-z0-9_])",
+			"begin": "(?<=^|[^A-Za-z0-9_])(new|share|cast|var|prusate|precate|pronate|private)(?=$|[^A-Za-z0-9_])",
 			"beginCaptures": {
 				"1": {
 					"name": "keyword.class"
@@ -66,7 +66,7 @@
 							"include": "#IntValue"
 						},
 						{
-							"include": "#Keyword"
+							"include": "#Index"
 						},
 						{
 							"include": "#ClassName"
@@ -84,15 +84,15 @@
 			"patterns": [
 				{
 					"name": "entity.name.type.class",
-					"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prusate|probate|precate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
+					"match": "(?<=^|[^A-Za-z0-9_])(?!((?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prusate|precate|pronate|private)(?=$|[^A-Za-z0-9_])))([A-Za-z][A-Za-z0-9_]*)(?=$|[^A-Za-z0-9_])"
 				}
 			]
 		},
-		"Keyword": {
+		"Index": {
 			"patterns": [
 				{
 					"name": "keyword.class",
-					"match": "(?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prusate|probate|precate|private)(?=$|[^A-Za-z0-9_])"
+					"match": "(?<=^|[^A-Za-z0-9_])(class|field|maide|var|get|set|this|base|return|inf|while|new|share|cast|null|true|false|sign|bit|prusate|precate|pronate|private)(?=$|[^A-Za-z0-9_])"
 				}
 			]
 		},
