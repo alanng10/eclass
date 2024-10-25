@@ -100,13 +100,6 @@
              path="./theme/class.css"
              default="true" />
    </extension>
-   
-   <extension point="org.eclipse.tm4e.ui.themes">
-      <theme id="org.eclipse.tm4e.ui.themes.Light"
-             name="EClass Class Port Theme"
-             path="./theme/classport.css"
-             default="true" />
-   </extension>
   
    <extension
          point="org.eclipse.ui.genericeditor.presentationReconcilers">
