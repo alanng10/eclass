@@ -40,6 +40,15 @@
             editorId="org.eclipse.ui.genericeditor.GenericEditor">
       </editorContentTypeBinding>
    </extension>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editorContentTypeBinding
+            contentTypeId="org.alanng10.eclass.classport"
+            editorId="org.eclipse.ui.genericeditor.GenericEditor">
+      </editorContentTypeBinding>
+   </extension>
+
    <extension
          point="org.eclipse.ui.startup">
          <startup class="org.alanng10.eclass.Startup"/>
@@ -66,6 +75,18 @@
       </scopeNameContentTypeBinding>
    </extension>
    
+   <extension
+         point="org.eclipse.tm4e.registry.grammars">
+      <grammar
+            scopeName="source.class"
+            path="./syntax/classport.tmLanguage.json" >
+      </grammar>      
+      <scopeNameContentTypeBinding
+            contentTypeId="org.alanng10.eclass.classport"
+            scopeName="source.classport">
+      </scopeNameContentTypeBinding>
+   </extension>
+
   	<extension 
   		point="org.eclipse.tm4e.languageconfiguration.languageConfigurations">
       <languageConfiguration 
