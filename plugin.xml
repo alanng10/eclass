@@ -22,6 +22,17 @@
 		</content-type>
    </extension>
    
+    <extension
+        point="org.eclipse.core.contenttype.contentTypes">
+        <content-type
+            base-type="org.eclipse.core.runtime.text"
+            file-names="Class.Port"
+            id="org.alanng10.eclass.classport"
+            name="ClassPort"
+            priority="normal">
+        </content-type>
+   </extension>
+
    <extension
          point="org.eclipse.ui.editors">
       <editorContentTypeBinding
@@ -66,6 +77,13 @@
       <theme id="org.eclipse.tm4e.ui.themes.Light"
              name="EClass Class Theme"
              path="./theme/class.css"
+             default="true" />
+   </extension>
+   
+   <extension point="org.eclipse.tm4e.ui.themes">
+      <theme id="org.eclipse.tm4e.ui.themes.Light"
+             name="EClass Class Port Theme"
+             path="./theme/classport.css"
              default="true" />
    </extension>
   
