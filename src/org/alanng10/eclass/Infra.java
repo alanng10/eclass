@@ -143,7 +143,7 @@ public class Infra extends Any
         
         eu = eu.toLowerCase();
 
-        if (!eu.equals("cla"))
+        if (!eu.equals("cl"))
         {
             return null;
         }
