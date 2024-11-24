@@ -462,7 +462,7 @@ public class DocumentThread extends Thread
 
         File fold;
         fold = new File(aa);
-        fold.getParentFile();
+        fold = fold.getParentFile();
 
         builder.directory(fold);
         
