@@ -1,5 +1,6 @@
 package org.alanng10.eclass;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -459,6 +460,12 @@ public class DocumentThread extends Thread
         ProcessBuilder builder;
         builder = new ProcessBuilder(list);
 
+        File fold;
+        fold = new File(aa);
+        fold.getParentFile();
+
+        builder.directory(fold);
+        
 //        Log.This().Info("Program Init 1111");
         
         Process process;
