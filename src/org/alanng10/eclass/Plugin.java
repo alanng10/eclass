@@ -220,12 +220,12 @@ public class Plugin extends AbstractUIPlugin
         
         this.ThreadStart();
     
-        ResourcesPlugin.getWorkspace().addResourceChangeListener(this.ResourceChangeListener(), IResourceChangeEvent.POST_CHANGE);
+        //ResourcesPlugin.getWorkspace().addResourceChangeListener(this.ResourceChangeListener(), IResourceChangeEvent.POST_CHANGE);
     }
 
     public void stop(BundleContext context) throws Exception
     {
-        ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.ResourceChangeListener());
+        //ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.ResourceChangeListener());
         
     	this.DocumentThread().Continue(false);
     	this.DocumentThread().Phore().release();
