@@ -3,6 +3,8 @@ package org.alanng10.eclass;
 import java.util.Hashtable;
 import java.util.Optional;
 
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ResourceLocator;
@@ -45,6 +47,9 @@ public class Plugin extends AbstractUIPlugin
         
         this.ConfigIndex_D = new ConfigIndex();
         this.ConfigIndex_D.Init();
+        
+        this.ResourceChangeListener_D = new ResourceChangeListener();
+        this.ResourceChangeListener_D.Init();
         return true;
     }
     
@@ -69,6 +74,8 @@ public class Plugin extends AbstractUIPlugin
     private ImageDescriptor ImageIconDescriptorKind_D;
 
     private ConfigIndex ConfigIndex_D;
+    
+    private ResourceChangeListener ResourceChangeListener_D;
 
     public Hashtable<IDocument, Document> DocumentTable()
     {
@@ -123,6 +130,11 @@ public class Plugin extends AbstractUIPlugin
     public ConfigIndex ConfigIndex()
     {
         return this.ConfigIndex_D;
+    }
+    
+    public ResourceChangeListener ResourceChangeListener()
+    {
+        return this.ResourceChangeListener_D;
     }
     
     public boolean ThreadStart()
@@ -207,10 +219,14 @@ public class Plugin extends AbstractUIPlugin
         this.Init();
         
         this.ThreadStart();
+    
+        ResourcesPlugin.getWorkspace().addResourceChangeListener(this.ResourceChangeListener(), IResourceChangeEvent.POST_CHANGE);
     }
 
     public void stop(BundleContext context) throws Exception
     {
+        ResourcesPlugin.getWorkspace().removeResourceChangeListener(this.ResourceChangeListener());
+        
     	this.DocumentThread().Continue(false);
     	this.DocumentThread().Phore().release();
     	
