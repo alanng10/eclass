@@ -47,9 +47,6 @@ public class Plugin extends AbstractUIPlugin
         
         this.ConfigIndex_D = new ConfigIndex();
         this.ConfigIndex_D.Init();
-        
-        this.ResourceChangeListener_D = new ResourceChangeListener();
-        this.ResourceChangeListener_D.Init();
         return true;
     }
     
@@ -74,8 +71,6 @@ public class Plugin extends AbstractUIPlugin
     private ImageDescriptor ImageIconDescriptorKind_D;
 
     private ConfigIndex ConfigIndex_D;
-    
-    private ResourceChangeListener ResourceChangeListener_D;
 
     public Hashtable<IDocument, Document> DocumentTable()
     {
@@ -130,11 +125,6 @@ public class Plugin extends AbstractUIPlugin
     public ConfigIndex ConfigIndex()
     {
         return this.ConfigIndex_D;
-    }
-    
-    public ResourceChangeListener ResourceChangeListener()
-    {
-        return this.ResourceChangeListener_D;
     }
     
     public boolean ThreadStart()
