@@ -131,30 +131,30 @@
             class="org.alanng10.eclass.ConfigInitializer">
       </initializer>
    </extension>
-   <extension
-         point="org.eclipse.ui.handlers">
-      <handler
-            class="org.alanng10.eclass.ClassFoldHandler"
-            commandId="EClass.SetClassFoldCommand">
-      </handler>
-   </extension>
-   <extension
-         point="org.eclipse.ui.commands">
-      <command
-            id="EClass.SetClassFoldCommand"
-            name="SetClassFold">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">
-        <command
-           commandId="EClass.SetClassFoldCommand"
-           label="Set Class Fold"
-           style="push">
-        </command>
-      </menuContribution>
-   </extension>
+<!--   <extension-->
+<!--         point="org.eclipse.ui.handlers">-->
+<!--      <handler-->
+<!--            class="org.alanng10.eclass.ClassFoldHandler"-->
+<!--            commandId="EClass.SetClassFoldCommand">-->
+<!--      </handler>-->
+<!--   </extension>-->
+<!--   <extension-->
+<!--         point="org.eclipse.ui.commands">-->
+<!--      <command-->
+<!--            id="EClass.SetClassFoldCommand"-->
+<!--            name="SetClassFold">-->
+<!--      </command>-->
+<!--   </extension>-->
+<!--   <extension-->
+<!--         point="org.eclipse.ui.menus">-->
+<!--      <menuContribution-->
+<!--            allPopups="false"-->
+<!--            locationURI="popup:org.eclipse.jdt.ui.PackageExplorer?after=additions">-->
+<!--        <command-->
+<!--           commandId="EClass.SetClassFoldCommand"-->
+<!--           label="Set Class Fold"-->
+<!--           style="push">-->
+<!--        </command>-->
+<!--      </menuContribution>-->
+<!--   </extension>-->
 </plugin>
