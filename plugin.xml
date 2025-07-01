@@ -163,7 +163,7 @@
 <!--               id="org.alanng10.eclass.classMenu">-->
             <command
                   commandId="org.alanng10.eclass.makeCommand"
-                  icon="platform:/plugin/org.eclipse.ui.externaltools/icons/full/obj16/builder.png"
+                  icon="platform:/plugin/org.eclipse.ui.ide/icons/full/etool16/build_exec.png"
                   label="Make">
             </command>
 <!--            <separator-->
