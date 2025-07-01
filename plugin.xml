@@ -142,15 +142,15 @@
    <extension
          point="org.eclipse.ui.handlers">
       <handler
-            class="org.alanng10.eclass.MakeReferHandler"
-            commandId="org.alanng10.eclass.makeReferCommand">
+            class="org.alanng10.eclass.MakeHandler"
+            commandId="org.alanng10.eclass.makeCommand">
       </handler>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
-            id="org.alanng10.eclass.makeReferCommand"
-            name="MakeRefer">
+            id="org.alanng10.eclass.makeCommand"
+            name="Make">
       </command>
    </extension>
    <extension
@@ -162,10 +162,9 @@
 <!--               mnemonic=""-->
 <!--               id="org.alanng10.eclass.classMenu">-->
             <command
-                  commandId="org.alanng10.eclass.makeReferCommand"
-                  label="Make Refer"
-                  mnemonic=""
-                  id="">
+                  commandId="org.alanng10.eclass.makeCommand"
+                  icon="platform:/plugin/org.eclipse.ui.externaltools/icons/full/obj16/builder.png"
+                  label="Make">
             </command>
 <!--            <separator-->
 <!--                  name="additions"-->
