@@ -116,7 +116,15 @@
             icon="./icon/sourcefile.gif">
       </icon>
    </extension>
-   
+
+   <extension
+        point="org.eclipse.ui.genericeditor.icons">
+      <icon
+            contentType="org.alanng10.eclass.classport"
+            icon="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jar_lsrc_obj.png">
+      </icon>
+   </extension>
+
    <extension
         point="org.eclipse.ui.preferencePages">
       <page
