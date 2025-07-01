@@ -148,11 +148,11 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
-         <menu
-               label="Class"
-               mnemonic=""
-               id="org.alanng10.eclass.classMenu">
+            locationURI="menu:project?after=additions">
+<!--         <menu-->
+<!--               label="Class"-->
+<!--               mnemonic=""-->
+<!--               id="org.alanng10.eclass.classMenu">-->
             <command
                   commandId="org.alanng10.eclass.makeReferCommand"
                   label="Make Refer"
@@ -163,7 +163,7 @@
 <!--                  name="additions"-->
 <!--                  visible="false">-->
 <!--            </separator>-->
-         </menu>
+<!--         </menu>-->
       </menuContribution>
       
    </extension>
