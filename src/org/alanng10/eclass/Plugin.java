@@ -141,16 +141,19 @@ public class Plugin extends AbstractUIPlugin
         
         if (classServerFilePath == null)
         {
+            Log.This().Error("Class Server file path missing", null);
             return false;
         }
         
         if (classServerFilePath.length() == 0)
         {
+            Log.This().Error("Class Server file path empty", null);
             return false;
         }
         
         if (!(0 < networkPortHost))
         {
+            Log.This().Error("Network port host unvalid", null);
             return false;
         }
         
