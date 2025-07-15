@@ -268,10 +268,10 @@ public class Infra extends Any
     {
         int totalCount;
         totalCount = data.length;
-        
+
         int charCount;
         charCount = o.length();
-        
+
         int byteCount;
         byteCount = charCount * 4;
         
