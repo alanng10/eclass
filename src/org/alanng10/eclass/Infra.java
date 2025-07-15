@@ -247,20 +247,26 @@ public class Infra extends Any
         }
         return true;
     }
-    
-    public boolean DataSetChar(byte[] data, int index, char value)
+
+    public boolean DataMidSet(byte[] data, int index, int value)
     {
         int k;
         k = value;
-        
+
         byte oba;
         byte obb;
-        oba = (byte)k;
-        obb = (byte)(k >> 8);
-        
-        data[index] = oba;
+        byte obc;
+        byte obd;
+        oba = (byte)(k >> (8 * 0));
+        obb = (byte)(k >> (8 * 1));
+        obc = (byte)(k >> (8 * 2));
+        obd = (byte)(k >> (8 * 3));
+
+        data[index + 0] = oba;
         data[index + 1] = obb;
-        
+        data[index + 2] = obc;
+        data[index + 3] = obd;
+
         return true;
     }
 
@@ -282,23 +288,26 @@ public class Infra extends Any
         
         int count;
         count = charCount;
+
         int i;
         i = 0;
         while (i < count)
         {
             int ka;
-            ka = index + i * 2;
-            
+            ka = index + i * 4;
+
             char oc;
             oc = o.charAt(i);
-            
-            this.DataSetChar(data, ka, oc);
-            
+
+            int n;
+            n = oc;
+
+            this.DataMidSet(data, ka, n);
+
             i = i + 1;
         }
         return true;
     }
-    
 
     public String NameLabel(String name)
     {
