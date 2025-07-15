@@ -27,7 +27,7 @@ public class DocumentThread extends Thread
         this.ClassRead = new ClassRead();
         this.ClassRead.Init();
 
-        this.SizeData = new byte[4];
+        this.SizeData = new byte[8];
         return true;
     }
 
@@ -375,12 +375,12 @@ public class DocumentThread extends Thread
     {
         int charCount;
         charCount = text.length();
-        
+
         int byteCount;
-        byteCount = charCount * 2;
+        byteCount = charCount * 4;
         
         int dataCount;
-        dataCount = byteCount + 4;
+        dataCount = byteCount + 8 + 1;
         
         byte[] data;
         data = new byte[dataCount];
@@ -390,14 +390,22 @@ public class DocumentThread extends Thread
 
         o.order(ByteOrder.LITTLE_ENDIAN);
         
-        o.putInt(0, byteCount);
+        byte protoCase;
+        protoCase = 0;
+
+        o.put(protoCase);
+
+        long ka;
+        ka = byteCount;
+        
+        o.putLong(ka);
         
 //        Log.This().Info("OutData count: " + byteCount);
         
         Infra infra;
         infra = Infra.This();
         
-        infra.DataGetString(data, 4, text);
+        infra.DataSetString(data, 9, text);
         
         return data;
     }

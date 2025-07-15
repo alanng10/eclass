@@ -264,7 +264,7 @@ public class Infra extends Any
         return true;
     }
 
-    public boolean DataGetString(byte[] data, int index, String o)
+    public boolean DataSetString(byte[] data, int index, String o)
     {
         int totalCount;
         totalCount = data.length;
@@ -273,7 +273,7 @@ public class Infra extends Any
         charCount = o.length();
         
         int byteCount;
-        byteCount = charCount * 2;
+        byteCount = charCount * 4;
         
         if (!(this.CheckRange(totalCount, index, byteCount)))
         {
