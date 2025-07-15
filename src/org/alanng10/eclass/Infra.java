@@ -270,7 +270,7 @@ public class Infra extends Any
         return true;
     }
 
-    public boolean DataSetString(byte[] data, int index, String o)
+    public boolean DataStringSet(byte[] data, int index, String o)
     {
         int totalCount;
         totalCount = data.length;

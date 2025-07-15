@@ -404,9 +404,9 @@ public class DocumentThread extends Thread
         
         Infra infra;
         infra = Infra.This();
-        
-        infra.DataSetString(data, 9, text);
-        
+
+        infra.DataStringSet(data, 9, text);
+
         return data;
     }
 
