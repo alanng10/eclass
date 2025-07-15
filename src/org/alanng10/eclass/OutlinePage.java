@@ -238,7 +238,7 @@ public class OutlinePage extends ContentOutlinePage
         int totalCount;
         totalCount = this.Document().IDocument().getLength();
 
-        if (!infra.CheckRange(totalCount, index, count))
+        if (!infra.ValidRange(totalCount, index, count))
         {
             return;
         }

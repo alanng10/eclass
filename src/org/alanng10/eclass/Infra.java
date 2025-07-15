@@ -226,7 +226,7 @@ public class Infra extends Any
         return true;
     }
     
-    public boolean CheckRange(int totalCount, int index, int count)
+    public boolean ValidRange(int totalCount, int index, int count)
     {
         if (totalCount < 0)
         {
@@ -281,7 +281,7 @@ public class Infra extends Any
         int byteCount;
         byteCount = charCount * 4;
         
-        if (!(this.CheckRange(totalCount, index, byteCount)))
+        if (!(this.ValidRange(totalCount, index, byteCount)))
         {
             return false;
         }
